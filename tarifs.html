@@ -95,6 +95,16 @@ body.en .en-inline{display:inline;}
 .fr-block,.en-block{display:none;}
 body.fr .fr-block{display:block;}
 body.en .en-block{display:block;}
+
+  /* Card alignment & clickability */
+  a.price-card { text-decoration: none; display: flex; flex-direction: column; cursor: pointer; }
+  a.price-card .price-title { color: var(--navy); }
+  a.price-card.featured .price-title { color: var(--white); }
+  .price-desc { flex: 1; }
+  .card-rdv-btn { margin-top: auto; padding-top: 1rem; font-size: 0.82rem; font-weight: 600; color: var(--mint); letter-spacing: 0.03em; }
+  a.price-card:hover .card-rdv-btn { color: var(--mint-dark); }
+  .featured-rdv { color: var(--mint-mid) !important; }
+  a.price-card.featured:hover .featured-rdv { color: var(--white) !important; }
 </style>
 </head>
 <body class="fr">
@@ -129,164 +139,169 @@ body.en .en-block{display:block;}
 
 <div class="content">
 
-  <!-- CONSULTATIONS DE BASE -->
   <div class="category-label"><span class="fr-inline">Consultations et suivis</span><span class="en-inline">Consultations &amp; follow-ups</span></div>
-  <div class="price-grid" style="margin-bottom:2px;">
-    <div class="price-card">
-      <div class="price-duration">Virtuel · 60 minutes</div>
-      <div class="price-title">Évaluation en santé mentale</div>
-      <div class="price-desc">Évaluation psychiatrique complète par une IPS spécialisée. Troubles de l'humeur, anxiété, psychose, PTSD, addiction.</div>
+  <div class="price-grid">
+    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=eval_sm&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Virtuel · 60 minutes</span><span class="en-inline">Virtual · 60 minutes</span></div>
+      <div class="price-title"><span class="fr-inline">Évaluation en santé mentale</span><span class="en-inline">Mental health assessment</span></div>
+      <div class="price-desc"><span class="fr-inline">Évaluation psychiatrique complète par une IPS spécialisée. Troubles de l'humeur, anxiété, psychose, PTSD, addiction.</span><span class="en-inline">Complete psychiatric assessment by a specialized NP. Mood disorders, anxiety, psychosis, PTSD, addiction.</span></div>
       <div class="price-amount"><span class="price-num">400</span><span class="price-currency">$</span></div>
+      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
       <span class="no-ref"><span class="fr-inline">Aucune référence requise</span><span class="en-inline">No referral required</span></span>
-    </div>
-    <div class="price-card">
-      <div class="price-duration">Virtuel · 60 minutes</div>
-      <div class="price-title">Évaluation pédopsychiatrique</div>
-      <div class="price-desc">Évaluation spécialisée pour enfants et adolescents. Approche adaptée à l'âge et au développement.</div>
+    </a>
+    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=eval_pedo&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Virtuel · 60 minutes</span><span class="en-inline">Virtual · 60 minutes</span></div>
+      <div class="price-title"><span class="fr-inline">Évaluation pédopsychiatrique</span><span class="en-inline">Child psychiatry assessment</span></div>
+      <div class="price-desc"><span class="fr-inline">Évaluation spécialisée pour enfants et adolescents. Approche adaptée à l'âge et au développement.</span><span class="en-inline">Specialized assessment for children and adolescents. Age-appropriate approach.</span></div>
       <div class="price-amount"><span class="price-num">500</span><span class="price-currency">$</span></div>
-      <span class="no-ref">Aucune référence requise</span>
-    </div>
-    <div class="price-card">
-      <div class="price-duration">Virtuel · 30 minutes</div>
-      <div class="price-title">Suivi avec IPS</div>
-      <div class="price-desc">Rencontre de suivi clinique, ajustement de médication, renouvellement d'ordonnance, bilan de santé mentale.</div>
+      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
+      <span class="no-ref"><span class="fr-inline">Aucune référence requise</span><span class="en-inline">No referral required</span></span>
+    </a>
+    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=suivi_ips&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Virtuel · 30 minutes</span><span class="en-inline">Virtual · 30 minutes</span></div>
+      <div class="price-title"><span class="fr-inline">Suivi avec IPS</span><span class="en-inline">Follow-up with NP</span></div>
+      <div class="price-desc"><span class="fr-inline">Suivi clinique, ajustement de médication, renouvellement d'ordonnance, bilan de santé mentale.</span><span class="en-inline">Clinical follow-up, medication adjustment, prescription renewal, mental health check-in.</span></div>
       <div class="price-amount"><span class="price-num">150</span><span class="price-currency">$</span></div>
-    </div>
-    <div class="price-card">
-      <div class="price-duration">Virtuel ou téléphone · 15 min</div>
-      <div class="price-title">Suivi avec IPS (court)</div>
-      <div class="price-desc">Suivi rapide, questions ponctuelles, ajustements mineurs de traitement.</div>
+      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
+    </a>
+    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=suivi_court&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Virtuel ou téléphone · 15 min</span><span class="en-inline">Virtual or phone · 15 min</span></div>
+      <div class="price-title"><span class="fr-inline">Suivi avec IPS (court)</span><span class="en-inline">Short NP follow-up</span></div>
+      <div class="price-desc"><span class="fr-inline">Suivi rapide, questions ponctuelles, ajustements mineurs de traitement.</span><span class="en-inline">Quick follow-up, specific questions, minor treatment adjustments.</span></div>
       <div class="price-amount"><span class="price-num">100</span><span class="price-currency">$</span></div>
-    </div>
-    <div class="price-card">
-      <div class="price-duration">Téléphone · 15 minutes</div>
-      <div class="price-title">Suivi avec infirmière</div>
-      <div class="price-desc">Suivi infirmier téléphonique pour questions de médication, effets secondaires ou orientation.</div>
+      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
+    </a>
+    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=suivi_inf&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Téléphone · 15 minutes</span><span class="en-inline">Phone · 15 minutes</span></div>
+      <div class="price-title"><span class="fr-inline">Suivi avec infirmière</span><span class="en-inline">Nurse follow-up</span></div>
+      <div class="price-desc"><span class="fr-inline">Suivi infirmier téléphonique pour questions de médication, effets secondaires ou orientation.</span><span class="en-inline">Phone nursing follow-up for medication questions, side effects, or guidance.</span></div>
       <div class="price-amount"><span class="price-num">40</span><span class="price-currency">$</span></div>
-    </div>
+      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
+    </a>
   </div>
 
-  <!-- ÉVALUATIONS SPÉCIALISÉES -->
   <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Évaluations spécialisées</span><span class="en-inline">Specialized assessments</span></div>
-  <div class="price-grid" style="margin-bottom:2px;">
-    <div class="price-card featured">
-      <div class="price-duration">Virtuel · Forfait complet</div>
-      <div class="price-title">Évaluation TDAH — Adulte</div>
-      <div class="price-desc">Évaluation diagnostique complète du trouble déficitaire de l'attention avec ou sans hyperactivité.</div>
+  <div class="price-grid">
+    <a class="price-card featured" href="rdv.html?utm_source=tarifs&utm_medium=tdah_adulte&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Virtuel · Forfait complet</span><span class="en-inline">Virtual · Complete package</span></div>
+      <div class="price-title"><span class="fr-inline">Évaluation TDAH — Adulte</span><span class="en-inline">ADHD Assessment — Adult</span></div>
+      <div class="price-desc"><span class="fr-inline">Évaluation diagnostique complète du trouble déficitaire de l'attention avec ou sans hyperactivité.</span><span class="en-inline">Complete diagnostic assessment for ADHD with or without hyperactivity.</span></div>
       <div class="price-amount"><span class="price-num">950</span><span class="price-currency">$</span></div>
       <div class="price-includes">
         <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
-        <div class="include-item"><div class="include-dot"></div>1 séance d'évaluation (60 min)</div>
-        <div class="include-item"><div class="include-dot"></div>1 séance de suivi (30 min)</div>
-        <div class="include-item"><div class="include-dot"></div>Analyse des tests associés</div>
-        <div class="include-item"><div class="include-dot"></div>Confirmation du diagnostic</div>
-        <div class="include-item"><div class="include-dot"></div>Prescription si indiquée</div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance d'évaluation (60 min)</span><span class="en-inline">1 assessment session (60 min)</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance de suivi (30 min)</span><span class="en-inline">1 follow-up session (30 min)</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Analyse des tests associés</span><span class="en-inline">Associated test analysis</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Confirmation du diagnostic</span><span class="en-inline">Diagnosis confirmation</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Prescription si indiquée</span><span class="en-inline">Prescription if indicated</span></div>
       </div>
+      <div class="card-rdv-btn featured-rdv"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
       <span class="no-ref"><span class="fr-inline">Aucune référence médicale requise</span><span class="en-inline">No medical referral required</span></span>
-    </div>
-    <div class="price-card featured">
-      <div class="price-duration">Virtuel · Forfait complet</div>
-      <div class="price-title">Évaluation TDAH — Enfant & Ado</div>
-      <div class="price-desc">Évaluation spécialisée TDAH pour les enfants et adolescents avec approche pédiatrique.</div>
+    </a>
+    <a class="price-card featured" href="rdv.html?utm_source=tarifs&utm_medium=tdah_enfant&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Virtuel · Forfait complet</span><span class="en-inline">Virtual · Complete package</span></div>
+      <div class="price-title"><span class="fr-inline">Évaluation TDAH — Enfant &amp; Ado</span><span class="en-inline">ADHD Assessment — Child &amp; Teen</span></div>
+      <div class="price-desc"><span class="fr-inline">Évaluation spécialisée TDAH pour enfants et adolescents avec approche pédiatrique.</span><span class="en-inline">Specialized ADHD assessment for children and adolescents with pediatric approach.</span></div>
       <div class="price-amount"><span class="price-num">950</span><span class="price-currency">$</span></div>
       <div class="price-includes">
-        <div class="price-includes-title">Le forfait comprend</div>
-        <div class="include-item"><div class="include-dot"></div>1 séance d'évaluation (60 min)</div>
-        <div class="include-item"><div class="include-dot"></div>1 séance de suivi (30 min)</div>
-        <div class="include-item"><div class="include-dot"></div>Analyse des tests associés</div>
-        <div class="include-item"><div class="include-dot"></div>Confirmation du diagnostic</div>
-        <div class="include-item"><div class="include-dot"></div>Prescription si indiquée</div>
+        <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance d'évaluation (60 min)</span><span class="en-inline">1 assessment session (60 min)</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance de suivi (30 min)</span><span class="en-inline">1 follow-up session (30 min)</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Analyse des tests associés</span><span class="en-inline">Associated test analysis</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Confirmation du diagnostic</span><span class="en-inline">Diagnosis confirmation</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Prescription si indiquée</span><span class="en-inline">Prescription if indicated</span></div>
       </div>
-      <span class="no-ref">Aucune référence médicale requise</span>
-    </div>
-    <div class="price-card featured">
-      <div class="price-duration">Virtuel · Forfait complet</div>
-      <div class="price-title">Évaluation TSA — Adulte</div>
-      <div class="price-desc">Évaluation diagnostique du trouble du spectre de l'autisme chez l'adulte.</div>
+      <div class="card-rdv-btn featured-rdv"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
+      <span class="no-ref"><span class="fr-inline">Aucune référence médicale requise</span><span class="en-inline">No medical referral required</span></span>
+    </a>
+    <a class="price-card featured" href="rdv.html?utm_source=tarifs&utm_medium=tsa_adulte&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Virtuel · Forfait complet</span><span class="en-inline">Virtual · Complete package</span></div>
+      <div class="price-title"><span class="fr-inline">Évaluation TSA — Adulte</span><span class="en-inline">ASD Assessment — Adult</span></div>
+      <div class="price-desc"><span class="fr-inline">Évaluation diagnostique du trouble du spectre de l'autisme chez l'adulte.</span><span class="en-inline">Diagnostic assessment of autism spectrum disorder in adults.</span></div>
       <div class="price-amount"><span class="price-num">1 350</span><span class="price-currency">$</span></div>
       <div class="price-includes">
-        <div class="price-includes-title">Le forfait comprend</div>
-        <div class="include-item"><div class="include-dot"></div>1 séance d'évaluation (60 min)</div>
-        <div class="include-item"><div class="include-dot"></div>2 séances de suivi (30 min)</div>
-        <div class="include-item"><div class="include-dot"></div>Analyse des tests associés</div>
-        <div class="include-item"><div class="include-dot"></div>Confirmation du diagnostic</div>
-        <div class="include-item"><div class="include-dot"></div>Prescription si indiquée</div>
+        <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance d'évaluation (60 min)</span><span class="en-inline">1 assessment session (60 min)</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">2 séances de suivi (30 min)</span><span class="en-inline">2 follow-up sessions (30 min)</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Analyse des tests associés</span><span class="en-inline">Associated test analysis</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Confirmation du diagnostic</span><span class="en-inline">Diagnosis confirmation</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Prescription si indiquée</span><span class="en-inline">Prescription if indicated</span></div>
       </div>
-      <span class="no-ref"><span class="fr-inline">* Des séances supplémentaires peuvent être requises</span><span class="en-inline">* Additional sessions may be required</span></span>
-    </div>
-    <div class="price-card featured">
-      <div class="price-duration">Virtuel · Forfait complet</div>
-      <div class="price-title">Évaluation TSA — Enfant & Ado</div>
-      <div class="price-desc">Évaluation diagnostique du trouble du spectre de l'autisme pour les enfants et adolescents.</div>
+      <div class="card-rdv-btn featured-rdv"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
+      <span class="no-ref"><span class="fr-inline">* Séances supplémentaires possibles</span><span class="en-inline">* Additional sessions may be required</span></span>
+    </a>
+    <a class="price-card featured" href="rdv.html?utm_source=tarifs&utm_medium=tsa_enfant&utm_campaign=prise_rdv">
+      <div class="price-duration"><span class="fr-inline">Virtuel · Forfait complet</span><span class="en-inline">Virtual · Complete package</span></div>
+      <div class="price-title"><span class="fr-inline">Évaluation TSA — Enfant &amp; Ado</span><span class="en-inline">ASD Assessment — Child &amp; Teen</span></div>
+      <div class="price-desc"><span class="fr-inline">Évaluation diagnostique du trouble du spectre de l'autisme pour enfants et adolescents.</span><span class="en-inline">Diagnostic assessment of autism spectrum disorder for children and adolescents.</span></div>
       <div class="price-amount"><span class="price-num">1 750</span><span class="price-currency">$</span></div>
       <div class="price-includes">
-        <div class="price-includes-title">Le forfait comprend</div>
-        <div class="include-item"><div class="include-dot"></div>1 séance d'évaluation (60 min)</div>
-        <div class="include-item"><div class="include-dot"></div>2 séances de suivi (30 min)</div>
-        <div class="include-item"><div class="include-dot"></div>Analyse des tests associés</div>
-        <div class="include-item"><div class="include-dot"></div>Confirmation du diagnostic</div>
-        <div class="include-item"><div class="include-dot"></div>Prescription si indiquée</div>
+        <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance d'évaluation (60 min)</span><span class="en-inline">1 assessment session (60 min)</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">2 séances de suivi (30 min)</span><span class="en-inline">2 follow-up sessions (30 min)</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Analyse des tests associés</span><span class="en-inline">Associated test analysis</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Confirmation du diagnostic</span><span class="en-inline">Diagnosis confirmation</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Prescription si indiquée</span><span class="en-inline">Prescription if indicated</span></div>
       </div>
-      <span class="no-ref">* Des séances supplémentaires peuvent être requises</span>
-    </div>
+      <div class="card-rdv-btn featured-rdv"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
+      <span class="no-ref"><span class="fr-inline">* Séances supplémentaires possibles</span><span class="en-inline">* Additional sessions may be required</span></span>
+    </a>
   </div>
 
-  <!-- FRAIS ADMINISTRATIFS -->
   <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Frais administratifs</span><span class="en-inline">Administrative fees</span></div>
   <div class="price-grid">
     <div class="price-card">
-      <div class="price-duration">Document</div>
-      <div class="price-title">Formulaires d'assurance</div>
-      <div class="price-desc">Remplissage de formulaires d'assurance invalidité, SAAQ, CNESST ou autres.</div>
+      <div class="price-duration"><span class="fr-inline">Document</span><span class="en-inline">Document</span></div>
+      <div class="price-title"><span class="fr-inline">Formulaires d'assurance</span><span class="en-inline">Insurance forms</span></div>
+      <div class="price-desc"><span class="fr-inline">Remplissage de formulaires d'assurance invalidité, SAAQ, CNESST ou autres.</span><span class="en-inline">Completion of disability insurance, SAAQ, CNESST or other forms.</span></div>
       <div class="price-amount"><span class="price-num">80</span><span class="price-currency">$+</span></div>
       <div class="price-includes">
-        <div class="price-includes-title">Note</div>
-        <div class="include-item"><div class="include-dot"></div>+20$ minimum par tranche de 3 pages supplémentaires</div>
+        <div class="price-includes-title"><span class="fr-inline">Note</span><span class="en-inline">Note</span></div>
+        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">+20$ par tranche de 3 pages supplémentaires</span><span class="en-inline">+$20 per additional 3 pages</span></div>
       </div>
     </div>
     <div class="price-card">
-      <div class="price-duration">Consultation requise</div>
-      <div class="price-title">Renouvellement de médication</div>
-      <div class="price-desc">Tout renouvellement ou changement de prescription nécessite une rencontre de suivi de 15 min avec l'IPS.</div>
+      <div class="price-duration"><span class="fr-inline">Consultation requise</span><span class="en-inline">Consultation required</span></div>
+      <div class="price-title"><span class="fr-inline">Renouvellement de médication</span><span class="en-inline">Medication renewal</span></div>
+      <div class="price-desc"><span class="fr-inline">Tout renouvellement nécessite une rencontre de suivi de 15 min avec l'IPS.</span><span class="en-inline">Any renewal requires a 15-min follow-up with the NP.</span></div>
       <div class="price-amount"><span class="price-num">100</span><span class="price-currency">$+</span></div>
     </div>
   </div>
 
-  <!-- POLITIQUE -->
   <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Politique de facturation</span><span class="en-inline">Billing policy</span></div>
   <div class="policy-section">
     <h3><span class="fr-inline">Conditions et modalités de paiement</span><span class="en-inline">Payment terms and conditions</span></h3>
     <div class="policy-grid">
       <div class="policy-item">
-        <h4>Paiement</h4>
-        <p>Paiement par carte de crédit ou débit via Square. Une facture vous est émise avant le rendez-vous. Aucuns frais d'ouverture de dossier.</p>
+        <h4><span class="fr-inline">Paiement</span><span class="en-inline">Payment</span></h4>
+        <p><span class="fr-inline">Paiement par carte de crédit ou débit via Square. Une facture vous est émise avant le rendez-vous. Aucuns frais d'ouverture de dossier.</span><span class="en-inline">Payment by credit or debit card via Square. An invoice is issued before your appointment. No file opening fees.</span></p>
       </div>
       <div class="policy-item">
-        <h4>Annulations</h4>
-        <p>Toute annulation à moins de 24h d'avis entraîne des frais de 50$. Tout rendez-vous manqué sans préavis est facturé au même tarif.</p>
+        <h4><span class="fr-inline">Annulations</span><span class="en-inline">Cancellations</span></h4>
+        <p><span class="fr-inline">Toute annulation à moins de 24h entraîne des frais de 50$. Tout rendez-vous manqué sans préavis est facturé au même tarif.</span><span class="en-inline">Any cancellation with less than 24h notice incurs a $50 fee. Missed appointments without notice are billed the same rate.</span></p>
       </div>
       <div class="policy-item">
-        <h4>Reçus pour assurances</h4>
-        <p>Un reçu officiel vous est émis après chaque consultation pour remboursement auprès de votre assureur privé. Plusieurs régimes couvrent les soins IPS.</p>
+        <h4><span class="fr-inline">Reçus pour assurances</span><span class="en-inline">Insurance receipts</span></h4>
+        <p><span class="fr-inline">Un reçu officiel est émis après chaque consultation. Plusieurs régimes couvrent les soins IPS.</span><span class="en-inline">An official receipt is issued after each consultation. Many plans cover NP care.</span></p>
       </div>
       <div class="policy-item">
-        <h4>Remboursements</h4>
-        <p>Aucun remboursement n'est accordé pour des services rendus. En cas de litige, contactez-nous à <a href="/cdn-cgi/l/email-protection#177e79717857747b7e797e66627264767963727e67643974787a"><span class="__cf_email__" data-cfemail="5d34333b321d3e313433342c28382e3c332938342d2e733e3230">[email&#160;protected]</span></a>.</p>
+        <h4><span class="fr-inline">Remboursements</span><span class="en-inline">Refunds</span></h4>
+        <p><span class="fr-inline">Aucun remboursement pour des services rendus. Contactez-nous à <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>.</span><span class="en-inline">No refunds for services rendered. Contact us at <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>.</span></p>
       </div>
       <div class="policy-item">
-        <h4>Conduite professionnelle</h4>
-        <p>Tout comportement irrespectueux envers notre personnel peut entraîner l'annulation des rendez-vous futurs et la fin du suivi, après analyse.</p>
+        <h4><span class="fr-inline">Conduite professionnelle</span><span class="en-inline">Professional conduct</span></h4>
+        <p><span class="fr-inline">Tout comportement irrespectueux peut entraîner l'annulation des rendez-vous futurs.</span><span class="en-inline">Any disrespectful behaviour may result in cancellation of future appointments.</span></p>
       </div>
       <div class="policy-item">
-        <h4>Fin de suivi</h4>
-        <p>En cas de fin de suivi, la décision est notifiée par écrit. La clinique fournit des ressources et options de référence pour assurer la continuité des soins.</p>
+        <h4><span class="fr-inline">Fin de suivi</span><span class="en-inline">End of care</span></h4>
+        <p><span class="fr-inline">En cas de fin de suivi, la décision est notifiée par écrit avec ressources de référence.</span><span class="en-inline">If care is terminated, the decision is communicated in writing with referral resources.</span></p>
       </div>
     </div>
   </div>
 
   <div class="cta-strip">
     <p><span class="fr-inline">Prêt à prendre soin<br><em>de votre santé mentale?</em></span><span class="en-inline">Ready to take care of<br><em>your mental health?</em></span></p>
-    <a href="https://clients3.clicsante.ca/65142/take-appt" class="btn-primary" target="_blank">
+    <a href="rdv.html?utm_source=tarifs&utm_medium=cta_bas&utm_campaign=prise_rdv" class="btn-coral">
       <span class="fr-inline">Prendre rendez-vous</span><span class="en-inline">Book appointment</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
@@ -295,3 +310,15 @@ body.en .en-block{display:block;}
 
 <footer>
   <p>©2025 Clinique Santé IPS · <a href="clinique-sante-ips.html">A
+<script>
+function setLang(lang){
+  document.body.className=lang;
+  document.documentElement.lang=lang;
+  document.getElementById('btn-fr').classList.toggle('active',lang==='fr');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  localStorage.setItem('ips-lang',lang);
+}
+const saved=localStorage.getItem('ips-lang');
+if(saved==='en')setLang('en');
+</script>
+</body></html>

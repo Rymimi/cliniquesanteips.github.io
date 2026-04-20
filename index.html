@@ -62,8 +62,8 @@
   .nav-logo { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: 0.02em; flex-shrink: 0; }
   .nav-logo span { color: var(--mint); }
   .nav-right { display: flex; align-items: center; gap: 1.5rem; }
-  .nav-links { display: flex; gap: 1.75rem; align-items: center; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links { display: flex; gap: 1.2rem; align-items: center; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--navy); }
   .nav-cta { background: var(--mint); color: var(--white) !important; padding: 9px 20px; border-radius: 2px; font-size: 0.82rem !important; font-weight: 500 !important; letter-spacing: 0.06em !important; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--navy) !important; }
@@ -183,6 +183,10 @@
   .hero-desc { animation: fadeUp 0.7s 0.2s ease both; }
   .hero-actions { animation: fadeUp 0.7s 0.3s ease both; }
 
+
+  .service-cta { margin-top: 1.25rem; font-size: 0.82rem; font-weight: 600; color: var(--mint); letter-spacing: 0.03em; }
+  .service-card:hover .service-cta { color: var(--navy); }
+  a.service-card { color: inherit; }
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; min-height: auto; padding: 100px 5% 4rem; }
@@ -205,10 +209,10 @@
   <a href="#" class="nav-logo">Clinique <span>Santé</span> IPS</a>
   <div class="nav-right">
     <ul class="nav-links">
-      <li><a href="#services" class="lang-fr-inline">Services</a><a href="#services" class="lang-en-inline">Services</a></li>
-      <li><a href="#fonctionnement" class="lang-fr-inline">Fonctionnement</a><a href="#fonctionnement" class="lang-en-inline">How it works</a></li>
-      <li><a href="#clinique" class="lang-fr-inline">La clinique</a><a href="#clinique" class="lang-en-inline">About us</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#services"><span class="lang-fr-inline">Services</span><span class="lang-en-inline">Services</span></a></li>
+      <li><a href="tarifs.html"><span class="lang-fr-inline">Tarifs</span><span class="lang-en-inline">Pricing</span></a></li>
+      <li><a href="equipe.html"><span class="lang-fr-inline">Équipe</span><span class="lang-en-inline">Team</span></a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li>
         <a href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv" class="nav-cta">
           <span class="lang-fr-inline">Prendre rendez-vous</span>
@@ -305,7 +309,7 @@
     <img src="https://static.wixstatic.com/media/111a41_0e8c928ffd0d4d08b6468507e065d192~mv2.jpg/v1/fill/w_500,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/111a41_0e8c928ffd0d4d08b6468507e065d192~mv2.jpg" alt="Mental health care">
   </div>
   <div class="services-grid">
-    <div class="service-card">
+    <a href="rdv.html?utm_source=site_web&utm_medium=service_01&utm_campaign=prise_rdv" class="service-card" style="text-decoration:none;display:block;">
       <div class="service-num">01</div>
       <h3 class="service-title">
         <span class="lang-fr-inline">Consultation en santé mentale</span>
@@ -321,8 +325,9 @@
         <span class="tag lang-fr-inline">Trouble bipolaire</span><span class="tag lang-en-inline">Bipolar</span>
         <span class="tag">PTSD</span>
       </div>
-    </div>
-    <div class="service-card">
+      <div class="service-cta"><span class="lang-fr-inline">Prendre rendez-vous →</span><span class="lang-en-inline">Book appointment →</span></div>
+    </a>
+    <a href="rdv.html?utm_source=site_web&utm_medium=service_02&utm_campaign=prise_rdv" class="service-card" style="text-decoration:none;display:block;">
       <div class="service-num">02</div>
       <h3 class="service-title">
         <span class="lang-fr-inline">Diagnostic &amp; Prescription</span>
@@ -337,8 +342,9 @@
         <span class="tag">TDAH / ADHD</span>
         <span class="tag lang-fr-inline">Trouble du sommeil</span><span class="tag lang-en-inline">Sleep disorders</span>
       </div>
-    </div>
-    <div class="service-card">
+      <div class="service-cta"><span class="lang-fr-inline">Prendre rendez-vous →</span><span class="lang-en-inline">Book appointment →</span></div>
+    </a>
+    <a href="rdv.html?utm_source=site_web&utm_medium=service_03&utm_campaign=prise_rdv" class="service-card" style="text-decoration:none;display:block;">
       <div class="service-num">03</div>
       <h3 class="service-title">
         <span class="lang-fr-inline">Séances de coaching</span>
@@ -353,7 +359,8 @@
         <span class="tag lang-fr-inline">Deuil</span><span class="tag lang-en-inline">Grief</span>
         <span class="tag lang-fr-inline">Insomnie</span><span class="tag lang-en-inline">Insomnia</span>
       </div>
-    </div>
+      <div class="service-cta"><span class="lang-fr-inline">Prendre rendez-vous →</span><span class="lang-en-inline">Book appointment →</span></div>
+    </a>
   </div>
 </section>
 
@@ -605,15 +612,16 @@
     <div class="footer-col">
       <h4><span class="lang-fr-inline">Navigation</span><span class="lang-en-inline">Navigation</span></h4>
       <a href="#services"><span class="lang-fr-inline">Nos services</span><span class="lang-en-inline">Services</span></a>
-      <a href="#fonctionnement"><span class="lang-fr-inline">Fonctionnement</span><span class="lang-en-inline">How it works</span></a>
-      <a href="#clinique"><span class="lang-fr-inline">La clinique</span><span class="lang-en-inline">About</span></a>
-      <a href="#faq">FAQ</a>
       <a href="tarifs.html"><span class="lang-fr-inline">Tarifs</span><span class="lang-en-inline">Pricing</span></a>
+      <a href="equipe.html"><span class="lang-fr-inline">Équipe</span><span class="lang-en-inline">Team</span></a>
+      <a href="contact.html">Contact</a>
+      <a href="#faq">FAQ</a>
+      <a href="confidentialite.html"><span class="lang-fr-inline">Confidentialité</span><span class="lang-en-inline">Privacy</span></a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="tel:4382550470">(438) 255-0470</a>
-      <a href="/cdn-cgi/l/email-protection#2c45424a436c4f404542455d59495f4d425849455c5f024f4341"><span class="__cf_email__" data-cfemail="2a43444c456a49464344435b5f4f594b445e4f435a5904494547">[email&#160;protected]</span></a>
+      <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>
       <a href="confidentialite.html"><span class="lang-fr-inline">Politique de confidentialité</span><span class="lang-en-inline">Privacy policy</span></a>
     </div>
   </div>
