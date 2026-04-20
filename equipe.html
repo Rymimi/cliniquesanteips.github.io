@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<title>Équipe | Team — Clinique Santé IPS</title>
+<style>
+:root {
+  --mint:#3DBFA0;--mint-light:#E8F7F4;--mint-mid:#9ADDD0;--mint-dark:#0F6E56;
+  --navy:#1A2744;--navy-light:#2D3F6B;--coral:#FF6B6B;--coral-light:#FFEAEA;--coral-dark:#CC3333;
+  --warm:#F8F5F0;--white:#FFFFFF;--muted:#6B7A99;--text:#1A2744;--border:rgba(26,39,68,0.1);
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Plus Jakarta Sans',sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-body);color:var(--text);background:var(--warm);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.lang-toggle{display:flex;align-items:center;background:var(--mint-light);border:1px solid var(--mint-mid);border-radius:20px;overflow:hidden;height:30px;}
+.lang-btn{padding:0 12px;font-size:.75rem;font-weight:500;letter-spacing:.06em;border:none;background:transparent;color:var(--muted);cursor:pointer;height:100%;transition:background .2s,color .2s;font-family:var(--font-body);}
+.lang-btn.active{background:var(--mint);color:var(--white);border-radius:20px;}
+.fr-inline,.en-inline{display:none;}
+body.fr .fr-inline{display:inline;}
+body.en .en-inline{display:inline;}
+.fr-block,.en-block{display:none;}
+body.fr .fr-block{display:block;}
+body.en .en-block{display:block;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem;}
+.nav-logo{font-family:var(--font-display);font-size:1.35rem;font-weight:400;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.nav-logo span{color:var(--mint);font-style:italic;}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.85rem;transition:color .2s;}
+.nav-links a:hover{color:var(--navy);}
+.nav-cta{background:var(--coral)!important;color:var(--white)!important;padding:9px 20px;border-radius:2px;font-size:.82rem!important;font-weight:600!important;transition:background .2s!important;}
+.nav-cta:hover{background:var(--coral-dark)!important;}
+footer{background:#0F1D2E;padding:2rem 5%;text-align:center;}
+footer p{font-size:.8rem;color:var(--muted);opacity:.5;font-weight:300;}
+footer a{color:var(--mint-mid);text-decoration:none;}
+@media(max-width:700px){.nav-links{display:none;}}
+
+.hero{padding:120px 5% 5rem;background:var(--mint-light);}
+.hero-inner{max-width:620px;}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mint-dark);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
+.eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--mint);}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:1.25rem;}
+.hero h1 em{font-style:italic;color:var(--mint);}
+.hero p{font-size:1rem;color:var(--muted);font-weight:300;line-height:1.75;max-width:520px;}
+.content{padding:4rem 5%;max-width:1100px;margin:0 auto;}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:4rem;}
+.member-card{background:var(--white);padding:2.5rem 2rem;transition:background .2s;border:.5px solid var(--border);}
+.member-card:hover{background:var(--mint-light);}
+.member-card.featured{background:var(--navy);border-color:transparent;}
+.member-card.featured:hover{background:var(--navy-light);}
+.member-avatar{width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center top;margin-bottom:1rem;border:3px solid var(--mint-light);}
+.member-initials{width:90px;height:90px;border-radius:50%;background:var(--mint-light);border:3px solid var(--mint-mid);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.6rem;font-weight:300;color:var(--mint);margin-bottom:1rem;}
+.member-initials.coral{color:var(--coral);border-color:rgba(255,107,107,.3);background:var(--coral-light);}
+.member-badge{display:inline-flex;align-items:center;gap:.4rem;font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:.75rem;}
+.badge-ips{background:var(--mint-light);color:var(--mint-dark);border:1px solid var(--mint-mid);}
+.badge-founder{background:var(--mint);color:var(--white);}
+.badge-inf{background:var(--coral-light);color:var(--coral-dark);border:1px solid rgba(255,107,107,.3);}
+.member-card.featured .badge-ips{background:rgba(61,191,160,.15);border-color:rgba(154,221,208,.25);color:var(--mint-mid);}
+.member-name{font-family:var(--font-display);font-size:1.4rem;font-weight:400;color:var(--navy);margin-bottom:.25rem;line-height:1.2;}
+.member-card.featured .member-name{color:var(--white);}
+.member-role{font-size:.8rem;color:var(--mint);font-weight:300;margin-bottom:1rem;line-height:1.4;}
+.member-card.featured .member-role{color:var(--mint-mid);opacity:.75;}
+.member-bio{font-size:.83rem;color:var(--muted);font-weight:300;line-height:1.75;margin-bottom:1rem;}
+.member-card.featured .member-bio{color:var(--mint-mid);opacity:.65;}
+.member-creds{display:flex;flex-direction:column;gap:.4rem;padding-top:1rem;border-top:1px solid var(--border);}
+.member-card.featured .member-creds{border-top-color:rgba(154,221,208,.15);}
+.cred-row{display:flex;gap:.5rem;align-items:flex-start;font-size:.75rem;color:var(--muted);font-weight:300;line-height:1.4;}
+.member-card.featured .cred-row{color:var(--mint-mid);opacity:.6;}
+.cred-dot{width:4px;height:4px;border-radius:50%;background:var(--mint);flex-shrink:0;margin-top:5px;}
+.member-card.featured .cred-dot{background:var(--mint-mid);}
+.values-section{margin-bottom:4rem;}
+.values-section h3{font-family:var(--font-display);font-size:1.8rem;font-weight:300;color:var(--navy);margin-bottom:2rem;}
+.values-section h3 em{font-style:italic;color:var(--mint);}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.value-card{background:var(--white);padding:2rem;border:.5px solid var(--border);}
+.value-card:hover{background:var(--mint-light);}
+.value-icon{width:40px;height:40px;border-radius:50%;background:var(--mint-light);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.value-card h4{font-family:var(--font-display);font-size:1.1rem;font-weight:400;color:var(--navy);margin-bottom:.5rem;}
+.value-card p{font-size:.83rem;color:var(--muted);font-weight:300;line-height:1.65;}
+.join-section{background:var(--navy);border-radius:12px;padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:4rem;}
+.join-text h3{font-family:var(--font-display);font-size:1.8rem;font-weight:300;color:var(--white);line-height:1.25;margin-bottom:1rem;}
+.join-text h3 em{font-style:italic;color:var(--mint-mid);}
+.join-text p{font-size:.88rem;color:var(--mint-mid);font-weight:300;line-height:1.75;opacity:.7;}
+.join-perks{display:flex;flex-direction:column;gap:1rem;}
+.perk{display:flex;align-items:flex-start;gap:.75rem;}
+.perk-dot{width:6px;height:6px;border-radius:50%;background:var(--mint);flex-shrink:0;margin-top:6px;}
+.perk p{font-size:.85rem;color:var(--mint-mid);font-weight:300;line-height:1.6;opacity:.75;}
+.join-email{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;background:var(--coral);color:var(--white);text-decoration:none;padding:10px 20px;border-radius:2px;font-size:.85rem;font-weight:600;transition:background .2s;}
+.join-email:hover{background:var(--coral-dark);}
+@media(max-width:900px){.team-grid,.values-grid{grid-template-columns:1fr;}.join-section{grid-template-columns:1fr;}}
+</style></head>
+<body class="fr">
+<nav>
+  <a href="clinique-sante-ips.html" class="nav-logo"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="#E8F7F4" stroke="#3DBFA0" stroke-width="1"/><path d="M16 7 C11 7 7 11 7 16 C7 21 11 25 16 25" stroke="#3DBFA0" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M16 7 C21 7 25 11 25 16 C25 21 21 25 16 25" stroke="#1A2744" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="16" cy="16" r="2.5" fill="#3DBFA0"/></svg> Clinique Santé <span>IPS</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="clinique-sante-ips.html#services"><span class="fr-inline">Services</span><span class="en-inline">Services</span></a></li>
+      <li><a href="tarifs.html"><span class="fr-inline">Tarifs</span><span class="en-inline">Pricing</span></a></li>
+      <li><a href="equipe.html"><span class="fr-inline">Équipe</span><span class="en-inline">Team</span></a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://clients3.clicsante.ca/65142/take-appt" class="nav-cta" target="_blank"><span class="fr-inline">Prendre rendez-vous</span><span class="en-inline">Book appointment</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="fr-inline">Notre équipe</span><span class="en-inline">Our team</span></div>
+    <h1><span class="fr-inline">Des expertes<br><em>à votre service</em></span><span class="en-inline">Experts<br><em>at your service</em></span></h1>
+    <p><span class="fr-inline">Notre équipe multidisciplinaire allie expertise clinique avancée et approche humaine pour vous offrir des soins de santé mentale complets et accessibles.</span><span class="en-inline">Our multidisciplinary team combines advanced clinical expertise and a human approach to provide comprehensive and accessible mental health care.</span></p>
+  </div>
+</div>
+<div class="content">
+  <div class="team-grid">
+    <div class="member-card featured">
+      <img src="https://static.wixstatic.com/media/111a41_a80b72aca3c84cc9a62b1afc6f0d3184~mv2.png/v1/crop/x_0,y_36,w_293,h_312/fill/w_200,h_200,al_c,lg_1,q_85,enc_avif,quality_auto/Sans%20titre.png" alt="Zahia Djedri" class="member-avatar">
+      <div class="member-badge badge-founder"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="fr-inline">Fondatrice · IPSSM</span><span class="en-inline">Founder · NP Mental Health</span></div>
+      <div class="member-name">Zahia Djedri</div>
+      <div class="member-role"><span class="fr-inline">Infirmière praticienne spécialisée en santé mentale</span><span class="en-inline">Specialized Nurse Practitioner in Mental Health</span></div>
+      <p class="member-bio"><span class="fr-inline">Fondatrice de Clinique Santé IPS, Zahia allie une maîtrise en sciences infirmières à une vision claire : rendre les soins psychiatriques accessibles à tous les Québécois. Son approche humaine et inclusive place chaque patient au cœur de sa pratique.</span><span class="en-inline">Founder of Clinique Santé IPS, Zahia combines a master's degree in nursing science with a clear vision: making psychiatric care accessible to all Quebecers. Her human and inclusive approach puts each patient at the heart of her practice.</span></p>
+      <div class="member-creds">
+        <div class="cred-row"><div class="cred-dot"></div><span class="fr-inline">Maîtrise en sciences infirmières — santé mentale</span><span class="en-inline">Master's in nursing science — mental health</span></div>
+        <div class="cred-row"><div class="cred-dot"></div><span class="fr-inline">Autorité de diagnostic et prescription (OIIQ)</span><span class="en-inline">Diagnosis and prescription authority (OIIQ)</span></div>
+        <div class="cred-row"><div class="cred-dot"></div>Français · Anglais · Arabe / French · English · Arabic</div>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-initials">SL</div>
+      <div class="member-badge badge-ips"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>IPSSM</div>
+      <div class="member-name">Simon Larivière</div>
+      <div class="member-role"><span class="fr-inline">Infirmier praticien spécialisé en santé mentale</span><span class="en-inline">Specialized Nurse Practitioner in Mental Health</span></div>
+      <p class="member-bio"><span class="fr-inline">Simon Larivière allie expertise clinique et approche humaine pour l'évaluation et le suivi des troubles de santé mentale. Son expertise au sein du réseau de l'Université McGill soutient une pratique rigoureuse axée sur le rétablissement des patients.</span><span class="en-inline">Simon Larivière combines clinical expertise and a human approach for the assessment and follow-up of mental health disorders. His expertise within the McGill University network supports a rigorous practice focused on patient recovery.</span></p>
+      <div class="member-creds">
+        <div class="cred-row"><div class="cred-dot"></div><span class="fr-inline">Maîtrise en sciences infirmières — santé mentale</span><span class="en-inline">Master's in nursing science — mental health</span></div>
+        <div class="cred-row"><div class="cred-dot"></div><span class="fr-inline">Réseau Université McGill</span><span class="en-inline">McGill University network</span></div>
+        <div class="cred-row"><div class="cred-dot"></div><span class="fr-inline">Autorité de diagnostic et prescription (OIIQ)</span><span class="en-inline">Diagnosis and prescription authority (OIIQ)</span></div>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-initials coral">LL</div>
+      <div class="member-badge badge-inf"><span class="fr-inline">Infirmière adjointe médicale</span><span class="en-inline">Medical Assistant Nurse</span></div>
+      <div class="member-name">Lydia Laoudi</div>
+      <div class="member-role"><span class="fr-inline">Infirmière adjointe médicale</span><span class="en-inline">Medical Assistant Nurse</span></div>
+      <p class="member-bio"><span class="fr-inline">Lydia Laoudi possède une solide expertise en soins de première ligne et une expérience significative au sein du réseau de la santé (CIUSSS). Reconnue pour son approche humaine et rigoureuse, elle se consacre à offrir un accompagnement personnalisé, avec un souci constant de bienveillance et de professionnalisme.</span><span class="en-inline">Lydia Laoudi has solid expertise in primary care and significant experience within the health network (CIUSSS). Known for her human and rigorous approach, she is dedicated to providing personalized support with a constant focus on kindness and professionalism.</span></p>
+      <div class="member-creds">
+        <div class="cred-row"><div class="cred-dot"></div><span class="fr-inline">DEC en soins infirmiers</span><span class="en-inline">Nursing DEC diploma</span></div>
+        <div class="cred-row"><div class="cred-dot"></div><span class="fr-inline">Expérience CIUSSS — soins de première ligne</span><span class="en-inline">CIUSSS experience — primary care</span></div>
+        <div class="cred-row"><div class="cred-dot"></div><span class="fr-inline">Suivi patient et coordination des soins</span><span class="en-inline">Patient follow-up and care coordination</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="values-section">
+    <h3><span class="fr-inline">Ce qui nous <em>guide</em></span><span class="en-inline">What <em>guides us</em></span></h3>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4><span class="fr-inline">Confidentialité absolue</span><span class="en-inline">Absolute confidentiality</span></h4>
+        <p><span class="fr-inline">Secret professionnel, dossiers sécurisés, conformité Loi 25. Vos informations ne quittent jamais la clinique sans votre consentement.</span><span class="en-inline">Professional secrecy, secure records, Law 25 compliance. Your information never leaves the clinic without your consent.</span></p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h4><span class="fr-inline">Soins inclusifs</span><span class="en-inline">Inclusive care</span></h4>
+        <p><span class="fr-inline">Respect des valeurs, des croyances et des cultures. Aucune discrimination. Chaque patient est accueilli tel qu'il est.</span><span class="en-inline">Respect for values, beliefs and cultures. No discrimination. Each patient is welcomed as they are.</span></p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4><span class="fr-inline">Accessibilité</span><span class="en-inline">Accessibility</span></h4>
+        <p><span class="fr-inline">Virtuel partout au Québec, délais réduits, aucune référence médicale requise.</span><span class="en-inline">Virtual across Quebec, reduced wait times, no medical referral required.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="join-section">
+    <div class="join-text">
+      <h3><span class="fr-inline">Vous êtes IPS<br><em>en santé mentale?</em></span><span class="en-inline">Are you a mental health<br><em>NP?</em></span></h3>
+      <p><span class="fr-inline">Clinique Santé IPS est en croissance. Nous cherchons des infirmières praticiennes spécialisées qui partagent notre vision d'une santé mentale accessible et humaine.</span><span class="en-inline">Clinique Santé IPS is growing. We are looking for specialized nurse practitioners who share our vision of accessible and human mental health care.</span></p>
+      <a href="mailto:info@cliniquesanteips.com?subject=Candidature IPS" class="join-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="fr-inline">Nous contacter</span><span class="en-inline">Contact us</span></a>
+    </div>
+    <div class="join-perks">
+      <div class="perk"><div class="perk-dot"></div><p><span class="fr-inline">Pratique 100% virtuelle — travaillez de partout au Québec</span><span class="en-inline">100% virtual practice — work from anywhere in Quebec</span></p></div>
+      <div class="perk"><div class="perk-dot"></div><p><span class="fr-inline">Infrastructure clinique en place (Medesync, Square, Teams)</span><span class="en-inline">Clinical infrastructure in place (Medesync, Square, Teams)</span></p></div>
+      <div class="perk"><div class="perk-dot"></div><p><span class="fr-inline">Patientèle existante et en croissance</span><span class="en-inline">Existing and growing patient base</span></p></div>
+      <div class="perk"><div class="perk-dot"></div><p><span class="fr-inline">Autonomie clinique, encadrement collaboratif</span><span class="en-inline">Clinical autonomy, collaborative support</span></p></div>
+    </div>
+  </div>
+</div>
+<footer><p>©2025 Clinique Santé IPS · <a href="clinique-sante-ips.html"><span class="fr-inline">Accueil</span><span class="en-inline">Home</span></a> · <a href="tarifs.html"><span class="fr-inline">Tarifs</span><span class="en-inline">Pricing</span></a> · <a href="contact.html">Contact</a> · <a href="confidentialite.html"><span class="fr-inline">Confidentialité</span><span class="en-inline">Privacy</span></a></p></footer>
+
+<script>
+function setLang(lang){
+  document.body.className=lang;
+  document.documentElement.lang=lang;
+  document.getElementById('btn-fr').classList.toggle('active',lang==='fr');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  localStorage.setItem('ips-lang',lang);
+}
+const saved=localStorage.getItem('ips-lang');
+if(saved==='en')setLang('en');
+</script>
+</body></html>

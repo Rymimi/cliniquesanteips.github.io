@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinique Santé IPS | Mental Health Care – Québec</title>
+<meta name="description" content="Clinique privée virtuelle en santé mentale. IPS spécialisées partout au Québec. / Virtual private mental health clinic. Specialized NPs across Quebec.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --mint: #3DBFA0; --mint-light: #E8F7F4; --mint-mid: #9ADDD0;
+    --warm: #F8F5F0; --navy: #1A2744; --text: #1A2744; --muted: #6B7A99;
+    --white: #FFFFFF; --border: rgba(26,39,68,0.1);
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --radius: 4px; --radius-lg: 12px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--text); background: var(--warm); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
+    display: flex; align-items: center;
+    background: var(--mint-light);
+    border: 1px solid var(--mint-mid);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 30px;
+  }
+  .lang-btn {
+    padding: 0 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    height: 100%;
+    transition: background 0.2s, color 0.2s;
+  }
+  .lang-btn.active {
+    background: var(--mint);
+    color: var(--white);
+    border-radius: 20px;
+  }
+  .lang-btn:hover:not(.active) { color: var(--navy); }
+
+  /* Language system */
+  .lang-fr-block, .lang-en-block, .fr-block, .en-block { display: none; }
+  body.fr .lang-fr-block, body.fr .fr-block { display: block; }
+  body.en .lang-en-block, body.en .en-block { display: block; }
+  .lang-fr-inline, .lang-en-inline, .fr-inline, .en-inline { display: none; }
+  body.fr .lang-fr-inline, body.fr .fr-inline { display: inline; }
+  body.en .lang-en-inline, body.en .en-inline { display: inline; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,243,238,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 1rem; }
+  .nav-logo { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: 0.02em; flex-shrink: 0; }
+  .nav-logo span { color: var(--mint); }
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-links { display: flex; gap: 1.75rem; align-items: center; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 400; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--mint); color: var(--white) !important; padding: 9px 20px; border-radius: 2px; font-size: 0.82rem !important; font-weight: 500 !important; letter-spacing: 0.06em !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--navy) !important; }
+
+  /* ── HERO ── */
+  .hero { min-height: 100vh; padding: 68px 5% 0; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -10%; right: -5%; width: 55%; height: 110%; background: var(--mint-light); border-radius: 0 0 0 60% / 0 0 0 30%; z-index: 0; }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; color: var(--mint); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--mint); }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.12; color: var(--navy); margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+  .hero h1 em { font-style: italic; color: var(--mint); }
+  .hero-desc { font-size: 1.05rem; color: var(--muted); line-height: 1.75; max-width: 460px; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--navy); color: var(--white); text-decoration: none; padding: 14px 28px; border-radius: 2px; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--mint); transform: translateY(-1px); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--navy); text-decoration: none; font-size: 0.88rem; font-weight: 400; border-bottom: 1px solid var(--text); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+  .btn-secondary:hover { color: var(--mint); border-color: var(--mint); }
+  .hero-image { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
+  .hero-image-frame { width: 100%; max-width: 660px; aspect-ratio: 3/4; border-radius: 2px 40% 2px 2px; overflow: hidden; position: relative; display: block; }
+  .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* ── TRUST BAR ── */
+  .trust-bar { background: var(--navy); padding: 1.5rem 5%; display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .trust-item { display: flex; align-items: center; gap: 0.6rem; color: var(--mint-mid); font-size: 0.82rem; font-weight: 300; letter-spacing: 0.04em; }
+
+  /* ── SERVICES ── */
+  .services { padding: 6rem 5%; background: var(--white); }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); margin-bottom: 1rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--navy); line-height: 1.2; }
+  .section-title em { font-style: italic; color: var(--mint); }
+  .gallery-strip { display: grid; grid-template-columns: 1fr 1.4fr 1fr; gap: 8px; height: 260px; }
+  .gallery-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gallery-strip img:first-child { border-radius: var(--radius-lg) 0 0 var(--radius-lg); }
+  .gallery-strip img:last-child { border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .service-card { background: var(--warm); padding: 2.5rem 2rem; transition: background 0.25s; }
+  .service-card:hover { background: var(--mint-light); }
+  .service-num { font-family: var(--font-display); font-size: 3rem; font-weight: 300; color: var(--mint-mid); line-height: 1; margin-bottom: 1.5rem; }
+  .service-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--navy); margin-bottom: 1rem; line-height: 1.3; }
+  .service-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+  .tag { font-size: 0.72rem; font-weight: 400; color: var(--mint); border: 1px solid var(--mint-mid); padding: 3px 10px; border-radius: 2px; letter-spacing: 0.03em; }
+
+  /* ── HOW ── */
+  .how { padding: 6rem 5%; background: var(--mint-light); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; }
+  .step { text-align: center; }
+  .step-circle { width: 56px; height: 56px; border-radius: 50%; background: var(--white); border: 1px solid var(--mint-mid); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; color: var(--mint); }
+  .step-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--navy); margin-bottom: 0.5rem; }
+  .step-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+  /* ── ABOUT ── */
+  .about { padding: 6rem 5%; background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-text h2 { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--navy); line-height: 1.2; margin-bottom: 1.5rem; }
+  .about-text h2 em { font-style: italic; color: var(--mint); }
+  .about-text p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 1rem; }
+  .about-values { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .value-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.2s; }
+  .value-item:hover { border-color: var(--mint-mid); }
+  .value-icon { width: 36px; height: 36px; background: var(--mint-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .value-content h4 { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.2rem; }
+  .value-content p { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.5; }
+  .about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat-card { background: var(--warm); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; }
+  .stat-card:first-child { grid-column: 1 / -1; background: var(--navy); }
+  .stat-num { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 0.4rem; }
+  .stat-card:first-child .stat-num { color: var(--mint-mid); }
+  .stat-card:first-child .stat-label { color: var(--mint-mid); opacity: 0.6; }
+  .stat-label { font-size: 0.78rem; color: var(--muted); font-weight: 300; letter-spacing: 0.03em; }
+
+  /* ── TEAM ── */
+  .team-section { padding: 5rem 5%; background: var(--mint-light); text-align: center; }
+  .team-card { display: inline-flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 280px; }
+  .team-photo { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: center top; border: 3px solid var(--white); box-shadow: 0 8px 32px rgba(28,43,30,0.12); }
+  .team-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--navy); }
+  .team-role { font-size: 0.85rem; color: var(--mint); font-weight: 300; }
+
+  /* ── FAQ ── */
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; cursor: pointer; font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--navy); transition: color 0.2s; gap: 1rem; }
+  .faq-q:hover { color: var(--mint); }
+  .faq-icon { width: 22px; height: 22px; flex-shrink: 0; border: 1px solid var(--mint-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--mint); transition: transform 0.25s, background 0.2s; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--mint); color: white; }
+  .faq-a { font-size: 0.9rem; color: var(--muted); line-height: 1.75; font-weight: 300; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+  .faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.5rem; }
+
+  /* ── CTA ── */
+  .cta-section { padding: 6rem 5%; background: var(--navy); text-align: center; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(61,191,160,0.15) 0%, transparent 70%); pointer-events: none; }
+  .cta-section h2 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 1.25rem; position: relative; }
+  .cta-section h2 em { font-style: italic; color: var(--mint-mid); }
+  .cta-section p { font-size: 1rem; color: var(--mint-mid); font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; opacity: 0.8; position: relative; }
+  .cta-actions { display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; position: relative; }
+  .btn-cta-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--mint); color: var(--white); text-decoration: none; padding: 15px 32px; border-radius: 2px; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; transition: background 0.2s, transform 0.15s; }
+  .btn-cta-primary:hover { background: #2D9E84; transform: translateY(-1px); }
+  .btn-cta-ghost { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(196,213,198,0.4); color: var(--mint-mid); text-decoration: none; padding: 14px 28px; border-radius: 2px; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.04em; transition: border-color 0.2s, color 0.2s; }
+  .btn-cta-ghost:hover { border-color: var(--mint-mid); color: var(--white); }
+
+  /* ── FOOTER ── */
+  footer { background: #0F1D2E; padding: 3rem 5% 2rem; color: var(--muted); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-top: 0.75rem; font-weight: 300; opacity: 0.7; }
+  .footer-logo { font-family: var(--font-display); font-size: 1.2rem; color: var(--white); }
+  .footer-logo span { color: var(--mint); }
+  .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mint-mid); margin-bottom: 1rem; font-weight: 500; }
+  .footer-col a { display: block; font-size: 0.85rem; color: var(--muted); text-decoration: none; margin-bottom: 0.5rem; font-weight: 300; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-bottom p { font-size: 0.78rem; opacity: 0.4; font-weight: 300; }
+  .privacy-note { background: rgba(61,191,160,0.1); border: 1px solid rgba(26,39,68,0.1); border-radius: var(--radius); padding: 0.75rem 1rem; font-size: 0.78rem; color: var(--mint-mid); display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero h1 { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-desc { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-actions { animation: fadeUp 0.7s 0.3s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding: 100px 5% 4rem; }
+    .hero::before { display: none; }
+    .hero-image { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .about { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .gallery-strip { height: 160px; }
+  }
+</style>
+</head>
+<body class="fr">
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Clinique <span>Santé</span> IPS</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#services" class="lang-fr-inline">Services</a><a href="#services" class="lang-en-inline">Services</a></li>
+      <li><a href="#fonctionnement" class="lang-fr-inline">Fonctionnement</a><a href="#fonctionnement" class="lang-en-inline">How it works</a></li>
+      <li><a href="#clinique" class="lang-fr-inline">La clinique</a><a href="#clinique" class="lang-en-inline">About us</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li>
+        <a href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv" class="nav-cta">
+          <span class="lang-fr-inline">Prendre rendez-vous</span>
+          <span class="lang-en-inline">Book appointment</span>
+        </a>
+      </li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">
+      <span class="lang-fr-inline">Clinique privée virtuelle · Québec</span>
+      <span class="lang-en-inline">Virtual private clinic · Quebec</span>
+    </div>
+    <h1>
+      <span class="lang-fr-inline">Votre santé mentale, <em>prise en charge</em> par des experts</span>
+      <span class="lang-en-inline">Your mental health, <em>in expert</em> hands</span>
+    </h1>
+    <p class="hero-desc">
+      <span class="lang-fr-inline">Des infirmières praticiennes spécialisées en santé mentale vous accompagnent par téléconsultation, partout au Québec — sans liste d'attente interminable.</span>
+      <span class="lang-en-inline">Specialized nurse practitioners in mental health provide teleconsultations across Quebec — without the endless waitlists.</span>
+    </p>
+    <div class="hero-actions">
+      <a href="rdv.html?utm_source=site_web&utm_medium=hero&utm_campaign=prise_rdv" class="btn-primary">
+        <span class="lang-fr-inline">Prendre rendez-vous</span>
+        <span class="lang-en-inline">Book appointment</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#services" class="btn-secondary">
+        <span class="lang-fr-inline">Découvrir nos services</span>
+        <span class="lang-en-inline">Explore our services</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-image-frame">
+      <img src="https://static.wixstatic.com/media/111a41_dc93925fd1524c3ba538427b0431098d~mv2.jpg/v1/fill/w_1320,h_1760,fp_0.56_0.38,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/111a41_dc93925fd1524c3ba538427b0431098d~mv2.jpg" alt="Virtual mental health consultation">
+    </div>
+</div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span class="lang-fr-inline">Membres de l'OIIQ</span>
+    <span class="lang-en-inline">OIIQ Members</span>
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <span class="lang-fr-inline">Disponibilité rapide</span>
+    <span class="lang-en-inline">Quick availability</span>
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span class="lang-fr-inline">Téléconsultation partout au Québec</span>
+    <span class="lang-en-inline">Teleconsultation across Quebec</span>
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+    <span class="lang-fr-inline">Diagnostic et prescription</span>
+    <span class="lang-en-inline">Diagnosis &amp; prescription</span>
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+    <span class="lang-fr-inline">Données protégées — Loi 25</span>
+    <span class="lang-en-inline">Protected data — Law 25</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-eyebrow">
+      <span class="lang-fr-inline">Nos expertises</span>
+      <span class="lang-en-inline">Our expertise</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-fr-inline">Des soins complets,<br><em>sans compromis</em></span>
+      <span class="lang-en-inline">Comprehensive care,<br><em>no compromises</em></span>
+    </h2>
+  </div>
+  <div class="gallery-strip" style="margin-bottom:2px;">
+    <img src="https://static.wixstatic.com/media/11062b_18631521a1244211a1e7d329be6f365d~mv2.jpg/v1/fill/w_500,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_18631521a1244211a1e7d329be6f365d~mv2.jpg" alt="Consultation">
+    <img src="https://static.wixstatic.com/media/11062b_2e96dc4facd74ecabb570ff45ae2b7ba~mv2.jpeg/v1/fill/w_800,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_2e96dc4facd74ecabb570ff45ae2b7ba~mv2.jpeg" alt="Therapy session">
+    <img src="https://static.wixstatic.com/media/111a41_0e8c928ffd0d4d08b6468507e065d192~mv2.jpg/v1/fill/w_500,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/111a41_0e8c928ffd0d4d08b6468507e065d192~mv2.jpg" alt="Mental health care">
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3 class="service-title">
+        <span class="lang-fr-inline">Consultation en santé mentale</span>
+        <span class="lang-en-inline">Mental health consultation</span>
+      </h3>
+      <p class="service-desc">
+        <span class="lang-fr-inline">Évaluation psychiatrique complète par une IPS spécialisée. Troubles de l'humeur, anxiété, psychose, PTSD, addiction et comorbidités.</span>
+        <span class="lang-en-inline">Complete psychiatric assessment by a specialized NP. Mood disorders, anxiety, psychosis, PTSD, addiction and comorbidities.</span>
+      </p>
+      <div class="service-tags">
+        <span class="tag lang-fr-inline">Anxiété</span><span class="tag lang-en-inline">Anxiety</span>
+        <span class="tag lang-fr-inline">Dépression</span><span class="tag lang-en-inline">Depression</span>
+        <span class="tag lang-fr-inline">Trouble bipolaire</span><span class="tag lang-en-inline">Bipolar</span>
+        <span class="tag">PTSD</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3 class="service-title">
+        <span class="lang-fr-inline">Diagnostic &amp; Prescription</span>
+        <span class="lang-en-inline">Diagnosis &amp; Prescription</span>
+      </h3>
+      <p class="service-desc">
+        <span class="lang-fr-inline">Nos IPS ont l'autorité légale pour diagnostiquer et prescrire. Médication, analyses de laboratoire, ECG, EEG, tests de mémoire.</span>
+        <span class="lang-en-inline">Our NPs have legal authority to diagnose and prescribe. Medication, lab tests, ECG, EEG, memory assessments.</span>
+      </p>
+      <div class="service-tags">
+        <span class="tag lang-fr-inline">Prescription</span><span class="tag lang-en-inline">Prescription</span>
+        <span class="tag">TDAH / ADHD</span>
+        <span class="tag lang-fr-inline">Trouble du sommeil</span><span class="tag lang-en-inline">Sleep disorders</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3 class="service-title">
+        <span class="lang-fr-inline">Séances de coaching</span>
+        <span class="lang-en-inline">Coaching sessions</span>
+      </h3>
+      <p class="service-desc">
+        <span class="lang-fr-inline">Accompagnement personnalisé dans les situations de vie difficiles. Épuisement professionnel, deuil, séparation, gestion de la colère.</span>
+        <span class="lang-en-inline">Personalized support through life's challenges. Burnout, grief, separation, anger management, substance use.</span>
+      </p>
+      <div class="service-tags">
+        <span class="tag lang-fr-inline">Épuisement</span><span class="tag lang-en-inline">Burnout</span>
+        <span class="tag lang-fr-inline">Deuil</span><span class="tag lang-en-inline">Grief</span>
+        <span class="tag lang-fr-inline">Insomnie</span><span class="tag lang-en-inline">Insomnia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="fonctionnement">
+  <div class="section-header">
+    <div class="section-eyebrow">
+      <span class="lang-fr-inline">Fonctionnement</span>
+      <span class="lang-en-inline">How it works</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-fr-inline">Simple, rapide,<br><em>de chez vous</em></span>
+      <span class="lang-en-inline">Simple, fast,<br><em>from home</em></span>
+    </h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-circle">1</div>
+      <h4 class="step-title"><span class="lang-fr-inline">Prenez rendez-vous</span><span class="lang-en-inline">Book online</span></h4>
+      <p class="step-desc"><span class="lang-fr-inline">En ligne ou par téléphone au (438) 255-0470. Disponibilité rapide.</span><span class="lang-en-inline">Online or by phone at (438) 255-0470. Quick availability.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-circle">2</div>
+      <h4 class="step-title"><span class="lang-fr-inline">Recevez un lien</span><span class="lang-en-inline">Receive a link</span></h4>
+      <p class="step-desc"><span class="lang-fr-inline">Accès sécurisé à notre portail Medesync pour votre dossier et consultations.</span><span class="lang-en-inline">Secure access to our Medesync portal for your records and consultations.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-circle">3</div>
+      <h4 class="step-title"><span class="lang-fr-inline">Consultez en ligne</span><span class="lang-en-inline">Consult online</span></h4>
+      <p class="step-desc"><span class="lang-fr-inline">Vidéo ou téléphone, depuis n'importe où au Québec.</span><span class="lang-en-inline">Video or phone, from anywhere in Quebec. No travel required.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-circle">4</div>
+      <h4 class="step-title"><span class="lang-fr-inline">Suivi continu</span><span class="lang-en-inline">Ongoing care</span></h4>
+      <p class="step-desc"><span class="lang-fr-inline">Prescription et suivi via votre espace patient sécurisé.</span><span class="lang-en-inline">Prescriptions and follow-up through your secure patient portal.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="clinique">
+  <div class="about-text">
+    <div class="section-eyebrow">
+      <span class="lang-fr-inline">Qui sommes-nous</span>
+      <span class="lang-en-inline">About us</span>
+    </div>
+    <h2>
+      <span class="lang-fr-inline">Une clinique <em>fondée sur</em> l'expertise infirmière</span>
+      <span class="lang-en-inline">A clinic <em>built on</em> nursing expertise</span>
+    </h2>
+    <p>
+      <span class="lang-fr-inline">Clinique Santé IPS est une clinique médicale privée entièrement virtuelle, composée d'infirmières praticiennes spécialisées (IPS) en santé mentale. Nous croyons que l'accès aux soins psychiatriques ne devrait pas dépendre de votre code postal.</span>
+      <span class="lang-en-inline">Clinique Santé IPS is a fully virtual private medical clinic composed of specialized nurse practitioners (NPs) in mental health. We believe access to psychiatric care should not depend on your postal code.</span>
+    </p>
+    <p>
+      <span class="lang-fr-inline">Nos IPS détiennent un diplôme de maîtrise et une autorisation légale de diagnostiquer, prescrire et traiter — avec une approche holistique centrée sur votre réalité.</span>
+      <span class="lang-en-inline">Our NPs hold a master's degree and legal authority to diagnose, prescribe and treat — with a holistic approach centered on your reality.</span>
+    </p>
+    <div class="about-values">
+      <div class="value-item">
+        <div class="value-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="value-content">
+          <h4><span class="lang-fr-inline">Confidentialité absolue</span><span class="lang-en-inline">Absolute confidentiality</span></h4>
+          <p><span class="lang-fr-inline">Dossiers protégés, conformes à la Loi 25 et aux normes de l'OIIQ.</span><span class="lang-en-inline">Protected records, compliant with Law 25 and OIIQ standards.</span></p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="value-content">
+          <h4><span class="lang-fr-inline">Accès rapide</span><span class="lang-en-inline">Quick access</span></h4>
+          <p><span class="lang-fr-inline">Pas de liste d'attente de 2 ans. Rendez-vous disponibles rapidement.</span><span class="lang-en-inline">No 2-year wait list. Appointments available quickly.</span></p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="value-content">
+          <h4><span class="lang-fr-inline">Approche inclusive</span><span class="lang-en-inline">Inclusive approach</span></h4>
+          <p><span class="lang-fr-inline">Soins respectueux des valeurs, croyances et cultures de chaque patient.</span><span class="lang-en-inline">Care respectful of each patient's values, beliefs and culture.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-visual">
+    <div class="stat-card">
+      <div class="stat-num">Virtuel</div>
+      <div class="stat-label"><span class="lang-fr-inline">100% en ligne · partout au Québec</span><span class="lang-en-inline">100% online · across Quebec</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">IPS / NP</div>
+      <div class="stat-label"><span class="lang-fr-inline">Maîtrise en sciences infirmières</span><span class="lang-en-inline">Master's in nursing science</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">Rx</div>
+      <div class="stat-label"><span class="lang-fr-inline">Autorité de prescription médicale</span><span class="lang-en-inline">Medical prescription authority</span></div>
+    </div>
+    <img src="https://static.wixstatic.com/media/11062b_5f9688434bc34d7e94a2d75a56c2928d~mv2.jpg/v1/fill/w_600,h_400,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_5f9688434bc34d7e94a2d75a56c2928d~mv2.jpg" alt="Therapy office" style="grid-column:1/-1;width:100%;height:200px;object-fit:cover;border-radius:var(--radius-lg);">
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="section-eyebrow" style="margin-bottom:0.75rem;">
+    <span class="lang-fr-inline">Notre équipe</span>
+    <span class="lang-en-inline">Our team</span>
+  </div>
+  <h2 class="section-title" style="margin-bottom:3rem;">
+    <span class="lang-fr-inline">Rencontrez <em>votre équipe</em></span>
+    <span class="lang-en-inline">Meet <em>your team</em></span>
+  </h2>
+  <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;max-width:900px;margin:0 auto;">
+
+    <div class="team-card">
+      <img src="https://static.wixstatic.com/media/111a41_a80b72aca3c84cc9a62b1afc6f0d3184~mv2.png/v1/crop/x_0,y_36,w_293,h_312/fill/w_180,h_180,al_c,lg_1,q_85,enc_avif,quality_auto/Sans%20titre.png" alt="Zahia Djedri" class="team-photo">
+      <div class="team-name">Zahia Djedri</div>
+      <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:var(--mint-light);color:var(--mint);border:1px solid var(--mint-mid);padding:2px 10px;border-radius:2px;margin:0.4rem 0 0.6rem;">
+        <span class="lang-fr-inline">Fondatrice · IPSSM</span>
+        <span class="lang-en-inline">Founder · NP Mental Health</span>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);font-weight:300;line-height:1.6;max-width:220px;text-align:center;">
+        <span class="lang-fr-inline">IPS fondatrice, approche humaine et inclusive, diagnostic et prescription.</span>
+        <span class="lang-en-inline">Founding NP, human-centred approach, diagnosis and prescription.</span>
+      </p>
+    </div>
+
+    <div class="team-card">
+      <div style="width:180px;height:180px;border-radius:50%;background:var(--mint-light);border:3px solid var(--mint-mid);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--mint);margin-bottom:1rem;">SL</div>
+      <div class="team-name">Simon Larivière</div>
+      <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:var(--mint-light);color:var(--mint);border:1px solid var(--mint-mid);padding:2px 10px;border-radius:2px;margin:0.4rem 0 0.6rem;">IPSSM</div>
+      <p style="font-size:0.82rem;color:var(--muted);font-weight:300;line-height:1.6;max-width:220px;text-align:center;">
+        <span class="lang-fr-inline">Expert en évaluation et suivi, réseau Université McGill, axé sur le rétablissement.</span>
+        <span class="lang-en-inline">Expert in assessment and follow-up, McGill University network, recovery-focused.</span>
+      </p>
+    </div>
+
+    <div class="team-card">
+      <div style="width:180px;height:180px;border-radius:50%;background:#FBF5EF;border:3px solid rgba(166,124,91,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:#A67C5B;margin-bottom:1rem;">LL</div>
+      <div class="team-name">Lydia Laoudi</div>
+      <div style="font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:rgba(166,124,91,0.08);color:#A67C5B;border:1px solid rgba(166,124,91,0.25);padding:2px 10px;border-radius:2px;margin:0.4rem 0 0.6rem;">
+        <span class="lang-fr-inline">Infirmière adjointe médicale</span>
+        <span class="lang-en-inline">Medical Assistant Nurse</span>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);font-weight:300;line-height:1.6;max-width:220px;text-align:center;">
+        <span class="lang-fr-inline">Soins de première ligne, expérience CIUSSS, accompagnement personnalisé.</span>
+        <span class="lang-en-inline">Primary care, CIUSSS experience, personalized patient support.</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding: 6rem 5%; background: var(--warm);" id="faq">
+  <div style="max-width: 720px; margin: 0 auto;">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <span class="lang-fr-inline">Questions fréquentes</span>
+        <span class="lang-en-inline">Frequently asked questions</span>
+      </div>
+      <h2 class="section-title">
+        <span class="lang-fr-inline">Tout ce que vous <em>devez savoir</em></span>
+        <span class="lang-en-inline">Everything you <em>need to know</em></span>
+      </h2>
+    </div>
+    <div class="faq-list">
+      <!-- FR FAQ -->
+      <div class="faq-item lang-fr-block">
+        <div class="faq-q" onclick="toggleFaq(this)">Qu'est-ce qu'une IPS en santé mentale?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Une infirmière praticienne spécialisée (IPS) en santé mentale est une infirmière détenant une maîtrise universitaire et une autorisation légale de l'OIIQ lui permettant de diagnostiquer, prescrire des médicaments et traiter des troubles mentaux. Elle offre des soins comparables à un médecin psychiatre.</div>
+      </div>
+      <div class="faq-item lang-fr-block">
+        <div class="faq-q" onclick="toggleFaq(this)">Comment se déroule une première consultation?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Lors de votre premier contact, nous vous attribuons un rendez-vous dans les meilleurs délais. Vous recevez ensuite un lien vers notre portail sécurisé Medesync pour la consultation virtuelle et le suivi de votre dossier.</div>
+      </div>
+      <div class="faq-item lang-fr-block">
+        <div class="faq-q" onclick="toggleFaq(this)">Est-ce couvert par l'assurance?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Plusieurs assurances privées remboursent les consultations auprès d'une IPS. Nous fournissons un reçu détaillé après chaque consultation. Vérifiez votre couverture directement avec votre assureur.</div>
+      </div>
+      <div class="faq-item lang-fr-block">
+        <div class="faq-q" onclick="toggleFaq(this)">Mes informations sont-elles confidentielles?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Absolument. Votre dossier est protégé par le secret professionnel de l'OIIQ et notre clinique est conforme à la Loi 25. Vos données ne sont jamais partagées sans votre consentement explicite.</div>
+      </div>
+      <div class="faq-item lang-fr-block">
+        <div class="faq-q" onclick="toggleFaq(this)">Peut-on obtenir une ordonnance en ligne?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Oui. Nos IPS ont l'autorité légale de prescrire des médicaments, des analyses de laboratoire, des ECG et d'autres examens. Les ordonnances sont transmises directement à votre pharmacie.</div>
+      </div>
+      <!-- EN FAQ -->
+      <div class="faq-item lang-en-block">
+        <div class="faq-q" onclick="toggleFaq(this)">What is a specialized nurse practitioner (NP)?<div class="faq-icon">+</div></div>
+        <div class="faq-a">A specialized nurse practitioner (NP) in mental health holds a master's degree and legal authority from the OIIQ to diagnose, prescribe medication and treat mental health conditions. They offer care comparable to a psychiatrist.</div>
+      </div>
+      <div class="faq-item lang-en-block">
+        <div class="faq-q" onclick="toggleFaq(this)">How does a first appointment work?<div class="faq-icon">+</div></div>
+        <div class="faq-a">After your first contact, we schedule an appointment as soon as possible. You then receive a secure link to our Medesync portal for your virtual consultation and ongoing file management.</div>
+      </div>
+      <div class="faq-item lang-en-block">
+        <div class="faq-q" onclick="toggleFaq(this)">Is this covered by insurance?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Many private insurance plans cover NP consultations. We provide a detailed receipt after each appointment that you can submit to your insurer. Check your coverage directly with your provider.</div>
+      </div>
+      <div class="faq-item lang-en-block">
+        <div class="faq-q" onclick="toggleFaq(this)">Is my information confidential?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Absolutely. Your file is protected by OIIQ professional secrecy and our clinic complies with Quebec's Law 25 on personal information protection. Your data is never shared without your explicit consent.</div>
+      </div>
+      <div class="faq-item lang-en-block">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I get a prescription online?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Yes. Our NPs have legal authority to prescribe medication, lab tests, ECGs and other exams. Prescriptions are sent directly to your pharmacy or through your secure patient portal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="rdv">
+  <h2>
+    <span class="lang-fr-inline">Prenez soin de vous,<br><em>dès aujourd'hui</em></span>
+    <span class="lang-en-inline">Take care of yourself,<br><em>starting today</em></span>
+  </h2>
+  <p>
+    <span class="lang-fr-inline">Accès rapide à une IPS spécialisée en santé mentale. Aucun déplacement, partout au Québec.</span>
+    <span class="lang-en-inline">Quick access to a specialized mental health NP. No travel required, anywhere in Quebec.</span>
+  </p>
+  <div class="cta-actions">
+    <a href="rdv.html?utm_source=site_web&utm_medium=cta_bas&utm_campaign=prise_rdv" class="btn-cta-primary">
+      <span class="lang-fr-inline">Prendre rendez-vous en ligne</span>
+      <span class="lang-en-inline">Book appointment online</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="tel:4382550470" class="btn-cta-ghost">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+      (438) 255-0470
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Clinique <span>Santé</span> IPS</div>
+      <p>
+        <span class="lang-fr-inline">Clinique médicale virtuelle privée d'infirmières praticiennes spécialisées en santé mentale. Partout au Québec.</span>
+        <span class="lang-en-inline">Private virtual medical clinic of specialized nurse practitioners in mental health. Across Quebec.</span>
+      </p>
+      <div class="privacy-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="lang-fr-inline">Vos données sont protégées — conformité Loi 25</span>
+        <span class="lang-en-inline">Your data is protected — Law 25 compliant</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4><span class="lang-fr-inline">Navigation</span><span class="lang-en-inline">Navigation</span></h4>
+      <a href="#services"><span class="lang-fr-inline">Nos services</span><span class="lang-en-inline">Services</span></a>
+      <a href="#fonctionnement"><span class="lang-fr-inline">Fonctionnement</span><span class="lang-en-inline">How it works</span></a>
+      <a href="#clinique"><span class="lang-fr-inline">La clinique</span><span class="lang-en-inline">About</span></a>
+      <a href="#faq">FAQ</a>
+      <a href="tarifs.html"><span class="lang-fr-inline">Tarifs</span><span class="lang-en-inline">Pricing</span></a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:4382550470">(438) 255-0470</a>
+      <a href="/cdn-cgi/l/email-protection#2c45424a436c4f404542455d59495f4d425849455c5f024f4341"><span class="__cf_email__" data-cfemail="2a43444c456a49464344435b5f4f594b445e4f435a5904494547">[email&#160;protected]</span></a>
+      <a href="confidentialite.html"><span class="lang-fr-inline">Politique de confidentialité</span><span class="lang-en-inline">Privacy policy</span></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>©2025 Clinique Santé IPS.</p>
+    <p><span class="lang-fr-inline">Membres de l'Ordre des infirmières et infirmiers du Québec (OIIQ)</span><span class="lang-en-inline">Members of the Ordre des infirmières et infirmiers du Québec (OIIQ)</span></p>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.body.className = lang;
+  document.documentElement.lang = lang;
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  localStorage.setItem('ips-lang', lang);
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+}
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+const saved = localStorage.getItem('ips-lang');
+if (saved === 'en') setLang('en');
+</script>
+</body></html>

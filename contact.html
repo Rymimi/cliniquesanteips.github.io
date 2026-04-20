@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<title>Contact — Clinique Santé IPS</title>
+<style>
+:root {
+  --mint:#3DBFA0;--mint-light:#E8F7F4;--mint-mid:#9ADDD0;--mint-dark:#0F6E56;
+  --navy:#1A2744;--navy-light:#2D3F6B;--coral:#FF6B6B;--coral-light:#FFEAEA;--coral-dark:#CC3333;
+  --warm:#F8F5F0;--white:#FFFFFF;--muted:#6B7A99;--text:#1A2744;--border:rgba(26,39,68,0.1);
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Plus Jakarta Sans',sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-body);color:var(--text);background:var(--warm);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.lang-toggle{display:flex;align-items:center;background:var(--mint-light);border:1px solid var(--mint-mid);border-radius:20px;overflow:hidden;height:30px;}
+.lang-btn{padding:0 12px;font-size:.75rem;font-weight:500;letter-spacing:.06em;border:none;background:transparent;color:var(--muted);cursor:pointer;height:100%;transition:background .2s,color .2s;font-family:var(--font-body);}
+.lang-btn.active{background:var(--mint);color:var(--white);border-radius:20px;}
+.fr-inline,.en-inline{display:none;}
+body.fr .fr-inline{display:inline;}
+body.en .en-inline{display:inline;}
+.fr-block,.en-block{display:none;}
+body.fr .fr-block{display:block;}
+body.en .en-block{display:block;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem;}
+.nav-logo{font-family:var(--font-display);font-size:1.35rem;font-weight:400;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.nav-logo span{color:var(--mint);font-style:italic;}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.85rem;transition:color .2s;}
+.nav-links a:hover{color:var(--navy);}
+.nav-cta{background:var(--coral)!important;color:var(--white)!important;padding:9px 20px;border-radius:2px;font-size:.82rem!important;font-weight:600!important;transition:background .2s!important;}
+.nav-cta:hover{background:var(--coral-dark)!important;}
+footer{background:#0F1D2E;padding:2rem 5%;text-align:center;}
+footer p{font-size:.8rem;color:var(--muted);opacity:.5;font-weight:300;}
+footer a{color:var(--mint-mid);text-decoration:none;}
+@media(max-width:700px){.nav-links{display:none;}}
+
+.layout{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;}
+.left-panel{background:var(--navy);padding:120px 8% 5rem;display:flex;flex-direction:column;justify-content:space-between;}
+.left-content{flex:1;display:flex;flex-direction:column;justify-content:center;}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mint-mid);margin-bottom:1rem;opacity:.6;}
+.left-panel h1{font-family:var(--font-display);font-size:clamp(2.2rem,3.5vw,3rem);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:1.5rem;}
+.left-panel h1 em{font-style:italic;color:var(--mint-mid);}
+.left-panel>div>p{font-size:.9rem;color:var(--mint-mid);font-weight:300;line-height:1.75;opacity:.7;margin-bottom:2.5rem;}
+.contact-methods{display:flex;flex-direction:column;gap:1rem;}
+.contact-method{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;border:1px solid rgba(154,221,208,.15);border-radius:8px;text-decoration:none;transition:border-color .2s,background .2s;}
+.contact-method:hover{border-color:rgba(154,221,208,.35);background:rgba(61,191,160,.08);}
+.method-icon{width:36px;height:36px;border-radius:50%;background:rgba(61,191,160,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.method-label{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mint-mid);opacity:.5;margin-bottom:2px;}
+.method-value{font-size:.9rem;color:var(--white);font-weight:300;}
+.method-note{font-size:.75rem;color:var(--mint-mid);opacity:.5;margin-top:2px;font-weight:300;}
+.left-footer{margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(154,221,208,.1);}
+.social-links{display:flex;gap:.75rem;}
+.social-link{width:36px;height:36px;border:1px solid rgba(154,221,208,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--mint-mid);transition:border-color .2s;}
+.social-link:hover{border-color:var(--mint-mid);}
+.right-panel{padding:120px 8% 5rem;background:var(--white);}
+.right-panel h2{font-family:var(--font-display);font-size:1.8rem;font-weight:300;color:var(--navy);margin-bottom:.5rem;}
+.right-panel h2 em{font-style:italic;color:var(--mint);}
+.right-panel>p{font-size:.9rem;color:var(--muted);font-weight:300;margin-bottom:2.5rem;line-height:1.7;}
+.rdv-primary{background:var(--navy);border-radius:12px;padding:2rem;margin-bottom:2rem;}
+.rdv-primary h3{font-family:var(--font-display);font-size:1.3rem;font-weight:300;color:var(--white);margin-bottom:.5rem;}
+.rdv-primary p{font-size:.85rem;color:var(--mint-mid);opacity:.7;font-weight:300;margin-bottom:1.5rem;line-height:1.65;}
+.btn-coral{display:inline-flex;align-items:center;gap:.5rem;background:var(--coral);color:var(--white);text-decoration:none;padding:11px 22px;border-radius:2px;font-size:.85rem;font-weight:600;transition:background .2s;}
+.btn-coral:hover{background:var(--coral-dark);}
+.divider{display:flex;align-items:center;gap:1rem;margin:2rem 0;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+.divider span{font-size:.78rem;color:var(--muted);font-weight:300;white-space:nowrap;}
+.form-group{margin-bottom:1.25rem;}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:.4rem;letter-spacing:.04em;}
+input,select,textarea{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:4px;background:var(--white);font-family:var(--font-body);font-size:.9rem;font-weight:300;color:var(--text);transition:border-color .2s;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--mint);}
+textarea{resize:vertical;min-height:110px;line-height:1.6;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-submit{width:100%;padding:13px;background:var(--coral);color:var(--white);border:none;border-radius:2px;font-family:var(--font-body);font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s;letter-spacing:.04em;}
+.form-submit:hover{background:var(--coral-dark);}
+.privacy-note{display:flex;align-items:flex-start;gap:.5rem;margin-top:.75rem;font-size:.75rem;color:var(--muted);font-weight:300;line-height:1.5;}
+.privacy-note a{color:var(--mint);}
+.urgent-box{background:#FFF8F0;border:1px solid rgba(255,107,107,.2);border-radius:8px;padding:1.25rem;margin-top:2rem;}
+.urgent-box h4{font-size:.85rem;font-weight:600;color:#7a4a2a;margin-bottom:.4rem;}
+.urgent-box p{font-size:.82rem;color:#a07050;font-weight:300;line-height:1.65;}
+.urgent-box a{color:#7a4a2a;font-weight:600;}
+@media(max-width:800px){.layout{grid-template-columns:1fr;}.left-panel{min-height:auto;padding:100px 5% 3rem;}.right-panel{padding:3rem 5%;}.form-row{grid-template-columns:1fr;}}
+</style></head>
+<body class="fr">
+<nav>
+  <a href="clinique-sante-ips.html" class="nav-logo"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="#E8F7F4" stroke="#3DBFA0" stroke-width="1"/><path d="M16 7 C11 7 7 11 7 16 C7 21 11 25 16 25" stroke="#3DBFA0" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M16 7 C21 7 25 11 25 16 C25 21 21 25 16 25" stroke="#1A2744" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="16" cy="16" r="2.5" fill="#3DBFA0"/></svg> Clinique Santé <span>IPS</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="clinique-sante-ips.html#services"><span class="fr-inline">Services</span><span class="en-inline">Services</span></a></li>
+      <li><a href="tarifs.html"><span class="fr-inline">Tarifs</span><span class="en-inline">Pricing</span></a></li>
+      <li><a href="equipe.html"><span class="fr-inline">Équipe</span><span class="en-inline">Team</span></a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://clients3.clicsante.ca/65142/take-appt" class="nav-cta" target="_blank"><span class="fr-inline">Prendre rendez-vous</span><span class="en-inline">Book appointment</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+<div class="layout">
+  <div class="left-panel">
+    <div class="left-content">
+      <div class="eyebrow"><span class="fr-inline">Coordonnées</span><span class="en-inline">Contact information</span></div>
+      <h1><span class="fr-inline">Parlons de<br><em>votre santé</em></span><span class="en-inline">Let's talk about<br><em>your health</em></span></h1>
+      <div>
+        <p><span class="fr-inline">Notre équipe répond à vos questions du lundi au vendredi. Pour un rendez-vous urgent, appelez-nous directement.</span><span class="en-inline">Our team answers your questions Monday to Friday. For an urgent appointment, call us directly.</span></p>
+      </div>
+      <div class="contact-methods">
+        <a href="tel:4382550470" class="contact-method">
+          <div class="method-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ADDD0" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg></div>
+          <div><div class="method-label"><span class="fr-inline">Téléphone</span><span class="en-inline">Phone</span></div><div class="method-value">(438) 255-0470</div><div class="method-note"><span class="fr-inline">Lun–Ven · Réponse sous 24h</span><span class="en-inline">Mon–Fri · Response within 24h</span></div></div>
+        </a>
+        <a href="mailto:info@cliniquesanteips.com" class="contact-method">
+          <div class="method-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ADDD0" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="method-label"><span class="fr-inline">Courriel</span><span class="en-inline">Email</span></div><div class="method-value">info@cliniquesanteips.com</div><div class="method-note"><span class="fr-inline">Réponse sous 1 jour ouvrable</span><span class="en-inline">Response within 1 business day</span></div></div>
+        </a>
+        <div class="contact-method" style="cursor:default;">
+          <div class="method-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ADDD0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><div class="method-label"><span class="fr-inline">Heures d'ouverture</span><span class="en-inline">Hours</span></div><div class="method-value"><span class="fr-inline">Lundi – Vendredi</span><span class="en-inline">Monday – Friday</span></div><div class="method-note"><span class="fr-inline">8h30 – 17h00 · Virtuel partout au Québec</span><span class="en-inline">8:30am – 5:00pm · Virtual across Quebec</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="left-footer">
+      <div class="social-links">
+        <a href="https://www.facebook.com/people/Clinique-santé-IPS/100064297822314/" class="social-link" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/cliniquesanteips/" class="social-link" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="right-panel">
+    <h2><span class="fr-inline">Prendre <em>rendez-vous</em></span><span class="en-inline">Book <em>an appointment</em></span></h2>
+    <p><span class="fr-inline">La façon la plus rapide de consulter est de réserver directement en ligne via notre système de prise de rendez-vous.</span><span class="en-inline">The quickest way to consult is to book directly online through our appointment system.</span></p>
+    <div class="rdv-primary">
+      <h3><span class="fr-inline">Réservation en ligne — disponible maintenant</span><span class="en-inline">Online booking — available now</span></h3>
+      <p><span class="fr-inline">Choisissez votre date et heure directement dans notre agenda. Confirmation immédiate par courriel.</span><span class="en-inline">Choose your date and time directly in our calendar. Immediate email confirmation.</span></p>
+      <a href="https://clients3.clicsante.ca/65142/take-appt" class="btn-coral" target="_blank"><span class="fr-inline">Prendre rendez-vous en ligne</span><span class="en-inline">Book appointment online</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="divider"><span><span class="fr-inline">ou envoyez-nous un message</span><span class="en-inline">or send us a message</span></span></div>
+    <div class="form-group"><label><span class="fr-inline">Prénom et nom</span><span class="en-inline">First and last name</span></label><input type="text" placeholder="Marie Tremblay" required></div>
+    <div class="form-group"><label><span class="fr-inline">Courriel</span><span class="en-inline">Email</span></label><input type="email" placeholder="marie@exemple.com" required></div>
+    <div class="form-group"><label><span class="fr-inline">Téléphone (optionnel)</span><span class="en-inline">Phone (optional)</span></label><input type="tel" placeholder="(514) 555-0000"></div>
+    <div class="form-group">
+      <label><span class="fr-inline">Sujet</span><span class="en-inline">Subject</span></label>
+      <select>
+        <option value=""><span class="fr-inline">Sélectionnez un sujet</span><span class="en-inline">Select a subject</span></option>
+        <option class="fr-inline">Prise de rendez-vous</option><option class="en-inline">Appointment booking</option>
+        <option class="fr-inline">Information sur les services</option><option class="en-inline">Service information</option>
+        <option class="fr-inline">Information sur les tarifs</option><option class="en-inline">Pricing information</option>
+        <option class="fr-inline">Question sur les assurances</option><option class="en-inline">Insurance question</option>
+        <option class="fr-inline">Évaluation TDAH ou TSA</option><option class="en-inline">ADHD or ASD assessment</option>
+        <option class="fr-inline">Autre</option><option class="en-inline">Other</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Message</label><textarea placeholder="..." required></textarea></div>
+    <button type="button" class="form-submit" onclick="this.textContent='✓ ' + (document.body.classList.contains('en') ? 'Message sent' : 'Message envoyé'); this.style.background='#3DBFA0'; this.disabled=true;"><span class="fr-inline">Envoyer le message</span><span class="en-inline">Send message</span></button>
+    <div class="privacy-note"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="fr-inline">Vos renseignements sont protégés. Consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</span><span class="en-inline">Your information is protected. See our <a href="confidentialite.html">privacy policy</a>.</span></div>
+    <div class="urgent-box">
+      <h4><span class="fr-inline">Situation d'urgence?</span><span class="en-inline">Emergency situation?</span></h4>
+      <p><span class="fr-inline">Si vous vivez une crise de santé mentale, contactez le <a href="tel:18662773553">1 866 APPELLE (277-3553)</a> ou rendez-vous à l'urgence la plus proche.</span><span class="en-inline">If you are experiencing a mental health crisis, contact <a href="tel:18662773553">1 866 APPELLE (277-3553)</a> or go to the nearest emergency room.</span></p>
+    </div>
+  </div>
+</div>
+<footer style="display:block;"><p>©2025 Clinique Santé IPS · <a href="clinique-sante-ips.html"><span class="fr-inline">Accueil</span><span class="en-inline">Home</span></a> · <a href="tarifs.html"><span class="fr-inline">Tarifs</span><span class="en-inline">Pricing</span></a> · <a href="confidentialite.html"><span class="fr-inline">Confidentialité</span><span class="en-inline">Privacy</span></a></p></footer>
+
+<script>
+function setLang(lang){
+  document.body.className=lang;
+  document.documentElement.lang=lang;
+  document.getElementById('btn-fr').classList.toggle('active',lang==='fr');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  localStorage.setItem('ips-lang',lang);
+}
+const saved=localStorage.getItem('ips-lang');
+if(saved==='en')setLang('en');
+</script>
+</body></html>

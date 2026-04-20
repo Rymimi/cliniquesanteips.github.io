@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prise de rendez-vous | Clinique Santé IPS</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --mint: #3DBFA0; --mint-light: #E8F7F4; --mint-mid: #9ADDD0;
+  --navy: #1A2744; --coral: #FF6B6B; --coral-dark: #CC3333;
+  --warm: #F8F5F0; --white: #FFFFFF; --muted: #6B7A99;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--warm);
+  color: var(--navy);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* LOGO */
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3rem;
+}
+.logo span { color: var(--mint); font-style: italic; }
+
+/* CARD */
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  border: 0.5px solid rgba(26,39,68,0.1);
+}
+
+/* SPINNER */
+.spinner-wrap { margin-bottom: 2rem; position: relative; display: inline-block; }
+.spinner {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 3px solid var(--mint-light);
+  border-top-color: var(--mint);
+  animation: spin 1s linear infinite;
+}
+.spinner-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* PROGRESS BAR */
+.progress-wrap {
+  background: var(--mint-light);
+  border-radius: 4px;
+  height: 6px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--mint);
+  border-radius: 4px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+h1 em { font-style: italic; color: var(--mint); }
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.65;
+  margin-bottom: 0.5rem;
+}
+
+.countdown {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--navy);
+  margin: 0.5rem 0 1.5rem;
+}
+.countdown span {
+  color: var(--coral);
+  font-weight: 400;
+}
+
+/* SOURCE BADGE */
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--mint-light);
+  border: 1px solid var(--mint-mid);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--mint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+/* MANUAL LINK */
+.manual-link {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 300;
+  margin-top: 1.5rem;
+}
+.manual-link a {
+  color: var(--mint);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* SECURITY NOTE */
+.security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  opacity: 0.6;
+  margin-top: 2rem;
+}
+
+/* LANG TOGGLE */
+.lang-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  background: var(--white);
+  border: 1px solid rgba(26,39,68,0.12);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 30px;
+}
+.lang-btn {
+  padding: 0 12px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  height: 100%;
+  font-family: var(--font-body);
+  transition: background 0.2s, color 0.2s;
+}
+.lang-btn.active { background: var(--mint); color: var(--white); border-radius: 20px; }
+
+.fr-el, .en-el { display: none; }
+body.fr .fr-el { display: block; }
+body.en .en-el { display: block; }
+.fr-inline, .en-inline { display: none; }
+body.fr .fr-inline { display: inline; }
+body.en .en-inline { display: inline; }
+</style>
+
+<!-- Google Analytics 4 — remplace G-XXXXXXXXXX par ton vrai ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+</head>
+<body class="fr">
+
+<!-- Lang toggle -->
+<div class="lang-toggle">
+  <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- Logo -->
+<a href="index.html" class="logo">
+  <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+    <circle cx="16" cy="16" r="14" fill="#E8F7F4" stroke="#3DBFA0" stroke-width="1"/>
+    <path d="M16 7 C11 7 7 11 7 16 C7 21 11 25 16 25" stroke="#3DBFA0" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <path d="M16 7 C21 7 25 11 25 16 C25 21 21 25 16 25" stroke="#1A2744" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <circle cx="16" cy="16" r="2.5" fill="#3DBFA0"/>
+  </svg>
+  Clinique Santé <span>IPS</span>
+</a>
+
+<!-- Card -->
+<div class="card">
+  <div class="spinner-wrap">
+    <div class="spinner"></div>
+    <div class="spinner-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="1.5">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <path d="M16 2v4M8 2v4M3 10h18"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="source-badge" class="source-badge" style="display:none;">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    <span id="source-label"></span>
+  </div>
+
+  <h1>
+    <span class="fr-inline">Vous êtes <em>presque là</em></span>
+    <span class="en-inline">You're <em>almost there</em></span>
+  </h1>
+
+  <p class="subtitle">
+    <span class="fr-inline">Vous allez être redirigé vers notre système sécurisé de prise de rendez-vous.</span>
+    <span class="en-inline">You are being redirected to our secure appointment booking system.</span>
+  </p>
+
+  <div class="countdown">
+    <span class="fr-inline">Redirection dans <span id="count-fr">3</span> secondes…</span>
+    <span class="en-inline">Redirecting in <span id="count-en">3</span> seconds…</span>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar" id="progress"></div>
+  </div>
+
+  <p class="manual-link">
+    <span class="fr-inline">Rien ne se passe? <a onclick="doRedirect()">Cliquez ici</a></span>
+    <span class="en-inline">Nothing happening? <a onclick="doRedirect()">Click here</a></span>
+  </p>
+</div>
+
+<div class="security">
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  <span class="fr-inline">Redirection sécurisée vers Clic Santé — système gouvernemental</span>
+  <span class="en-inline">Secure redirect to Clic Santé — government system</span>
+</div>
+
+<script>
+// ─── CONFIGURATION ───────────────────────────────────────────────
+const CLICSANTE_URL = 'https://clients3.clicsante.ca/65142/take-appt';
+const REDIRECT_DELAY = 3; // secondes
+// ─────────────────────────────────────────────────────────────────
+
+// Read UTM params from current URL
+function getParam(key) {
+  return new URLSearchParams(window.location.search).get(key) || '';
+}
+
+// Map UTM source to human-readable label
+function getSourceLabel(source) {
+  const labels = {
+    'google': 'Google',
+    'facebook': 'Facebook',
+    'instagram': 'Instagram',
+    'linkedin': 'LinkedIn',
+    'email': 'Infolettre',
+    'direct': 'Accès direct',
+  };
+  return labels[source?.toLowerCase()] || source || null;
+}
+
+// Build destination URL with UTM params passed through
+function buildDestURL() {
+  const params = new URLSearchParams(window.location.search);
+  // Add default source if none provided
+  if (!params.get('utm_source')) params.set('utm_source', 'site_web');
+  if (!params.get('utm_medium')) params.set('utm_medium', 'bouton_rdv');
+  if (!params.get('utm_campaign')) params.set('utm_campaign', 'prise_rdv');
+
+  // For Clic Santé, we can't append params to their URL
+  // but we track the event on our side before redirecting
+  return CLICSANTE_URL;
+}
+
+// Track conversion event in GA4
+function trackConversion() {
+  const source = getParam('utm_source') || 'direct';
+  const medium = getParam('utm_medium') || 'none';
+  const campaign = getParam('utm_campaign') || 'none';
+  const content = getParam('utm_content') || 'none';
+
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'rdv_redirect', {
+      event_category: 'conversion',
+      event_label: 'clicsante_redirect',
+      utm_source: source,
+      utm_medium: medium,
+      utm_campaign: campaign,
+      utm_content: content,
+      value: 1
+    });
+    // Also fire as a GA4 conversion
+    gtag('event', 'generate_lead', {
+      currency: 'CAD',
+      utm_source: source,
+      utm_medium: medium,
+    });
+  }
+
+  // Also store in localStorage for simple internal tracking
+  const log = JSON.parse(localStorage.getItem('rdv_log') || '[]');
+  log.push({
+    ts: new Date().toISOString(),
+    source, medium, campaign, content,
+    page: document.referrer || 'direct'
+  });
+  localStorage.setItem('rdv_log', JSON.stringify(log.slice(-100))); // keep last 100
+}
+
+function doRedirect() {
+  window.location.href = buildDestURL();
+}
+
+// Show source badge if UTM source present
+const utmSource = getParam('utm_source');
+const sourceLabel = getSourceLabel(utmSource);
+if (sourceLabel) {
+  const badge = document.getElementById('source-badge');
+  document.getElementById('source-label').textContent = sourceLabel;
+  badge.style.display = 'inline-flex';
+}
+
+// Track on page load
+trackConversion();
+
+// Countdown + progress bar
+let remaining = REDIRECT_DELAY;
+const countFr = document.getElementById('count-fr');
+const countEn = document.getElementById('count-en');
+const progress = document.getElementById('progress');
+const total = REDIRECT_DELAY * 1000;
+const start = Date.now();
+
+const timer = setInterval(() => {
+  const elapsed = Date.now() - start;
+  const pct = Math.min((elapsed / total) * 100, 100);
+  progress.style.width = pct + '%';
+
+  remaining = Math.max(0, Math.ceil((total - elapsed) / 1000));
+  if (countFr) countFr.textContent = remaining;
+  if (countEn) countEn.textContent = remaining;
+
+  if (elapsed >= total) {
+    clearInterval(timer);
+    doRedirect();
+  }
+}, 50);
+
+// Lang toggle
+function setLang(lang) {
+  document.body.className = lang;
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  localStorage.setItem('ips-lang', lang);
+}
+const saved = localStorage.getItem('ips-lang');
+if (saved === 'en') setLang('en');
+</script>
+</body>
+</html>

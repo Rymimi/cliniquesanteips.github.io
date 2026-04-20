@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<title>Politique de confidentialité | Privacy Policy — Clinique Santé IPS</title>
+<style>
+:root {
+  --mint:#3DBFA0;--mint-light:#E8F7F4;--mint-mid:#9ADDD0;--mint-dark:#0F6E56;
+  --navy:#1A2744;--navy-light:#2D3F6B;--coral:#FF6B6B;--coral-light:#FFEAEA;--coral-dark:#CC3333;
+  --warm:#F8F5F0;--white:#FFFFFF;--muted:#6B7A99;--text:#1A2744;--border:rgba(26,39,68,0.1);
+  --font-display:'Fraunces',Georgia,serif;--font-body:'Plus Jakarta Sans',sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-body);color:var(--text);background:var(--warm);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.lang-toggle{display:flex;align-items:center;background:var(--mint-light);border:1px solid var(--mint-mid);border-radius:20px;overflow:hidden;height:30px;}
+.lang-btn{padding:0 12px;font-size:.75rem;font-weight:500;letter-spacing:.06em;border:none;background:transparent;color:var(--muted);cursor:pointer;height:100%;transition:background .2s,color .2s;font-family:var(--font-body);}
+.lang-btn.active{background:var(--mint);color:var(--white);border-radius:20px;}
+.fr-inline,.en-inline{display:none;}
+body.fr .fr-inline{display:inline;}
+body.en .en-inline{display:inline;}
+.fr-block,.en-block{display:none;}
+body.fr .fr-block{display:block;}
+body.en .en-block{display:block;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem;}
+.nav-logo{font-family:var(--font-display);font-size:1.35rem;font-weight:400;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:8px;}
+.nav-logo span{color:var(--mint);font-style:italic;}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:.85rem;transition:color .2s;}
+.nav-links a:hover{color:var(--navy);}
+.nav-cta{background:var(--coral)!important;color:var(--white)!important;padding:9px 20px;border-radius:2px;font-size:.82rem!important;font-weight:600!important;transition:background .2s!important;}
+.nav-cta:hover{background:var(--coral-dark)!important;}
+footer{background:#0F1D2E;padding:2rem 5%;text-align:center;}
+footer p{font-size:.8rem;color:var(--muted);opacity:.5;font-weight:300;}
+footer a{color:var(--mint-mid);text-decoration:none;}
+@media(max-width:700px){.nav-links{display:none;}}
+
+.hero{padding:120px 5% 4rem;background:var(--navy);}
+.hero-inner{max-width:800px;margin:0 auto;}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mint-mid);margin-bottom:1rem;opacity:.6;}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:1rem;}
+.hero h1 em{font-style:italic;color:var(--mint-mid);}
+.hero-meta{font-size:.85rem;color:var(--mint-mid);opacity:.6;font-weight:300;}
+.alert-box{background:rgba(61,191,160,.12);border:1px solid rgba(61,191,160,.3);border-radius:8px;padding:1.25rem 1.5rem;margin-top:1.5rem;display:flex;gap:1rem;align-items:flex-start;}
+.alert-box p{font-size:.85rem;color:var(--mint-mid);font-weight:300;line-height:1.6;}
+.content{max-width:800px;margin:0 auto;padding:4rem 5%;}
+.nav-back{font-size:.85rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s;}
+.nav-back:hover{color:var(--mint);}
+.section{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border);}
+.section:last-child{border-bottom:none;}
+.section-num{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);margin-bottom:.5rem;}
+.section h2{font-family:var(--font-display);font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:1rem;line-height:1.3;}
+.section p{font-size:.9rem;color:var(--muted);margin-bottom:.9rem;font-weight:300;line-height:1.8;}
+.section ul{padding-left:1.5rem;margin-bottom:1rem;}
+.section li{font-size:.9rem;color:var(--muted);margin-bottom:.5rem;font-weight:300;line-height:1.7;}
+.highlight-box{background:var(--mint-light);border-left:3px solid var(--mint);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1.25rem 0;}
+.highlight-box p{margin:0;font-size:.85rem;}
+.contact-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:1.5rem;}
+.contact-card h4{font-family:var(--font-display);font-size:1.1rem;font-weight:400;color:var(--navy);margin-bottom:.75rem;}
+.contact-row{display:flex;gap:.5rem;align-items:center;font-size:.85rem;color:var(--muted);margin-bottom:.4rem;font-weight:300;}
+.contact-row a{color:var(--mint-dark);}
+</style></head>
+<body class="fr">
+<nav>
+  <a href="clinique-sante-ips.html" class="nav-logo"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="#E8F7F4" stroke="#3DBFA0" stroke-width="1"/><path d="M16 7 C11 7 7 11 7 16 C7 21 11 25 16 25" stroke="#3DBFA0" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M16 7 C21 7 25 11 25 16 C25 21 21 25 16 25" stroke="#1A2744" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="16" cy="16" r="2.5" fill="#3DBFA0"/></svg> Clinique Santé <span>IPS</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="clinique-sante-ips.html#services"><span class="fr-inline">Services</span><span class="en-inline">Services</span></a></li>
+      <li><a href="tarifs.html"><span class="fr-inline">Tarifs</span><span class="en-inline">Pricing</span></a></li>
+      <li><a href="equipe.html"><span class="fr-inline">Équipe</span><span class="en-inline">Team</span></a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://clients3.clicsante.ca/65142/take-appt" class="nav-cta" target="_blank"><span class="fr-inline">Prendre rendez-vous</span><span class="en-inline">Book appointment</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="fr-inline">Protection des renseignements personnels</span><span class="en-inline">Personal information protection</span></div>
+    <h1><span class="fr-inline">Politique de <em>confidentialité</em></span><span class="en-inline">Privacy <em>policy</em></span></h1>
+    <p class="hero-meta"><span class="fr-inline">Dernière mise à jour : janvier 2025 · Conforme à la Loi 25 (Québec)</span><span class="en-inline">Last updated: January 2025 · Compliant with Law 25 (Quebec)</span></p>
+    <div class="alert-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9ADDD0" stroke-width="1.5" style="flex-shrink:0;margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      <p><span class="fr-inline">La confidentialité de vos renseignements de santé est une priorité absolue. Toutes nos pratiques sont conformes à la Loi 25 sur la protection des renseignements personnels (Québec) et aux obligations déontologiques de l'OIIQ.</span><span class="en-inline">The confidentiality of your health information is an absolute priority. All our practices comply with Law 25 on the protection of personal information (Quebec) and the ethical obligations of the OIIQ.</span></p>
+    </div>
+  </div>
+</div>
+<div class="content">
+
+  <div class="section">
+    <div class="section-num"><span class="fr-inline">Article 01</span><span class="en-inline">Article 01</span></div>
+    <h2><span class="fr-inline">Responsable de la protection des renseignements personnels</span><span class="en-inline">Personal information protection officer</span></h2>
+    <p><span class="fr-inline">Clinique Santé IPS désigne la fondatrice et directrice comme responsable de la protection des renseignements personnels, conformément à l'article 3.1 de la Loi sur la protection des renseignements personnels dans le secteur privé.</span><span class="en-inline">Clinique Santé IPS designates its founder and director as the personal information protection officer, in accordance with section 3.1 of the Act respecting the protection of personal information in the private sector.</span></p>
+    <div class="contact-card">
+      <h4><span class="fr-inline">Responsable désignée</span><span class="en-inline">Designated officer</span></h4>
+      <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Zahia Djedri, IPS — <span class="fr-inline">Fondatrice</span><span class="en-inline">Founder</span></div>
+      <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10 19.79 19.79 0 01.4 1.72A2 2 0 012.38 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg><a href="tel:4382550470">(438) 255-0470</a></div>
+      <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Article 02</div>
+    <h2><span class="fr-inline">Renseignements collectés</span><span class="en-inline">Information collected</span></h2>
+    <p><span class="fr-inline">Dans le cadre de la prestation de nos services, Clinique Santé IPS peut collecter les renseignements suivants :</span><span class="en-inline">In the context of providing our services, Clinique Santé IPS may collect the following information:</span></p>
+    <ul>
+      <li><strong><span class="fr-inline">Identité :</span><span class="en-inline">Identity:</span></strong> <span class="fr-inline">nom, prénom, date de naissance, numéro d'assurance maladie (NAM)</span><span class="en-inline">name, first name, date of birth, health insurance number (NAM)</span></li>
+      <li><strong><span class="fr-inline">Coordonnées :</span><span class="en-inline">Contact details:</span></strong> <span class="fr-inline">adresse, téléphone, courriel</span><span class="en-inline">address, phone, email</span></li>
+      <li><strong><span class="fr-inline">Informations de santé :</span><span class="en-inline">Health information:</span></strong> <span class="fr-inline">motif de consultation, antécédents médicaux, diagnostics, notes cliniques</span><span class="en-inline">reason for consultation, medical history, diagnoses, clinical notes</span></li>
+      <li><strong><span class="fr-inline">Informations de facturation :</span><span class="en-inline">Billing information:</span></strong> <span class="fr-inline">mode de paiement (traité via Square — aucune donnée de carte conservée sur nos serveurs)</span><span class="en-inline">payment method (processed via Square — no card data stored on our servers)</span></li>
+    </ul>
+    <div class="highlight-box"><p><span class="fr-inline">Nous ne collectons que les renseignements strictement nécessaires aux finalités pour lesquelles ils sont recueillis. Toute collecte est effectuée avec votre consentement explicite.</span><span class="en-inline">We only collect information strictly necessary for the purposes for which it is gathered. All collection is done with your explicit consent.</span></p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Article 03</div>
+    <h2><span class="fr-inline">Finalités de la collecte</span><span class="en-inline">Purposes of collection</span></h2>
+    <ul>
+      <li><span class="fr-inline">Prestation de soins de santé mentale et gestion de votre dossier patient</span><span class="en-inline">Providing mental health care and managing your patient file</span></li>
+      <li><span class="fr-inline">Communication relative à vos rendez-vous</span><span class="en-inline">Communications related to your appointments</span></li>
+      <li><span class="fr-inline">Émission de reçus et facturation</span><span class="en-inline">Issuing receipts and billing</span></li>
+      <li><span class="fr-inline">Transmission d'ordonnances à votre pharmacie (avec votre consentement)</span><span class="en-inline">Transmitting prescriptions to your pharmacy (with your consent)</span></li>
+      <li><span class="fr-inline">Respect des obligations légales et déontologiques de l'OIIQ</span><span class="en-inline">Compliance with OIIQ legal and ethical obligations</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Article 04</div>
+    <h2><span class="fr-inline">Conservation et destruction</span><span class="en-inline">Retention and destruction</span></h2>
+    <ul>
+      <li><strong><span class="fr-inline">Dossiers patients adultes :</span><span class="en-inline">Adult patient files:</span></strong> <span class="fr-inline">10 ans suivant la dernière consultation</span><span class="en-inline">10 years after the last consultation</span></li>
+      <li><strong><span class="fr-inline">Dossiers patients mineurs :</span><span class="en-inline">Minor patient files:</span></strong> <span class="fr-inline">jusqu'aux 28 ans du patient</span><span class="en-inline">until the patient turns 28</span></li>
+      <li><strong><span class="fr-inline">Données de facturation :</span><span class="en-inline">Billing data:</span></strong> <span class="fr-inline">7 ans conformément à la Loi sur les impôts</span><span class="en-inline">7 years in accordance with the Tax Act</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Article 05</div>
+    <h2><span class="fr-inline">Vos droits</span><span class="en-inline">Your rights</span></h2>
+    <p><span class="fr-inline">Conformément à la Loi 25, vous disposez des droits suivants :</span><span class="en-inline">In accordance with Law 25, you have the following rights:</span></p>
+    <ul>
+      <li><strong><span class="fr-inline">Droit d'accès</span><span class="en-inline">Right of access</span></strong> — <span class="fr-inline">obtenir copie des renseignements vous concernant</span><span class="en-inline">obtain a copy of information concerning you</span></li>
+      <li><strong><span class="fr-inline">Droit de rectification</span><span class="en-inline">Right of rectification</span></strong> — <span class="fr-inline">faire corriger des renseignements inexacts</span><span class="en-inline">have inaccurate information corrected</span></li>
+      <li><strong><span class="fr-inline">Droit à la portabilité</span><span class="en-inline">Right to portability</span></strong> — <span class="fr-inline">recevoir vos renseignements dans un format structuré</span><span class="en-inline">receive your information in a structured format</span></li>
+      <li><strong><span class="fr-inline">Droit de retirer votre consentement</span><span class="en-inline">Right to withdraw consent</span></strong> — <span class="fr-inline">en tout temps pour les traitements basés sur le consentement</span><span class="en-inline">at any time for consent-based processing</span></li>
+      <li><strong><span class="fr-inline">Droit de déposer une plainte</span><span class="en-inline">Right to file a complaint</span></strong> — <span class="fr-inline">auprès de la Commission d'accès à l'information du Québec (CAI)</span><span class="en-inline">with the Commission d'accès à l'information du Québec (CAI)</span></li>
+    </ul>
+    <p><span class="fr-inline">Pour exercer vos droits, contactez notre responsable à <a href="mailto:info@cliniquesanteips.com" style="color:var(--mint-dark);">info@cliniquesanteips.com</a>. Nous répondrons dans un délai de 30 jours.</span><span class="en-inline">To exercise your rights, contact our officer at <a href="mailto:info@cliniquesanteips.com" style="color:var(--mint-dark);">info@cliniquesanteips.com</a>. We will respond within 30 days.</span></p>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Article 06</div>
+    <h2><span class="fr-inline">Mesures de sécurité</span><span class="en-inline">Security measures</span></h2>
+    <ul>
+      <li><span class="fr-inline">Chiffrement des données en transit (TLS/HTTPS) et au repos</span><span class="en-inline">Data encryption in transit (TLS/HTTPS) and at rest</span></li>
+      <li><span class="fr-inline">Accès aux dossiers patients limité aux professionnels impliqués dans votre suivi</span><span class="en-inline">Patient file access limited to professionals involved in your care</span></li>
+      <li><span class="fr-inline">Systèmes sécurisés : Medesync, Microsoft 365</span><span class="en-inline">Secure systems: Medesync, Microsoft 365</span></li>
+      <li><span class="fr-inline">Procédure de gestion des incidents conforme à la Loi 25</span><span class="en-inline">Incident management procedure compliant with Law 25</span></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-num">Article 07</div>
+    <h2><span class="fr-inline">Nous contacter</span><span class="en-inline">Contact us</span></h2>
+    <p><span class="fr-inline">Pour toute question relative à la présente politique ou pour exercer vos droits :</span><span class="en-inline">For any questions regarding this policy or to exercise your rights:</span></p>
+    <div class="contact-card">
+      <h4>Clinique Santé IPS</h4>
+      <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a></div>
+      <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10 19.79 19.79 0 01.4 1.72A2 2 0 012.38 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg><a href="tel:4382550470">(438) 255-0470</a></div>
+      <div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span class="fr-inline">Délai de réponse : 30 jours ouvrables</span><span class="en-inline">Response time: 30 business days</span></div>
+    </div>
+    <p style="margin-top:1rem;font-size:.85rem;color:var(--muted);font-weight:300;"><span class="fr-inline">Commission d'accès à l'information du Québec (CAI) : <a href="https://www.cai.gouv.qc.ca" target="_blank" style="color:var(--mint-dark);">cai.gouv.qc.ca</a> · 1 888 528-7741</span><span class="en-inline">Commission d'accès à l'information du Québec (CAI): <a href="https://www.cai.gouv.qc.ca" target="_blank" style="color:var(--mint-dark);">cai.gouv.qc.ca</a> · 1 888 528-7741</span></p>
+  </div>
+
+</div>
+<footer><p>©2025 Clinique Santé IPS · <a href="clinique-sante-ips.html"><span class="fr-inline">Accueil</span><span class="en-inline">Home</span></a> · <a href="contact.html">Contact</a> · <span class="fr-inline">Politique conforme à la Loi 25 (Québec)</span><span class="en-inline">Policy compliant with Law 25 (Quebec)</span></p></footer>
+
+<script>
+function setLang(lang){
+  document.body.className=lang;
+  document.documentElement.lang=lang;
+  document.getElementById('btn-fr').classList.toggle('active',lang==='fr');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  localStorage.setItem('ips-lang',lang);
+}
+const saved=localStorage.getItem('ips-lang');
+if(saved==='en')setLang('en');
+</script>
+</body></html>

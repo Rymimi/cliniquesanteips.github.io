@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarifs | Pricing — Clinique Santé IPS</title>
+<meta name="description" content="Tarifs des consultations en santé mentale avec nos IPS. Évaluations psychiatriques, TDAH, TSA, suivi, coaching — partout au Québec en virtuel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --mint: #3DBFA0; --mint-light: #E8F7F4; --mint-mid: #9ADDD0;
+    --warm: #F8F5F0; --navy: #1A2744; --text: #1A2744; --muted: #6B7A99;
+    --white: #FFFFFF; --border: rgba(26,39,68,0.1); --coral: #FF6B6B;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+  body { font-family: var(--font-body); color: var(--text); background: var(--warm); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,243,238,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav-logo { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--mint); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--coral); color: var(--white) !important; padding: 9px 20px; border-radius: 2px; font-size: 0.82rem !important; font-weight: 500 !important; }
+
+  .hero { padding: 120px 5% 5rem; background: var(--navy); position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -20%; right: -5%; width: 40%; height: 140%; background: rgba(107,143,113,0.06); border-radius: 50%; pointer-events: none; }
+  .hero-inner { max-width: 680px; }
+  .eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint-mid); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--mint); }
+  .hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1.25rem; }
+  .hero h1 em { font-style: italic; color: var(--mint-mid); }
+  .hero p { font-size: 1rem; color: var(--mint-mid); opacity: 0.75; font-weight: 300; max-width: 500px; line-height: 1.75; }
+  .insurance-note { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(61,191,160,0.15); border: 1px solid rgba(196,213,198,0.3); border-radius: 4px; padding: 0.6rem 1rem; margin-top: 1.5rem; font-size: 0.82rem; color: var(--mint-mid); font-weight: 300; }
+
+  .content { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+
+  .category-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+  .category-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; margin-bottom: 4rem; }
+  .price-card { background: var(--white); padding: 2rem; transition: background 0.2s; }
+  .price-card:hover { background: var(--mint-light); }
+  .price-card.featured { background: var(--navy); }
+  .price-card.featured:hover { background: var(--navy-light, #2D3F6B); }
+  .price-duration { font-size: 0.75rem; color: var(--muted); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+  .price-card.featured .price-duration { color: var(--mint-mid); opacity: 0.6; }
+  .price-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3; }
+  .price-card.featured .price-title { color: var(--white); }
+  .price-desc { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 1.5rem; min-height: 52px; }
+  .price-card.featured .price-desc { color: var(--mint-mid); opacity: 0.7; }
+  .price-amount { display: flex; align-items: baseline; gap: 0.3rem; }
+  .price-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: var(--navy); }
+  .price-card.featured .price-num { color: var(--mint-mid); }
+  .price-currency { font-size: 1rem; color: var(--muted); font-weight: 300; }
+  .price-card.featured .price-currency { color: var(--mint-mid); opacity: 0.6; }
+  .price-includes { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+  .price-card.featured .price-includes { border-top-color: rgba(196,213,198,0.15); }
+  .price-includes-title { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+  .price-card.featured .price-includes-title { color: var(--mint-mid); opacity: 0.5; }
+  .include-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.82rem; color: var(--muted); font-weight: 300; margin-bottom: 0.35rem; line-height: 1.5; }
+  .price-card.featured .include-item { color: var(--mint-mid); opacity: 0.75; }
+  .include-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); flex-shrink: 0; margin-top: 6px; }
+  .price-card.featured .include-dot { background: var(--mint-mid); }
+  .no-ref { display: inline-block; font-size: 0.72rem; background: var(--mint-light); color: var(--mint); border: 1px solid var(--mint-mid); border-radius: 2px; padding: 2px 8px; margin-top: 0.75rem; }
+  .price-card.featured .no-ref { background: rgba(61,191,160,0.15); color: var(--mint-mid); border-color: rgba(196,213,198,0.3); }
+
+  .policy-section { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; margin-top: 1rem; }
+  .policy-section h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--navy); margin-bottom: 1.5rem; }
+  .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .policy-item h4 { font-size: 0.85rem; font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
+  .policy-item p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
+  .policy-item p a { color: var(--mint); }
+
+  .cta-strip { background: var(--navy); border-radius: 12px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; }
+  .cta-strip p { font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; color: var(--white); }
+  .cta-strip p em { font-style: italic; color: var(--mint-mid); }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--mint); color: var(--white); text-decoration: none; padding: 12px 24px; border-radius: 2px; font-size: 0.88rem; font-weight: 500; transition: background 0.2s; }
+  .btn-primary:hover { background: #2D9E84; }
+
+  footer { background: #0F1D2E; padding: 2rem 5%; text-align: center; margin-top: 0; }
+  footer p { font-size: 0.8rem; color: var(--muted); opacity: 0.5; font-weight: 300; }
+  footer a { color: var(--mint-mid); text-decoration: none; }
+  @media(max-width:700px) { .policy-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
+
+.lang-toggle{display:flex;align-items:center;background:#E8F7F4;border:1px solid #9ADDD0;border-radius:20px;overflow:hidden;height:30px;}
+.lang-btn{padding:0 12px;font-size:.75rem;font-weight:500;letter-spacing:.06em;border:none;background:transparent;color:#6B7A99;cursor:pointer;height:100%;transition:background .2s,color .2s;font-family:'Plus Jakarta Sans',sans-serif;}
+.lang-btn.active{background:#3DBFA0;color:#fff;border-radius:20px;}
+.fr-inline,.en-inline{display:none;}
+body.fr .fr-inline{display:inline;}
+body.en .en-inline{display:inline;}
+.fr-block,.en-block{display:none;}
+body.fr .fr-block{display:block;}
+body.en .en-block{display:block;}
+</style>
+</head>
+<body class="fr">
+<nav>
+  <a href="clinique-sante-ips.html" class="nav-logo"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" fill="#E8F7F4" stroke="#3DBFA0" stroke-width="1"/><path d="M16 7 C11 7 7 11 7 16 C7 21 11 25 16 25" stroke="#3DBFA0" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M16 7 C21 7 25 11 25 16 C25 21 21 25 16 25" stroke="#1A2744" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="16" cy="16" r="2.5" fill="#3DBFA0"/></svg> Clinique Santé <span style="color:var(--mint);font-style:italic;">IPS</span></a>
+  <div style="display:flex;align-items:center;gap:1.5rem;">
+    <ul class="nav-links">
+      <li><a href="clinique-sante-ips.html#services"><span class="fr-inline">Services</span><span class="en-inline">Services</span></a></li>
+      <li><a href="equipe.html"><span class="fr-inline">Équipe</span><span class="en-inline">Team</span></a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://clients3.clicsante.ca/65142/take-appt" class="nav-cta" target="_blank"><span class="fr-inline">Prendre rendez-vous</span><span class="en-inline">Book appointment</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="fr-inline">Tarification transparente</span><span class="en-inline">Transparent pricing</span></div>
+    <h1><span class="fr-inline">Des soins de qualité,<br><em>des tarifs clairs</em></span><span class="en-inline">Quality care,<br><em>clear pricing</em></span></h1>
+    <p><span class="fr-inline">Aucuns frais cachés, aucune référence médicale requise. Vous recevez un reçu détaillé pour vos assurances après chaque consultation.</span><span class="en-inline">No hidden fees, no medical referral required. You receive a detailed receipt for your insurance after each consultation.</span></p>
+    <div class="insurance-note">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span class="fr-inline">Remboursable par plusieurs assurances privées · Reçu fourni</span>
+      <span class="en-inline">Reimbursable by many private insurers · Receipt provided</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- CONSULTATIONS DE BASE -->
+  <div class="category-label"><span class="fr-inline">Consultations et suivis</span><span class="en-inline">Consultations &amp; follow-ups</span></div>
+  <div class="price-grid" style="margin-bottom:2px;">
+    <div class="price-card">
+      <div class="price-duration">Virtuel · 60 minutes</div>
+      <div class="price-title">Évaluation en santé mentale</div>
+      <div class="price-desc">Évaluation psychiatrique complète par une IPS spécialisée. Troubles de l'humeur, anxiété, psychose, PTSD, addiction.</div>
+      <div class="price-amount"><span class="price-num">400</span><span class="price-currency">$</span></div>
+      <span class="no-ref"><span class="fr-inline">Aucune référence requise</span><span class="en-inline">No referral required</span></span>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">Virtuel · 60 minutes</div>
+      <div class="price-title">Évaluation pédopsychiatrique</div>
+      <div class="price-desc">Évaluation spécialisée pour enfants et adolescents. Approche adaptée à l'âge et au développement.</div>
+      <div class="price-amount"><span class="price-num">500</span><span class="price-currency">$</span></div>
+      <span class="no-ref">Aucune référence requise</span>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">Virtuel · 30 minutes</div>
+      <div class="price-title">Suivi avec IPS</div>
+      <div class="price-desc">Rencontre de suivi clinique, ajustement de médication, renouvellement d'ordonnance, bilan de santé mentale.</div>
+      <div class="price-amount"><span class="price-num">150</span><span class="price-currency">$</span></div>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">Virtuel ou téléphone · 15 min</div>
+      <div class="price-title">Suivi avec IPS (court)</div>
+      <div class="price-desc">Suivi rapide, questions ponctuelles, ajustements mineurs de traitement.</div>
+      <div class="price-amount"><span class="price-num">100</span><span class="price-currency">$</span></div>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">Téléphone · 15 minutes</div>
+      <div class="price-title">Suivi avec infirmière</div>
+      <div class="price-desc">Suivi infirmier téléphonique pour questions de médication, effets secondaires ou orientation.</div>
+      <div class="price-amount"><span class="price-num">40</span><span class="price-currency">$</span></div>
+    </div>
+  </div>
+
+  <!-- ÉVALUATIONS SPÉCIALISÉES -->
+  <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Évaluations spécialisées</span><span class="en-inline">Specialized assessments</span></div>
+  <div class="price-grid" style="margin-bottom:2px;">
+    <div class="price-card featured">
+      <div class="price-duration">Virtuel · Forfait complet</div>
+      <div class="price-title">Évaluation TDAH — Adulte</div>
+      <div class="price-desc">Évaluation diagnostique complète du trouble déficitaire de l'attention avec ou sans hyperactivité.</div>
+      <div class="price-amount"><span class="price-num">950</span><span class="price-currency">$</span></div>
+      <div class="price-includes">
+        <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
+        <div class="include-item"><div class="include-dot"></div>1 séance d'évaluation (60 min)</div>
+        <div class="include-item"><div class="include-dot"></div>1 séance de suivi (30 min)</div>
+        <div class="include-item"><div class="include-dot"></div>Analyse des tests associés</div>
+        <div class="include-item"><div class="include-dot"></div>Confirmation du diagnostic</div>
+        <div class="include-item"><div class="include-dot"></div>Prescription si indiquée</div>
+      </div>
+      <span class="no-ref"><span class="fr-inline">Aucune référence médicale requise</span><span class="en-inline">No medical referral required</span></span>
+    </div>
+    <div class="price-card featured">
+      <div class="price-duration">Virtuel · Forfait complet</div>
+      <div class="price-title">Évaluation TDAH — Enfant & Ado</div>
+      <div class="price-desc">Évaluation spécialisée TDAH pour les enfants et adolescents avec approche pédiatrique.</div>
+      <div class="price-amount"><span class="price-num">950</span><span class="price-currency">$</span></div>
+      <div class="price-includes">
+        <div class="price-includes-title">Le forfait comprend</div>
+        <div class="include-item"><div class="include-dot"></div>1 séance d'évaluation (60 min)</div>
+        <div class="include-item"><div class="include-dot"></div>1 séance de suivi (30 min)</div>
+        <div class="include-item"><div class="include-dot"></div>Analyse des tests associés</div>
+        <div class="include-item"><div class="include-dot"></div>Confirmation du diagnostic</div>
+        <div class="include-item"><div class="include-dot"></div>Prescription si indiquée</div>
+      </div>
+      <span class="no-ref">Aucune référence médicale requise</span>
+    </div>
+    <div class="price-card featured">
+      <div class="price-duration">Virtuel · Forfait complet</div>
+      <div class="price-title">Évaluation TSA — Adulte</div>
+      <div class="price-desc">Évaluation diagnostique du trouble du spectre de l'autisme chez l'adulte.</div>
+      <div class="price-amount"><span class="price-num">1 350</span><span class="price-currency">$</span></div>
+      <div class="price-includes">
+        <div class="price-includes-title">Le forfait comprend</div>
+        <div class="include-item"><div class="include-dot"></div>1 séance d'évaluation (60 min)</div>
+        <div class="include-item"><div class="include-dot"></div>2 séances de suivi (30 min)</div>
+        <div class="include-item"><div class="include-dot"></div>Analyse des tests associés</div>
+        <div class="include-item"><div class="include-dot"></div>Confirmation du diagnostic</div>
+        <div class="include-item"><div class="include-dot"></div>Prescription si indiquée</div>
+      </div>
+      <span class="no-ref"><span class="fr-inline">* Des séances supplémentaires peuvent être requises</span><span class="en-inline">* Additional sessions may be required</span></span>
+    </div>
+    <div class="price-card featured">
+      <div class="price-duration">Virtuel · Forfait complet</div>
+      <div class="price-title">Évaluation TSA — Enfant & Ado</div>
+      <div class="price-desc">Évaluation diagnostique du trouble du spectre de l'autisme pour les enfants et adolescents.</div>
+      <div class="price-amount"><span class="price-num">1 750</span><span class="price-currency">$</span></div>
+      <div class="price-includes">
+        <div class="price-includes-title">Le forfait comprend</div>
+        <div class="include-item"><div class="include-dot"></div>1 séance d'évaluation (60 min)</div>
+        <div class="include-item"><div class="include-dot"></div>2 séances de suivi (30 min)</div>
+        <div class="include-item"><div class="include-dot"></div>Analyse des tests associés</div>
+        <div class="include-item"><div class="include-dot"></div>Confirmation du diagnostic</div>
+        <div class="include-item"><div class="include-dot"></div>Prescription si indiquée</div>
+      </div>
+      <span class="no-ref">* Des séances supplémentaires peuvent être requises</span>
+    </div>
+  </div>
+
+  <!-- FRAIS ADMINISTRATIFS -->
+  <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Frais administratifs</span><span class="en-inline">Administrative fees</span></div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-duration">Document</div>
+      <div class="price-title">Formulaires d'assurance</div>
+      <div class="price-desc">Remplissage de formulaires d'assurance invalidité, SAAQ, CNESST ou autres.</div>
+      <div class="price-amount"><span class="price-num">80</span><span class="price-currency">$+</span></div>
+      <div class="price-includes">
+        <div class="price-includes-title">Note</div>
+        <div class="include-item"><div class="include-dot"></div>+20$ minimum par tranche de 3 pages supplémentaires</div>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">Consultation requise</div>
+      <div class="price-title">Renouvellement de médication</div>
+      <div class="price-desc">Tout renouvellement ou changement de prescription nécessite une rencontre de suivi de 15 min avec l'IPS.</div>
+      <div class="price-amount"><span class="price-num">100</span><span class="price-currency">$+</span></div>
+    </div>
+  </div>
+
+  <!-- POLITIQUE -->
+  <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Politique de facturation</span><span class="en-inline">Billing policy</span></div>
+  <div class="policy-section">
+    <h3><span class="fr-inline">Conditions et modalités de paiement</span><span class="en-inline">Payment terms and conditions</span></h3>
+    <div class="policy-grid">
+      <div class="policy-item">
+        <h4>Paiement</h4>
+        <p>Paiement par carte de crédit ou débit via Square. Une facture vous est émise avant le rendez-vous. Aucuns frais d'ouverture de dossier.</p>
+      </div>
+      <div class="policy-item">
+        <h4>Annulations</h4>
+        <p>Toute annulation à moins de 24h d'avis entraîne des frais de 50$. Tout rendez-vous manqué sans préavis est facturé au même tarif.</p>
+      </div>
+      <div class="policy-item">
+        <h4>Reçus pour assurances</h4>
+        <p>Un reçu officiel vous est émis après chaque consultation pour remboursement auprès de votre assureur privé. Plusieurs régimes couvrent les soins IPS.</p>
+      </div>
+      <div class="policy-item">
+        <h4>Remboursements</h4>
+        <p>Aucun remboursement n'est accordé pour des services rendus. En cas de litige, contactez-nous à <a href="/cdn-cgi/l/email-protection#177e79717857747b7e797e66627264767963727e67643974787a"><span class="__cf_email__" data-cfemail="5d34333b321d3e313433342c28382e3c332938342d2e733e3230">[email&#160;protected]</span></a>.</p>
+      </div>
+      <div class="policy-item">
+        <h4>Conduite professionnelle</h4>
+        <p>Tout comportement irrespectueux envers notre personnel peut entraîner l'annulation des rendez-vous futurs et la fin du suivi, après analyse.</p>
+      </div>
+      <div class="policy-item">
+        <h4>Fin de suivi</h4>
+        <p>En cas de fin de suivi, la décision est notifiée par écrit. La clinique fournit des ressources et options de référence pour assurer la continuité des soins.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip">
+    <p><span class="fr-inline">Prêt à prendre soin<br><em>de votre santé mentale?</em></span><span class="en-inline">Ready to take care of<br><em>your mental health?</em></span></p>
+    <a href="https://clients3.clicsante.ca/65142/take-appt" class="btn-primary" target="_blank">
+      <span class="fr-inline">Prendre rendez-vous</span><span class="en-inline">Book appointment</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>©2025 Clinique Santé IPS · <a href="clinique-sante-ips.html">A
