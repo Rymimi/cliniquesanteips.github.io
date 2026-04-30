@@ -142,23 +142,57 @@ textarea{resize:vertical;min-height:110px;line-height:1.6;}
       <a href="https://clients3.clicsante.ca/65142/take-appt" class="btn-coral" target="_blank"><span class="fr-inline">Prendre rendez-vous en ligne</span><span class="en-inline">Book appointment online</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
     <div class="divider"><span><span class="fr-inline">ou envoyez-nous un message</span><span class="en-inline">or send us a message</span></span></div>
-    <div class="form-group"><label><span class="fr-inline">Prénom et nom</span><span class="en-inline">First and last name</span></label><input type="text" placeholder="Marie Tremblay" required></div>
-    <div class="form-group"><label><span class="fr-inline">Courriel</span><span class="en-inline">Email</span></label><input type="email" placeholder="marie@exemple.com" required></div>
-    <div class="form-group"><label><span class="fr-inline">Téléphone (optionnel)</span><span class="en-inline">Phone (optional)</span></label><input type="tel" placeholder="(514) 555-0000"></div>
-    <div class="form-group">
-      <label><span class="fr-inline">Sujet</span><span class="en-inline">Subject</span></label>
-      <select>
-        <option value=""><span class="fr-inline">Sélectionnez un sujet</span><span class="en-inline">Select a subject</span></option>
-        <option class="fr-inline">Prise de rendez-vous</option><option class="en-inline">Appointment booking</option>
-        <option class="fr-inline">Information sur les services</option><option class="en-inline">Service information</option>
-        <option class="fr-inline">Information sur les tarifs</option><option class="en-inline">Pricing information</option>
-        <option class="fr-inline">Question sur les assurances</option><option class="en-inline">Insurance question</option>
-        <option class="fr-inline">Évaluation TDAH ou TSA</option><option class="en-inline">ADHD or ASD assessment</option>
-        <option class="fr-inline">Autre</option><option class="en-inline">Other</option>
-      </select>
+    <div data-fs-success style="display:none;background:#E8F7F4;border:1px solid #9ADDD0;border-radius:8px;padding:1rem;text-align:center;font-size:.9rem;color:#0F6E56;margin-bottom:1rem;">
+      <span class="fr-inline">✓ Message envoyé ! Nous vous répondrons sous 1 jour ouvrable.</span>
+      <span class="en-inline">✓ Message sent! We will respond within 1 business day.</span>
     </div>
-    <div class="form-group"><label>Message</label><textarea placeholder="..." required></textarea></div>
-    <button type="button" class="form-submit" onclick="this.textContent='✓ ' + (document.body.classList.contains('en') ? 'Message sent' : 'Message envoyé'); this.style.background='#3DBFA0'; this.disabled=true;"><span class="fr-inline">Envoyer le message</span><span class="en-inline">Send message</span></button>
+    <div data-fs-error style="display:none;background:#FFEAEA;border:1px solid rgba(255,107,107,.3);border-radius:8px;padding:1rem;text-align:center;font-size:.9rem;color:#CC3333;margin-bottom:1rem;">
+      <span class="fr-inline">Une erreur s'est produite. Écrivez-nous à <a href="mailto:info@cliniquesanteips.com" style="color:#CC3333;">info@cliniquesanteips.com</a></span>
+      <span class="en-inline">An error occurred. Email us at <a href="mailto:info@cliniquesanteips.com" style="color:#CC3333;">info@cliniquesanteips.com</a></span>
+    </div>
+    <form id="contact-form">
+      <div class="form-group">
+        <label for="nom"><span class="fr-inline">Prénom et nom</span><span class="en-inline">First and last name</span></label>
+        <input type="text" id="nom" name="nom" placeholder="Marie Tremblay" required data-fs-field>
+        <span data-fs-error="nom" style="font-size:.78rem;color:#CC3333;"></span>
+      </div>
+      <div class="form-group">
+        <label for="email"><span class="fr-inline">Courriel</span><span class="en-inline">Email</span></label>
+        <input type="email" id="email" name="email" placeholder="marie@exemple.com" required data-fs-field>
+        <span data-fs-error="email" style="font-size:.78rem;color:#CC3333;"></span>
+      </div>
+      <div class="form-group">
+        <label for="telephone"><span class="fr-inline">Téléphone (optionnel)</span><span class="en-inline">Phone (optional)</span></label>
+        <input type="tel" id="telephone" name="telephone" placeholder="(514) 555-0000">
+      </div>
+      <div class="form-group">
+        <label for="sujet"><span class="fr-inline">Sujet</span><span class="en-inline">Subject</span></label>
+        <select id="sujet" name="sujet" required data-fs-field>
+          <option value=""><span class="fr-inline">Sélectionnez un sujet</span><span class="en-inline">Select a subject</span></option>
+          <option value="Prise de rendez-vous / Appointment booking">Prise de rendez-vous / Appointment booking</option>
+          <option value="Information sur les services / Service information">Information sur les services / Service information</option>
+          <option value="Information sur les tarifs / Pricing information">Information sur les tarifs / Pricing information</option>
+          <option value="Question sur les assurances / Insurance question">Question sur les assurances / Insurance question</option>
+          <option value="Évaluation TDAH ou TSA / ADHD or ASD assessment">Évaluation TDAH ou TSA / ADHD or ASD assessment</option>
+          <option value="Autre / Other">Autre / Other</option>
+        </select>
+        <span data-fs-error="sujet" style="font-size:.78rem;color:#CC3333;"></span>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="..." required data-fs-field></textarea>
+        <span data-fs-error="message" style="font-size:.78rem;color:#CC3333;"></span>
+      </div>
+      <button type="submit" class="form-submit" data-fs-submit-btn>
+        <span class="fr-inline">Envoyer le message</span>
+        <span class="en-inline">Send message</span>
+      </button>
+    </form>
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#contact-form', formId: 'mgodewed' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     <div class="privacy-note"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="fr-inline">Vos renseignements sont protégés. Consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</span><span class="en-inline">Your information is protected. See our <a href="confidentialite.html">privacy policy</a>.</span></div>
     <div class="urgent-box">
       <h4><span class="fr-inline">Situation d'urgence?</span><span class="en-inline">Emergency situation?</span></h4>
@@ -178,5 +212,7 @@ function setLang(lang){
 }
 const saved=localStorage.getItem('ips-lang');
 if(saved==='en')setLang('en');
+
+
 </script>
 </body></html>
