@@ -207,10 +207,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </button>
     </form>
     <script>
-      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-      formspree('initForm', { formElement: '#contact-form', formId: 'mgodewed' });
+    // Formspree submission avec popup + GTM tracking
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('[data-fs-submit-btn]');
+      btn.disabled = true;
+      btn.textContent = '...';
+
+      try {
+        const res = await fetch('https://formspree.io/f/mgodewed', {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          // 1. Reset form
+          this.reset();
+          btn.style.display = 'none';
+
+          // 2. Fire GTM event pour le marketing
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'form_submission',
+            form_name: 'contact_clinique',
+            form_id: 'mgodewed'
+          });
+
+          // 3. Afficher popup de confirmation
+          showPopup();
+        } else {
+          throw new Error('Erreur serveur');
+        }
+      } catch(err) {
+        btn.disabled = false;
+        btn.innerHTML = '<span class="fr-inline">Réessayer</span><span class="en-inline">Try again</span>';
+        document.getElementById('form-error-msg').style.display = 'block';
+      }
+    });
+
+    function showPopup() {
+      document.getElementById('merci-popup').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup() {
+      document.getElementById('merci-popup').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    // Fermer en cliquant dehors
+    document.getElementById('merci-popup').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
     </script>
-    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+    <div id="form-error-msg" style="display:none;background:#FFEAEA;border:1px solid rgba(255,107,107,.3);border-radius:8px;padding:1rem;text-align:center;font-size:.88rem;color:#CC3333;margin-top:0.75rem;">
+      <span class="fr-inline">Une erreur s'est produite. Écrivez-nous à <a href="mailto:info@cliniquesanteips.com" style="color:#CC3333;">info@cliniquesanteips.com</a></span>
+      <span class="en-inline">An error occurred. Email us at <a href="mailto:info@cliniquesanteips.com" style="color:#CC3333;">info@cliniquesanteips.com</a></span>
+    </div>
     <div class="privacy-note"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="fr-inline">Vos renseignements sont protégés. Consultez notre <a href="confidentialite.html">politique de confidentialité</a>.</span><span class="en-inline">Your information is protected. See our <a href="confidentialite.html">privacy policy</a>.</span></div>
     <div class="urgent-box">
       <h4><span class="fr-inline">Situation d'urgence?</span><span class="en-inline">Emergency situation?</span></h4>
@@ -233,4 +285,49 @@ if(saved==='en')setLang('en');
 
 
 </script>
+<!-- POPUP MERCI -->
+<div id="merci-popup" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,39,68,0.6);z-index:999;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#FFFFFF;border-radius:20px;padding:3rem 2.5rem;max-width:420px;width:100%;text-align:center;position:relative;animation:popIn .3s ease;">
+    <!-- Icône -->
+    <div style="width:72px;height:72px;background:#E8F7F4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <!-- Logo infini -->
+    <div style="margin-bottom:1rem;">
+      <svg width="48" height="30" viewBox="0 0 72 44" fill="none">
+        <path d="M36 22 C36 10 24 3 15 9 C6 15 6 28 15 34 C24 40 36 33 36 20" stroke="#3DBFA0" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M36 20 C36 8 48 1 57 7 C66 13 66 26 57 32 C48 38 36 31 36 18" stroke="#1A2744" stroke-width="4.5" stroke-linecap="round"/>
+        <circle cx="36" cy="21" r="6" fill="#FF6B6B"/>
+      </svg>
+    </div>
+    <!-- Titre -->
+    <h3 style="font-family:'Fraunces',Georgia,serif;font-size:1.8rem;font-weight:300;color:#1A2744;margin-bottom:0.75rem;line-height:1.2;">
+      <span class="fr-inline">Merci pour<br><em style="font-style:italic;color:#3DBFA0;">votre message</em></span>
+      <span class="en-inline">Thank you for<br><em style="font-style:italic;color:#3DBFA0;">your message</em></span>
+    </h3>
+    <!-- Texte -->
+    <p style="font-size:0.9rem;color:#6B7A99;font-weight:300;line-height:1.7;margin-bottom:0.5rem;">
+      <span class="fr-inline">Nous avons bien reçu votre message et vous répondrons dans un délai d'un jour ouvrable.</span>
+      <span class="en-inline">We have received your message and will respond within one business day.</span>
+    </p>
+    <p style="font-size:0.82rem;color:#9ADDD0;font-weight:400;letter-spacing:0.06em;margin-bottom:2rem;">
+      Corps · Mental · Santé
+    </p>
+    <!-- Bouton fermer -->
+    <button onclick="closePopup()" style="background:#3DBFA0;color:#fff;border:none;border-radius:4px;padding:12px 32px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;width:100%;transition:background .2s;" onmouseover="this.style.background='#CC3333'" onmouseout="this.style.background='#3DBFA0'">
+      <span class="fr-inline">Fermer</span>
+      <span class="en-inline">Close</span>
+    </button>
+    <!-- Bouton fermer X -->
+    <button onclick="closePopup()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;color:#9ADDD0;cursor:pointer;line-height:1;">×</button>
+  </div>
+</div>
+
+<style>
+@keyframes popIn {
+  from { opacity:0; transform:scale(0.9) translateY(20px); }
+  to   { opacity:1; transform:scale(1) translateY(0); }
+}
+</style>
+
 </body></html>
