@@ -339,4 +339,74 @@ function setLang(lang){
 const saved=localStorage.getItem('ips-lang');
 if(saved==='en')setLang('en');
 </script>
+
+<!-- ═══ CONSENT BANNER LOI 25 ═══ -->
+<div id="consent-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A2744;border-top:3px solid #3DBFA0;padding:1.25rem 5%;font-family:'Plus Jakarta Sans',sans-serif;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+    <div style="flex:1;min-width:260px;">
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.85);line-height:1.65;margin:0;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2" style="vertical-align:middle;margin-right:6px;flex-shrink:0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="fr-inline">Nous utilisons des témoins (cookies) pour analyser notre trafic et améliorer votre expérience. Conformément à la <strong style="color:#3DBFA0;">Loi 25</strong>, votre consentement est requis.</span>
+        <span class="en-inline">We use cookies to analyze traffic and improve your experience. In accordance with <strong style="color:#3DBFA0;">Quebec Law 25</strong>, your consent is required.</span>
+        <a href="confidentialite.html" style="color:#9ADDD0;font-size:0.78rem;margin-left:6px;">
+          <span class="fr-inline">Politique de confidentialité →</span>
+          <span class="en-inline">Privacy policy →</span>
+        </a>
+      </p>
+    </div>
+    <div style="display:flex;gap:0.75rem;align-items:center;flex-shrink:0;flex-wrap:wrap;">
+      <button onclick="refuserCookies()" style="background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.6);padding:8px 18px;border-radius:2px;font-size:0.78rem;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'">
+        <span class="fr-inline">Refuser</span>
+        <span class="en-inline">Decline</span>
+      </button>
+      <button onclick="accepterCookies()" style="background:#3DBFA0;border:none;color:#fff;padding:8px 22px;border-radius:2px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s;" onmouseover="this.style.background='#2da88b'" onmouseout="this.style.background='#3DBFA0'">
+        <span class="fr-inline">Accepter</span>
+        <span class="en-inline">Accept</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Consent banner — Loi 25 / GDPR
+(function() {
+  var consent = localStorage.getItem('ips-consent');
+  if (!consent) {
+    // Show banner after short delay
+    setTimeout(function() {
+      var banner = document.getElementById('consent-banner');
+      if (banner) banner.style.display = 'block';
+    }, 800);
+  } else if (consent === 'accepted') {
+    enableGTM();
+  }
+})();
+
+function accepterCookies() {
+  localStorage.setItem('ips-consent', 'accepted');
+  document.getElementById('consent-banner').style.display = 'none';
+  enableGTM();
+  // Fire GTM consent event
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'consent_accepted' });
+}
+
+function refuserCookies() {
+  localStorage.setItem('ips-consent', 'refused');
+  document.getElementById('consent-banner').style.display = 'none';
+  // GTM restera inactif
+}
+
+function enableGTM() {
+  // Signal GTM que le consentement est donné
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'consent': 'update',
+    'analytics_storage': 'granted',
+    'ad_storage': 'granted'
+  });
+}
+</script>
+<!-- ═══ FIN CONSENT BANNER ═══ -->
+
 </body></html>
