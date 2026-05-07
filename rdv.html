@@ -14,6 +14,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prise de rendez-vous | Clinique Santé IPS</title>
 <meta name="robots" content="noindex">
+<script>
+// Si quelqu'un arrive sur rdv.html sans paramètres UTM (ex. via Google)
+// → rediriger vers contact.html
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var hasUTM = params.get('utm_source') || params.get('utm_medium');
+  var hasSource = params.toString().length > 0;
+  // Si aucun paramètre → c'est un accès direct ou Google → contact
+  if (!hasSource) {
+    window.location.replace('contact.html');
+  }
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
