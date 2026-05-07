@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /rdv.html
+
+Sitemap: https://www.cliniquesanteips.com/sitemap.xml
