@@ -13,16 +13,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMUEyNzQ0Ii8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMyLDMyKSI+CjxwYXRoIGQ9Ik0wIDAgQzAtMTQtMTQtMjAtMjEtMTUgQy0yOC0xMC0yOCAwLTIxIDUgQy0xNCAxMCAwIDQgMC04IiBzdHJva2U9IiMzREJGQTAiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0wLTggQzAtMjIgMTQtMjggMjEtMjMgQzI4LTE4IDI4LTggMjEtMyBDMTQgMiAwLTQgMC0xNCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjAiIGN5PSItNCIgcj0iNyIgZmlsbD0iI0ZGNkI2QiIvPgo8L2c+Cjwvc3ZnPg==">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prise de rendez-vous | Clinique Santé IPS</title>
-<meta name="robots" content="noindex">
+<meta name="robots" content="index, follow">
 <script>
-// Si quelqu'un arrive sur rdv.html sans paramètres UTM (ex. via Google)
-// → rediriger vers contact.html
+// Accès direct sans UTM (Google, URL tapée) → contact immédiatement
 (function() {
   var params = new URLSearchParams(window.location.search);
-  var hasUTM = params.get('utm_source') || params.get('utm_medium');
-  var hasSource = params.toString().length > 0;
-  // Si aucun paramètre → c'est un accès direct ou Google → contact
-  if (!hasSource) {
+  if (!params.toString()) {
     window.location.replace('contact.html');
   }
 })();
@@ -298,7 +294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 // ─── CONFIGURATION ───────────────────────────────────────────────
-const CLICSANTE_URL = 'https://clients3.clicsante.ca/65142/take-appt';
+const CONTACT_URL = 'contact.html';
 const REDIRECT_DELAY = 3; // secondes
 // ─────────────────────────────────────────────────────────────────
 
@@ -330,7 +326,7 @@ function buildDestURL() {
 
   // For Clic Santé, we can't append params to their URL
   // but we track the event on our side before redirecting
-  return CLICSANTE_URL;
+  return CONTACT_URL;
 }
 
 // Track conversion event in GA4
@@ -343,7 +339,7 @@ function trackConversion() {
   if (typeof gtag !== 'undefined') {
     gtag('event', 'rdv_redirect', {
       event_category: 'conversion',
-      event_label: 'clicsante_redirect',
+      event_label: 'contact_redirect',
       utm_source: source,
       utm_medium: medium,
       utm_campaign: campaign,
@@ -369,7 +365,7 @@ function trackConversion() {
 }
 
 function doRedirect() {
-  window.location.href = buildDestURL();
+  window.location.href = 'contact.html';
 }
 
 // Show source badge if UTM source present
