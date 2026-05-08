@@ -294,7 +294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 // ─── CONFIGURATION ───────────────────────────────────────────────
-const CONTACT_URL = 'contact.html';
+const CLICSANTE_URL = 'https://clients3.clicsante.ca/65142/take-appt';
 const REDIRECT_DELAY = 3; // secondes
 // ─────────────────────────────────────────────────────────────────
 
@@ -326,7 +326,7 @@ function buildDestURL() {
 
   // For Clic Santé, we can't append params to their URL
   // but we track the event on our side before redirecting
-  return CONTACT_URL;
+  return CLICSANTE_URL;
 }
 
 // Track conversion event in GA4
@@ -365,7 +365,7 @@ function trackConversion() {
 }
 
 function doRedirect() {
-  window.location.href = 'contact.html';
+  window.location.href = CLICSANTE_URL;
 }
 
 // Show source badge if UTM source present
