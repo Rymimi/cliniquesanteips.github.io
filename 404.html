@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page introuvable | Clinique Santé IPS</title>
+<script>
+// Redirection automatique des anciennes URLs Wix vers les nouvelles pages GitHub
+(function() {
+  var path = window.location.pathname.toLowerCase();
+  var destination = '/'; // Par défaut → accueil
+
+  // Anciennes URLs Wix → nouvelles pages GitHub
+  var redirects = {
+    '/nous-contacter':     '/contact.html',
+    '/contact':            '/contact.html',
+    '/la-clinique':        '/index.html#clinique',
+    '/nos-services':       '/index.html#services',
+    '/nos-services-1':     '/index.html#services',
+    '/l-equipe':           '/equipe.html',
+    '/equipe':             '/equipe.html',
+    '/tarifs':             '/tarifs.html',
+    '/faq':                '/index.html#faq',
+    '/fonctionnement':     '/index.html#fonctionnement',
+    '/politique-de-confidentialite': '/confidentialite.html',
+    '/confidentialite':    '/confidentialite.html',
+    '/prendre-rendez-vous': '/rdv.html',
+    '/rendez-vous':        '/rdv.html',
+    '/rdv':                '/rdv.html',
+  };
+
+  // Chercher une correspondance
+  for (var old in redirects) {
+    if (path === old || path.indexOf(old) === 0) {
+      destination = redirects[old];
+      break;
+    }
+  }
+
+  // Rediriger
+  window.location.replace(destination);
+})();
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: #F8F5F0; color: #1A2744; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.card { background: #fff; border-radius: 16px; padding: 3rem 2.5rem; max-width: 480px; width: 100%; text-align: center; }
+.logo { font-size: 2rem; color: #3DBFA0; margin-bottom: 1rem; }
+h1 { font-size: 1.4rem; font-weight: 400; color: #1A2744; margin-bottom: 0.75rem; }
+p { font-size: 0.9rem; color: #6B7A99; line-height: 1.65; margin-bottom: 1.5rem; }
+a { display: inline-block; background: #3DBFA0; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 4px; font-size: 0.88rem; font-weight: 600; }
+a:hover { background: #2da88b; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">∞</div>
+  <h1>Redirection en cours…</h1>
+  <p>Cette page a été déplacée. Vous allez être redirigé automatiquement vers la bonne page.</p>
+  <a href="/">Retour à l'accueil</a>
+</div>
+</body>
+</html>
