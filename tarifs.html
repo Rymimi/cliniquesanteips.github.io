@@ -1,412 +1,593 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
-<!-- End Google Tag Manager -->
-<meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMUEyNzQ0Ii8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMyLDMyKSI+CjxwYXRoIGQ9Ik0wIDAgQzAtMTQtMTQtMjAtMjEtMTUgQy0yOC0xMC0yOCAwLTIxIDUgQy0xNCAxMCAwIDQgMC04IiBzdHJva2U9IiMzREJGQTAiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0wLTggQzAtMjIgMTQtMjggMjEtMjMgQzI4LTE4IDI4LTggMjEtMyBDMTQgMiAwLTQgMC0xNCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjAiIGN5PSItNCIgcj0iNyIgZmlsbD0iI0ZGNkI2QiIvPgo8L2c+Cjwvc3ZnPg==">
-<link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMUEyNzQ0Ii8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMyLDMyKSI+CjxwYXRoIGQ9Ik0wIDAgQzAtMTQtMTQtMjAtMjEtMTUgQy0yOC0xMC0yOCAwLTIxIDUgQy0xNCAxMCAwIDQgMC04IiBzdHJva2U9IiMzREJGQTAiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0wLTggQzAtMjIgMTQtMjggMjEtMjMgQzI4LTE4IDI4LTggMjEtMyBDMTQgMiAwLTQgMC0xNCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjAiIGN5PSItNCIgcj0iNyIgZmlsbD0iI0ZGNkI2QiIvPgo8L2c+Cjwvc3ZnPg==">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarifs | Pricing — Clinique Santé IPS</title>
-<meta name="description" content="Tarifs des consultations en santé mentale avec nos IPS. Évaluations psychiatriques, TDAH, TSA, suivi, coaching — partout au Québec en virtuel.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --mint: #3DBFA0; --mint-light: #E8F7F4; --mint-mid: #9ADDD0;
-    --warm: #F8F5F0; --navy: #1A2744; --text: #1A2744; --muted: #6B7A99;
-    --white: #FFFFFF; --border: rgba(26,39,68,0.1); --coral: #FF6B6B;
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
-  }
-  body { font-family: var(--font-body); color: var(--text); background: var(--warm); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,243,238,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .nav-logo { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--navy); text-decoration: none; }
-  .nav-logo span { color: var(--mint); }
-  .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
-  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.85rem; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--navy); }
-  .nav-cta { background: var(--coral); color: var(--white) !important; padding: 9px 20px; border-radius: 2px; font-size: 0.82rem !important; font-weight: 500 !important; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tarifs des consultations en santé mentale avec nos IPS. TDAH, TSA, anxiété, dépression — partout au Québec en virtuel. Aucuns frais cachés." />
+  <title>Tarifs | Clinique Santé IPS</title>
 
-  .hero { padding: 120px 5% 5rem; background: var(--navy); position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: -20%; right: -5%; width: 40%; height: 140%; background: rgba(107,143,113,0.06); border-radius: 50%; pointer-events: none; }
-  .hero-inner { max-width: 680px; }
-  .eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint-mid); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
-  .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--mint); }
-  .hero h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1.25rem; }
-  .hero h1 em { font-style: italic; color: var(--mint-mid); }
-  .hero p { font-size: 1rem; color: var(--mint-mid); opacity: 0.75; font-weight: 300; max-width: 500px; line-height: 1.75; }
-  .insurance-note { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(61,191,160,0.15); border: 1px solid rgba(196,213,198,0.3); border-radius: 4px; padding: 0.6rem 1rem; margin-top: 1.5rem; font-size: 0.82rem; color: var(--mint-mid); font-weight: 300; }
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
 
-  .content { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  .category-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
-  .category-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1A2744; background: #fff; font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
 
-  .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; margin-bottom: 4rem; }
-  .price-card { background: var(--white); padding: 2rem; transition: background 0.2s; }
-  .price-card:hover { background: var(--mint-light); }
-  .price-card.featured { background: var(--navy); }
-  .price-card.featured:hover { background: var(--navy-light, #2D3F6B); }
-  .price-duration { font-size: 0.75rem; color: var(--muted); font-weight: 300; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
-  .price-card.featured .price-duration { color: var(--mint-mid); opacity: 0.6; }
-  .price-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3; }
-  .price-card.featured .price-title { color: var(--white); }
-  .price-desc { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 1.5rem; min-height: 52px; }
-  .price-card.featured .price-desc { color: var(--mint-mid); opacity: 0.7; }
-  .price-amount { display: flex; align-items: baseline; gap: 0.3rem; }
-  .price-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: var(--navy); }
-  .price-card.featured .price-num { color: var(--mint-mid); }
-  .price-currency { font-size: 1rem; color: var(--muted); font-weight: 300; }
-  .price-card.featured .price-currency { color: var(--mint-mid); opacity: 0.6; }
-  .price-includes { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
-  .price-card.featured .price-includes { border-top-color: rgba(196,213,198,0.15); }
-  .price-includes-title { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
-  .price-card.featured .price-includes-title { color: var(--mint-mid); opacity: 0.5; }
-  .include-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.82rem; color: var(--muted); font-weight: 300; margin-bottom: 0.35rem; line-height: 1.5; }
-  .price-card.featured .include-item { color: var(--mint-mid); opacity: 0.75; }
-  .include-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--mint); flex-shrink: 0; margin-top: 6px; }
-  .price-card.featured .include-dot { background: var(--mint-mid); }
-  .no-ref { display: inline-block; font-size: 0.72rem; background: var(--mint-light); color: var(--mint); border: 1px solid var(--mint-mid); border-radius: 2px; padding: 2px 8px; margin-top: 0.75rem; }
-  .price-card.featured .no-ref { background: rgba(61,191,160,0.15); color: var(--mint-mid); border-color: rgba(196,213,198,0.3); }
+    :root {
+      --mint: #3DBFA0;
+      --mint-dark: #2da88a;
+      --navy: #1A2744;
+      --coral: #FF6B6B;
+      --cream: #F8F5F0;
+      --gray-light: #f4f4f2;
+      --gray-border: rgba(26,39,68,0.12);
+      --gray-text: #6b7280;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Plus Jakarta Sans', sans-serif;
+      --r-sm: 8px; --r-md: 12px; --r-lg: 16px;
+    }
 
-  .policy-section { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; margin-top: 1rem; }
-  .policy-section h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; color: var(--navy); margin-bottom: 1.5rem; }
-  .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  .policy-item h4 { font-size: 0.85rem; font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
-  .policy-item p { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.65; }
-  .policy-item p a { color: var(--mint); }
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 40px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    /* logo via img tag */
+    .logo-text { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .logo-text span { color: var(--mint); }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 13.5px; color: var(--gray-text); font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--mint); }
+    .btn-nav { background: var(--navy); color: white !important; padding: 9px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .btn-nav:hover { background: var(--mint) !important; }
 
-  .cta-strip { background: var(--navy); border-radius: 12px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; }
-  .cta-strip p { font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; color: var(--white); }
-  .cta-strip p em { font-style: italic; color: var(--mint-mid); }
-  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--mint); color: var(--white); text-decoration: none; padding: 12px 24px; border-radius: 2px; font-size: 0.88rem; font-weight: 500; transition: background 0.2s; }
-  .btn-primary:hover { background: #2D9E84; }
+    /* PAGE HEADER */
+    .page-header {
+      background: var(--navy); padding: 64px 40px 56px; text-align: center;
+    }
+    .page-header .label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mint); margin-bottom: 14px; }
+    .page-header h1 { font-family: var(--serif); font-size: 40px; font-weight: 300; color: white; line-height: 1.2; margin-bottom: 14px; }
+    .page-header h1 em { font-style: italic; color: var(--mint); }
+    .page-header p { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 520px; margin: 0 auto 24px; line-height: 1.65; }
+    .header-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .header-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px; padding: 6px 14px;
+      font-size: 12.5px; color: rgba(255,255,255,0.85); font-weight: 500;
+    }
+    .hb-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); flex-shrink: 0; }
 
-  footer { background: #0F1D2E; padding: 2rem 5%; text-align: center; margin-top: 0; }
-  footer p { font-size: 0.8rem; color: var(--muted); opacity: 0.5; font-weight: 300; }
-  footer a { color: var(--mint-mid); text-decoration: none; }
-  @media(max-width:700px) { .policy-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    /* MAIN LAYOUT */
+    .main { max-width: 860px; margin: 0 auto; padding: 56px 40px 80px; }
 
-.lang-toggle{display:flex;align-items:center;background:#E8F7F4;border:1px solid #9ADDD0;border-radius:20px;overflow:hidden;height:30px;}
-.lang-btn{padding:0 12px;font-size:.75rem;font-weight:500;letter-spacing:.06em;border:none;background:transparent;color:#6B7A99;cursor:pointer;height:100%;transition:background .2s,color .2s;font-family:'Plus Jakarta Sans',sans-serif;}
-.lang-btn.active{background:#3DBFA0;color:#fff;border-radius:20px;}
-.fr-inline,.en-inline{display:none;}
-body.fr .fr-inline{display:inline;}
-body.en .en-inline{display:inline;}
-.fr-block,.en-block{display:none;}
-body.fr .fr-block{display:block;}
-body.en .en-block{display:block;}
+    /* SECTION TITLES */
+    .block { margin-bottom: 56px; }
+    .block-title {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--mint);
+      margin-bottom: 20px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .block-title-num {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--mint); color: white;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
 
-  /* Card alignment & clickability */
-  a.price-card { text-decoration: none; display: flex; flex-direction: column; cursor: pointer; }
-  a.price-card .price-title { color: var(--navy); }
-  a.price-card.featured .price-title { color: var(--white); }
-  .price-desc { flex: 1; }
-  .card-rdv-btn { margin-top: auto; padding-top: 1rem; font-size: 0.82rem; font-weight: 600; color: var(--mint); letter-spacing: 0.03em; }
-  a.price-card:hover .card-rdv-btn { color: var(--mint-dark); }
-  .featured-rdv { color: var(--mint-mid) !important; }
-  a.price-card.featured:hover .featured-rdv { color: var(--white) !important; }
-</style>
+    /* FORFAIT CARDS — spécialisés */
+    .forfaits { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .forfait-card {
+      border: 1px solid var(--gray-border); border-radius: var(--r-lg);
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: box-shadow 0.2s;
+    }
+    .forfait-card:hover { box-shadow: 0 4px 20px rgba(26,39,68,0.09); }
+    .forfait-top { padding: 22px 22px 16px; flex: 1; }
+    .forfait-category {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .cat-mint { color: var(--mint); }
+    .cat-coral { color: var(--coral); }
+    .forfait-name { font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--navy); line-height: 1.25; margin-bottom: 8px; }
+    .forfait-desc { font-size: 13px; color: var(--gray-text); line-height: 1.55; margin-bottom: 14px; }
+    .forfait-includes { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 4px; }
+    .forfait-includes li { font-size: 12.5px; color: var(--gray-text); display: flex; align-items: flex-start; gap: 8px; }
+    .forfait-includes li::before { content: "✓"; color: var(--mint); font-weight: 700; font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+    .forfait-note { font-size: 11px; color: var(--gray-text); margin-top: 10px; font-style: italic; }
+    .forfait-footer {
+      border-top: 1px solid var(--gray-border); padding: 14px 22px;
+      background: var(--gray-light);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .forfait-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--navy); line-height: 1; }
+    .forfait-price-label { font-size: 10px; color: var(--gray-text); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 2px; }
+    .btn-rdv {
+      display: inline-block; background: var(--mint); color: white;
+      padding: 10px 16px; border-radius: var(--r-sm);
+      font-size: 12.5px; font-weight: 600; white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .btn-rdv:hover { background: var(--mint-dark); }
+
+    /* FEATURED card (accent border) */
+    .forfait-card.featured { border-color: var(--mint); border-width: 1.5px; }
+    .forfait-featured-label {
+      background: var(--mint); color: white;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 5px 14px; text-align: center;
+    }
+
+    /* TABLE — consultations & suivis */
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table thead th {
+      text-align: left; padding: 10px 14px;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gray-text);
+      background: var(--gray-light); border-bottom: 1px solid var(--gray-border);
+    }
+    .price-table thead th:last-child { text-align: right; }
+    .price-table tbody tr { border-bottom: 1px solid var(--gray-border); transition: background 0.15s; }
+    .price-table tbody tr:last-child { border-bottom: none; }
+    .price-table tbody tr:hover { background: #fafafa; }
+    .price-table td { padding: 15px 14px; vertical-align: middle; }
+    .pt-badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px; margin-bottom: 4px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .pt-name { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+    .pt-desc { font-size: 12.5px; color: var(--gray-text); line-height: 1.45; }
+    .pt-duration {
+      font-size: 12px; color: var(--gray-text); white-space: nowrap;
+      padding: 0 14px; text-align: center;
+    }
+    .pt-price {
+      font-family: var(--serif); font-size: 22px; font-weight: 300;
+      color: var(--navy); text-align: right; white-space: nowrap;
+    }
+    .pt-link { display: flex; justify-content: flex-end; }
+    .pt-btn {
+      display: inline-block; font-size: 12px; color: var(--mint);
+      font-weight: 600; border: 1px solid var(--mint);
+      padding: 6px 12px; border-radius: 6px; transition: all 0.2s;
+      white-space: nowrap; margin-top: 4px;
+    }
+    .pt-btn:hover { background: var(--mint); color: white; }
+
+    /* ADMIN FEES */
+    .admin-table { width: 100%; border-collapse: collapse; }
+    .admin-table tr { border-bottom: 1px solid var(--gray-border); }
+    .admin-table tr:last-child { border-bottom: none; }
+    .admin-table td { padding: 14px; vertical-align: top; }
+    .admin-table td:first-child { font-size: 14px; font-weight: 600; color: var(--navy); width: 55%; }
+    .admin-table td:first-child p { font-size: 12.5px; font-weight: 400; color: var(--gray-text); margin-top: 3px; line-height: 1.45; }
+    .admin-table td:last-child { text-align: right; }
+    .admin-price { font-family: var(--serif); font-size: 20px; font-weight: 300; color: var(--navy); }
+    .admin-note { font-size: 11px; color: var(--gray-text); margin-top: 2px; }
+
+    /* POLITIQUE */
+    .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .policy-card { border: 1px solid var(--gray-border); border-radius: var(--r-md); padding: 18px 20px; }
+    .policy-icon { font-size: 18px; margin-bottom: 8px; }
+    .policy-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+    .policy-desc { font-size: 12.5px; color: var(--gray-text); line-height: 1.55; }
+    .policy-desc a { color: var(--mint); }
+
+    /* CTA FINALE */
+    .cta-block {
+      background: var(--navy); border-radius: var(--r-lg);
+      padding: 44px 40px; text-align: center; margin-top: 56px;
+    }
+    .cta-block h2 { font-family: var(--serif); font-size: 28px; font-weight: 300; color: white; margin-bottom: 10px; line-height: 1.3; }
+    .cta-block h2 em { font-style: italic; color: var(--mint); }
+    .cta-block p { color: rgba(255,255,255,0.7); font-size: 14px; margin-bottom: 24px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      display: inline-block; background: var(--mint); color: white;
+      padding: 13px 26px; border-radius: var(--r-sm);
+      font-size: 14px; font-weight: 600; transition: background 0.2s;
+    }
+    .btn-white:hover { background: var(--mint-dark); }
+    .btn-tel {
+      display: inline-block; background: transparent; color: rgba(255,255,255,0.85);
+      padding: 13px 26px; border-radius: var(--r-sm);
+      font-size: 14px; border: 1.5px solid rgba(255,255,255,0.3); transition: border-color 0.2s;
+    }
+    .btn-tel:hover { border-color: white; color: white; }
+
+    /* FOOTER */
+    .footer { padding: 40px 40px 24px; border-top: 1px solid var(--gray-border); display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+    .footer-brand { font-family: var(--serif); font-size: 16px; color: var(--navy); margin-bottom: 8px; }
+    .footer-brand span { color: var(--mint); }
+    .footer-desc { font-size: 12.5px; color: var(--gray-text); line-height: 1.6; margin-bottom: 10px; }
+    .footer-legal { font-size: 11px; color: var(--gray-text); }
+    .footer-col-title { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 12px; }
+    .footer-links { display: flex; flex-direction: column; gap: 7px; }
+    .footer-links a { font-size: 13px; color: var(--gray-text); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--mint); }
+    .footer-bottom { padding: 16px 40px; border-top: 1px solid var(--gray-border); display: flex; justify-content: space-between; font-size: 11.5px; color: var(--gray-text); flex-wrap: wrap; gap: 8px; }
+
+    /* COOKIE */
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--navy); color: white; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 13px; }
+    .cookie-banner p { color: rgba(255,255,255,0.82); max-width: 680px; line-height: 1.5; }
+    .cookie-banner a { color: var(--mint); text-decoration: underline; }
+    .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
+    .btn-accept { background: var(--mint); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: var(--sans); }
+    .btn-decline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.3); padding: 8px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer; font-family: var(--sans); }
+    .hidden { display: none !important; }
+
+    @media (max-width: 760px) {
+      .nav { padding: 14px 20px; }
+      .page-header { padding: 44px 20px 40px; }
+      .page-header h1 { font-size: 28px; }
+      .main { padding: 40px 20px 60px; }
+      .forfaits { grid-template-columns: 1fr; }
+      .policy-grid { grid-template-columns: 1fr; }
+      .footer { grid-template-columns: 1fr; gap: 20px; padding: 28px 20px; }
+      .footer-bottom { padding: 14px 20px; }
+      .price-table { font-size: 13px; }
+    }
+  </style>
 </head>
-<body class="fr">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<nav>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAV -->
+<nav class="nav">
   <a href="index.html" class="nav-logo">
-    <svg width="36" height="22" viewBox="0 0 72 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M36 22 C36 10 24 3 15 9 C6 15 6 28 15 34 C24 40 36 33 36 20" stroke="#3DBFA0" stroke-width="4.5" stroke-linecap="round"/>
-<path d="M36 20 C36 8 48 1 57 7 C66 13 66 26 57 32 C48 38 36 31 36 18" stroke="#1A2744" stroke-width="4.5" stroke-linecap="round"/>
-<circle cx="36" cy="21" r="6" fill="#FF6B6B"/>
-</svg> Clinique Santé <span style="color:var(--mint);font-style:italic;">IPS</span></a>
-  <div style="display:flex;align-items:center;gap:1.5rem;">
-    <ul class="nav-links">
-      <li><a href="clinique-sante-ips.html#services"><span class="fr-inline">Services</span><span class="en-inline">Services</span></a></li>
-      <li><a href="equipe.html"><span class="fr-inline">Équipe</span><span class="en-inline">Team</span></a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://clients3.clicsante.ca/65142/take-appt" class="nav-cta" target="_blank"><span class="fr-inline">Prendre rendez-vous</span><span class="en-inline">Book appointment</span></a></li>
-    </ul>
-    <div class="lang-toggle">
-      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
-    </div>
+    <img src="logo.png" alt="Clinique Santé IPS" class="nav-logo-img" />
+    <div class="logo-text">Clinique Santé <span>IPS</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#services">Services</a>
+    <a href="tarifs.html" class="active">Tarifs</a>
+    <a href="equipe.html">Équipe</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn-nav" href="rdv.html?utm_source=tarifs&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
   </div>
 </nav>
 
-<div class="hero">
-  <div class="hero-inner">
-    <div class="eyebrow"><span class="fr-inline">Tarification transparente</span><span class="en-inline">Transparent pricing</span></div>
-    <h1><span class="fr-inline">Des soins de qualité,<br><em>des tarifs clairs</em></span><span class="en-inline">Quality care,<br><em>clear pricing</em></span></h1>
-    <p><span class="fr-inline">Aucuns frais cachés, aucune référence médicale requise. Vous recevez un reçu détaillé pour vos assurances après chaque consultation.</span><span class="en-inline">No hidden fees, no medical referral required. You receive a detailed receipt for your insurance after each consultation.</span></p>
-    <div class="insurance-note">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-      <span class="fr-inline">Remboursable par plusieurs assurances privées · Reçu fourni</span>
-      <span class="en-inline">Reimbursable by many private insurers · Receipt provided</span>
-    </div>
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="label">Tarification transparente</div>
+  <h1>Des soins de qualité,<br><em>des tarifs clairs</em></h1>
+  <p>Aucuns frais cachés, aucune référence médicale requise. Vous recevez un reçu détaillé pour vos assurances après chaque consultation.</p>
+  <div class="header-badges">
+    <div class="header-badge"><div class="hb-dot"></div>Remboursable par plusieurs assurances privées</div>
+    <div class="header-badge"><div class="hb-dot"></div>Reçu officiel fourni</div>
+    <div class="header-badge"><div class="hb-dot"></div>Aucune référence médicale requise</div>
+    <div class="header-badge"><div class="hb-dot"></div>Aucun frais d'ouverture de dossier</div>
   </div>
 </div>
 
-<div class="content">
+<!-- MAIN -->
+<main class="main">
 
-  <div class="category-label"><span class="fr-inline">Consultations et suivis</span><span class="en-inline">Consultations &amp; follow-ups</span></div>
-  <div class="price-grid">
-    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=eval_sm&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Virtuel · 60 minutes</span><span class="en-inline">Virtual · 60 minutes</span></div>
-      <div class="price-title"><span class="fr-inline">Évaluation en santé mentale</span><span class="en-inline">Mental health assessment</span></div>
-      <div class="price-desc"><span class="fr-inline">Évaluation psychiatrique complète par une IPS spécialisée. Troubles de l'humeur, anxiété, psychose, PTSD, addiction.</span><span class="en-inline">Complete psychiatric assessment by a specialized NP. Mood disorders, anxiety, psychosis, PTSD, addiction.</span></div>
-      <div class="price-amount"><span class="price-num">400</span><span class="price-currency">$</span></div>
-      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-      <span class="no-ref"><span class="fr-inline">Aucune référence requise</span><span class="en-inline">No referral required</span></span>
-    </a>
-    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=eval_pedo&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Virtuel · 60 minutes</span><span class="en-inline">Virtual · 60 minutes</span></div>
-      <div class="price-title"><span class="fr-inline">Évaluation pédopsychiatrique</span><span class="en-inline">Child psychiatry assessment</span></div>
-      <div class="price-desc"><span class="fr-inline">Évaluation spécialisée pour enfants et adolescents. Approche adaptée à l'âge et au développement.</span><span class="en-inline">Specialized assessment for children and adolescents. Age-appropriate approach.</span></div>
-      <div class="price-amount"><span class="price-num">500</span><span class="price-currency">$</span></div>
-      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-      <span class="no-ref"><span class="fr-inline">Aucune référence requise</span><span class="en-inline">No referral required</span></span>
-    </a>
-    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=suivi_ips&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Virtuel · 30 minutes</span><span class="en-inline">Virtual · 30 minutes</span></div>
-      <div class="price-title"><span class="fr-inline">Suivi avec IPS</span><span class="en-inline">Follow-up with NP</span></div>
-      <div class="price-desc"><span class="fr-inline">Suivi clinique, ajustement de médication, renouvellement d'ordonnance, bilan de santé mentale.</span><span class="en-inline">Clinical follow-up, medication adjustment, prescription renewal, mental health check-in.</span></div>
-      <div class="price-amount"><span class="price-num">150</span><span class="price-currency">$</span></div>
-      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-    </a>
-    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=suivi_court&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Virtuel ou téléphone · 15 min</span><span class="en-inline">Virtual or phone · 15 min</span></div>
-      <div class="price-title"><span class="fr-inline">Suivi avec IPS (court)</span><span class="en-inline">Short NP follow-up</span></div>
-      <div class="price-desc"><span class="fr-inline">Suivi rapide, questions ponctuelles, ajustements mineurs de traitement.</span><span class="en-inline">Quick follow-up, specific questions, minor treatment adjustments.</span></div>
-      <div class="price-amount"><span class="price-num">100</span><span class="price-currency">$</span></div>
-      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-    </a>
-    <a class="price-card" href="rdv.html?utm_source=tarifs&utm_medium=suivi_inf&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Téléphone · 15 minutes</span><span class="en-inline">Phone · 15 minutes</span></div>
-      <div class="price-title"><span class="fr-inline">Suivi avec infirmière</span><span class="en-inline">Nurse follow-up</span></div>
-      <div class="price-desc"><span class="fr-inline">Suivi infirmier téléphonique pour questions de médication, effets secondaires ou orientation.</span><span class="en-inline">Phone nursing follow-up for medication questions, side effects, or guidance.</span></div>
-      <div class="price-amount"><span class="price-num">40</span><span class="price-currency">$</span></div>
-      <div class="card-rdv-btn"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-    </a>
-  </div>
-
-  <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Évaluations spécialisées</span><span class="en-inline">Specialized assessments</span></div>
-  <div class="price-grid">
-    <a class="price-card featured" href="rdv.html?utm_source=tarifs&utm_medium=tdah_adulte&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Virtuel · Forfait complet</span><span class="en-inline">Virtual · Complete package</span></div>
-      <div class="price-title"><span class="fr-inline">Évaluation TDAH — Adulte</span><span class="en-inline">ADHD Assessment — Adult</span></div>
-      <div class="price-desc"><span class="fr-inline">Évaluation diagnostique complète du trouble déficitaire de l'attention avec ou sans hyperactivité.</span><span class="en-inline">Complete diagnostic assessment for ADHD with or without hyperactivity.</span></div>
-      <div class="price-amount"><span class="price-num">950</span><span class="price-currency">$</span></div>
-      <div class="price-includes">
-        <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance d'évaluation (60 min)</span><span class="en-inline">1 assessment session (60 min)</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance de suivi (30 min)</span><span class="en-inline">1 follow-up session (30 min)</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Analyse des tests associés</span><span class="en-inline">Associated test analysis</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Confirmation du diagnostic</span><span class="en-inline">Diagnosis confirmation</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Prescription si indiquée</span><span class="en-inline">Prescription if indicated</span></div>
-      </div>
-      <div class="card-rdv-btn featured-rdv"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-      <span class="no-ref"><span class="fr-inline">Aucune référence médicale requise</span><span class="en-inline">No medical referral required</span></span>
-    </a>
-    <a class="price-card featured" href="rdv.html?utm_source=tarifs&utm_medium=tdah_enfant&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Virtuel · Forfait complet</span><span class="en-inline">Virtual · Complete package</span></div>
-      <div class="price-title"><span class="fr-inline">Évaluation TDAH — Enfant &amp; Ado</span><span class="en-inline">ADHD Assessment — Child &amp; Teen</span></div>
-      <div class="price-desc"><span class="fr-inline">Évaluation spécialisée TDAH pour enfants et adolescents avec approche pédiatrique.</span><span class="en-inline">Specialized ADHD assessment for children and adolescents with pediatric approach.</span></div>
-      <div class="price-amount"><span class="price-num">950</span><span class="price-currency">$</span></div>
-      <div class="price-includes">
-        <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance d'évaluation (60 min)</span><span class="en-inline">1 assessment session (60 min)</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance de suivi (30 min)</span><span class="en-inline">1 follow-up session (30 min)</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Analyse des tests associés</span><span class="en-inline">Associated test analysis</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Confirmation du diagnostic</span><span class="en-inline">Diagnosis confirmation</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Prescription si indiquée</span><span class="en-inline">Prescription if indicated</span></div>
-      </div>
-      <div class="card-rdv-btn featured-rdv"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-      <span class="no-ref"><span class="fr-inline">Aucune référence médicale requise</span><span class="en-inline">No medical referral required</span></span>
-    </a>
-    <a class="price-card featured" href="rdv.html?utm_source=tarifs&utm_medium=tsa_adulte&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Virtuel · Forfait complet</span><span class="en-inline">Virtual · Complete package</span></div>
-      <div class="price-title"><span class="fr-inline">Évaluation TSA — Adulte</span><span class="en-inline">ASD Assessment — Adult</span></div>
-      <div class="price-desc"><span class="fr-inline">Évaluation diagnostique du trouble du spectre de l'autisme chez l'adulte.</span><span class="en-inline">Diagnostic assessment of autism spectrum disorder in adults.</span></div>
-      <div class="price-amount"><span class="price-num">1 350</span><span class="price-currency">$</span></div>
-      <div class="price-includes">
-        <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance d'évaluation (60 min)</span><span class="en-inline">1 assessment session (60 min)</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">2 séances de suivi (30 min)</span><span class="en-inline">2 follow-up sessions (30 min)</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Analyse des tests associés</span><span class="en-inline">Associated test analysis</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Confirmation du diagnostic</span><span class="en-inline">Diagnosis confirmation</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Prescription si indiquée</span><span class="en-inline">Prescription if indicated</span></div>
-      </div>
-      <div class="card-rdv-btn featured-rdv"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-      <span class="no-ref"><span class="fr-inline">* Séances supplémentaires possibles</span><span class="en-inline">* Additional sessions may be required</span></span>
-    </a>
-    <a class="price-card featured" href="rdv.html?utm_source=tarifs&utm_medium=tsa_enfant&utm_campaign=prise_rdv">
-      <div class="price-duration"><span class="fr-inline">Virtuel · Forfait complet</span><span class="en-inline">Virtual · Complete package</span></div>
-      <div class="price-title"><span class="fr-inline">Évaluation TSA — Enfant &amp; Ado</span><span class="en-inline">ASD Assessment — Child &amp; Teen</span></div>
-      <div class="price-desc"><span class="fr-inline">Évaluation diagnostique du trouble du spectre de l'autisme pour enfants et adolescents.</span><span class="en-inline">Diagnostic assessment of autism spectrum disorder for children and adolescents.</span></div>
-      <div class="price-amount"><span class="price-num">1 750</span><span class="price-currency">$</span></div>
-      <div class="price-includes">
-        <div class="price-includes-title"><span class="fr-inline">Le forfait comprend</span><span class="en-inline">Package includes</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">1 séance d'évaluation (60 min)</span><span class="en-inline">1 assessment session (60 min)</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">2 séances de suivi (30 min)</span><span class="en-inline">2 follow-up sessions (30 min)</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Analyse des tests associés</span><span class="en-inline">Associated test analysis</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Confirmation du diagnostic</span><span class="en-inline">Diagnosis confirmation</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">Prescription si indiquée</span><span class="en-inline">Prescription if indicated</span></div>
-      </div>
-      <div class="card-rdv-btn featured-rdv"><span class="fr-inline">Prendre rendez-vous →</span><span class="en-inline">Book appointment →</span></div>
-      <span class="no-ref"><span class="fr-inline">* Séances supplémentaires possibles</span><span class="en-inline">* Additional sessions may be required</span></span>
-    </a>
-  </div>
-
-  <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Frais administratifs</span><span class="en-inline">Administrative fees</span></div>
-  <div class="price-grid">
-    <div class="price-card">
-      <div class="price-duration"><span class="fr-inline">Document</span><span class="en-inline">Document</span></div>
-      <div class="price-title"><span class="fr-inline">Formulaires d'assurance</span><span class="en-inline">Insurance forms</span></div>
-      <div class="price-desc"><span class="fr-inline">Remplissage de formulaires d'assurance invalidité, SAAQ, CNESST ou autres.</span><span class="en-inline">Completion of disability insurance, SAAQ, CNESST or other forms.</span></div>
-      <div class="price-amount"><span class="price-num">80</span><span class="price-currency">$+</span></div>
-      <div class="price-includes">
-        <div class="price-includes-title"><span class="fr-inline">Note</span><span class="en-inline">Note</span></div>
-        <div class="include-item"><div class="include-dot"></div><span class="fr-inline">+20$ par tranche de 3 pages supplémentaires</span><span class="en-inline">+$20 per additional 3 pages</span></div>
-      </div>
+  <!-- ① FORFAITS SPÉCIALISÉS -->
+  <div class="block">
+    <div class="block-title">
+      <div class="block-title-num">1</div>
+      Forfaits spécialisés — Évaluations complètes
     </div>
-    <div class="price-card">
-      <div class="price-duration"><span class="fr-inline">Consultation requise</span><span class="en-inline">Consultation required</span></div>
-      <div class="price-title"><span class="fr-inline">Renouvellement de médication</span><span class="en-inline">Medication renewal</span></div>
-      <div class="price-desc"><span class="fr-inline">Tout renouvellement nécessite une rencontre de suivi de 15 min avec l'IPS.</span><span class="en-inline">Any renewal requires a 15-min follow-up with the NP.</span></div>
-      <div class="price-amount"><span class="price-num">100</span><span class="price-currency">$+</span></div>
+
+    <div class="forfaits">
+
+      <!-- TDAH Enfant/Ado -->
+      <div class="forfait-card featured">
+        <div class="forfait-featured-label">⭐ Spécialité principale</div>
+        <div class="forfait-top">
+          <div class="forfait-category cat-mint">TDAH · Enfant & Adolescent</div>
+          <div class="forfait-name">Évaluation TDAH<br>Enfant & Ado (6–17 ans)</div>
+          <div class="forfait-desc">Évaluation diagnostique complète avec approche pédiatrique. Confirmation du diagnostic et prescription si indiquée.</div>
+          <ul class="forfait-includes">
+            <li>1 séance d'évaluation (60 min)</li>
+            <li>1 séance de suivi (30 min)</li>
+            <li>Tests associés</li>
+            <li>Confirmation du diagnostic</li>
+            <li>Prescription si indiquée</li>
+          </ul>
+        </div>
+        <div class="forfait-footer">
+          <div>
+            <div class="forfait-price-label">Forfait complet</div>
+            <div class="forfait-price">950 $</div>
+          </div>
+          <a class="btn-rdv" href="rdv.html?utm_source=tarifs&utm_medium=tdah_enfant&utm_campaign=prise_rdv">Prendre mon 1er rendez-vous →</a>
+        </div>
+      </div>
+
+      <!-- TDAH Adulte -->
+      <div class="forfait-card featured">
+        <div class="forfait-featured-label">⭐ Spécialité principale</div>
+        <div class="forfait-top">
+          <div class="forfait-category cat-mint">TDAH · Adulte</div>
+          <div class="forfait-name">Évaluation TDAH<br>Adulte (18 ans +)</div>
+          <div class="forfait-desc">Évaluation diagnostique complète du trouble déficitaire de l'attention avec ou sans hyperactivité.</div>
+          <ul class="forfait-includes">
+            <li>1 séance d'évaluation (60 min)</li>
+            <li>1 séance de suivi (30 min)</li>
+            <li>Tests associés</li>
+            <li>Confirmation du diagnostic</li>
+            <li>Prescription si indiquée</li>
+          </ul>
+        </div>
+        <div class="forfait-footer">
+          <div>
+            <div class="forfait-price-label">Forfait complet</div>
+            <div class="forfait-price">950 $</div>
+          </div>
+          <a class="btn-rdv" href="rdv.html?utm_source=tarifs&utm_medium=tdah_adulte&utm_campaign=prise_rdv">Prendre mon 1er rendez-vous →</a>
+        </div>
+      </div>
+
+      <!-- TSA Enfant/Ado -->
+      <div class="forfait-card">
+        <div class="forfait-top">
+          <div class="forfait-category cat-coral">TSA · Adolescent (14–17 ans)</div>
+          <div class="forfait-name">Évaluation TSA<br>Adolescent</div>
+          <div class="forfait-desc">Évaluation diagnostique du trouble du spectre de l'autisme pour adolescents avec approche adaptée.</div>
+          <ul class="forfait-includes">
+            <li>1 séance d'évaluation (60 min)</li>
+            <li>2 séances de suivi (30 min chacune)</li>
+            <li>Tests associés</li>
+            <li>Confirmation du diagnostic</li>
+            <li>Prescription si indiquée</li>
+          </ul>
+          <div class="forfait-note">* Séances supplémentaires possibles selon le besoin clinique.</div>
+        </div>
+        <div class="forfait-footer">
+          <div>
+            <div class="forfait-price-label">Forfait complet</div>
+            <div class="forfait-price">1 750 $</div>
+          </div>
+          <a class="btn-rdv" href="rdv.html?utm_source=tarifs&utm_medium=tsa_enfant&utm_campaign=prise_rdv">Prendre mon 1er rendez-vous →</a>
+        </div>
+      </div>
+
+      <!-- TSA Adulte -->
+      <div class="forfait-card">
+        <div class="forfait-top">
+          <div class="forfait-category cat-coral">TSA · Adulte (18 ans +)</div>
+          <div class="forfait-name">Évaluation TSA<br>Adulte</div>
+          <div class="forfait-desc">Évaluation diagnostique du trouble du spectre de l'autisme chez l'adulte. Accompagnement personnalisé.</div>
+          <ul class="forfait-includes">
+            <li>1 séance d'évaluation (60 min)</li>
+            <li>2 séances de suivi (30 min chacune)</li>
+            <li>Tests associés</li>
+            <li>Confirmation du diagnostic</li>
+            <li>Prescription si indiquée</li>
+          </ul>
+          <div class="forfait-note">* Séances supplémentaires possibles selon le besoin clinique.</div>
+        </div>
+        <div class="forfait-footer">
+          <div>
+            <div class="forfait-price-label">Forfait complet</div>
+            <div class="forfait-price">1 350 $</div>
+          </div>
+          <a class="btn-rdv" href="rdv.html?utm_source=tarifs&utm_medium=tsa_adulte&utm_campaign=prise_rdv">Prendre mon 1er rendez-vous →</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="category-label" style="margin-top:4rem;"><span class="fr-inline">Politique de facturation</span><span class="en-inline">Billing policy</span></div>
-  <div class="policy-section">
-    <h3><span class="fr-inline">Conditions et modalités de paiement</span><span class="en-inline">Payment terms and conditions</span></h3>
+  <!-- ② CONSULTATIONS & SUIVIS -->
+  <div class="block">
+    <div class="block-title">
+      <div class="block-title-num">2</div>
+      Consultations & suivis
+    </div>
+
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th style="text-align:center;">Durée</th>
+          <th style="text-align:right;">Tarif</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="pt-badge" style="background:#e8ebf2;color:#1A2744;">Adulte</div>
+            <div class="pt-name">Évaluation en santé mentale</div>
+            <div class="pt-desc">Évaluation psychiatrique complète. Troubles de l'humeur, anxiété, psychose, PTSD, addiction.</div>
+          </td>
+          <td class="pt-duration">60 min<br>Virtuel</td>
+          <td class="pt-price">400 $</td>
+          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=eval_sm&utm_campaign=prise_rdv">Réserver →</a></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="pt-badge" style="background:#e0f7f1;color:#085041;">Enfant & Ado</div>
+            <div class="pt-name">Évaluation pédopsychiatrique</div>
+            <div class="pt-desc">Évaluation spécialisée pour enfants et adolescents. Approche adaptée à l'âge et au développement.</div>
+          </td>
+          <td class="pt-duration">60 min<br>Virtuel</td>
+          <td class="pt-price">500 $</td>
+          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=eval_pedo&utm_campaign=prise_rdv">Réserver →</a></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="pt-badge" style="background:#f4f4f2;color:#6b7280;">Suivi</div>
+            <div class="pt-name">Suivi avec IPS</div>
+            <div class="pt-desc">Suivi clinique, ajustement de médication, renouvellement d'ordonnance, bilan de santé mentale.</div>
+          </td>
+          <td class="pt-duration">30 min<br>Virtuel</td>
+          <td class="pt-price">150 $</td>
+          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_ips&utm_campaign=prise_rdv">Réserver →</a></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="pt-badge" style="background:#f4f4f2;color:#6b7280;">Suivi court</div>
+            <div class="pt-name">Suivi avec IPS (court)</div>
+            <div class="pt-desc">Suivi rapide, questions ponctuelles, ajustements mineurs de traitement.</div>
+          </td>
+          <td class="pt-duration">15 min<br>Virtuel / tél.</td>
+          <td class="pt-price">100 $</td>
+          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_court&utm_campaign=prise_rdv">Réserver →</a></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="pt-badge" style="background:#f4f4f2;color:#6b7280;">Infirmière</div>
+            <div class="pt-name">Suivi avec infirmière</div>
+            <div class="pt-desc">Suivi infirmier téléphonique pour questions de médication, effets secondaires ou orientation.</div>
+          </td>
+          <td class="pt-duration">15 min<br>Téléphone</td>
+          <td class="pt-price">40 $</td>
+          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_inf&utm_campaign=prise_rdv">Réserver →</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ③ FRAIS ADMINISTRATIFS -->
+  <div class="block">
+    <div class="block-title">
+      <div class="block-title-num">3</div>
+      Frais administratifs
+    </div>
+    <table class="admin-table">
+      <tr>
+        <td>
+          Formulaires d'assurance
+          <p>Remplissage de formulaires d'assurance invalidité, SAAQ, CNESST ou autres.</p>
+        </td>
+        <td>
+          <div class="admin-price">80 $+</div>
+          <div class="admin-note">+20 $ par tranche de 3 pages supplémentaires</div>
+          <div class="admin-note">Consultation requise</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Renouvellement de médication
+          <p>Tout renouvellement nécessite une rencontre de suivi de 15 min avec l'IPS.</p>
+        </td>
+        <td>
+          <div class="admin-price">100 $+</div>
+          <div class="admin-note">Suivi 15 min requis</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ④ POLITIQUE DE FACTURATION -->
+  <div class="block">
+    <div class="block-title">
+      <div class="block-title-num">4</div>
+      Politique de facturation
+    </div>
     <div class="policy-grid">
-      <div class="policy-item">
-        <h4><span class="fr-inline">Paiement</span><span class="en-inline">Payment</span></h4>
-        <p><span class="fr-inline">Paiement par carte de crédit ou débit via Square. Une facture vous est émise avant le rendez-vous. Aucuns frais d'ouverture de dossier.</span><span class="en-inline">Payment by credit or debit card via Square. An invoice is issued before your appointment. No file opening fees.</span></p>
+      <div class="policy-card">
+        <div class="policy-icon">💳</div>
+        <div class="policy-title">Paiement</div>
+        <div class="policy-desc">Carte de crédit ou débit via Square. Facture émise avant le rendez-vous. Aucuns frais d'ouverture de dossier.</div>
       </div>
-      <div class="policy-item">
-        <h4><span class="fr-inline">Annulations</span><span class="en-inline">Cancellations</span></h4>
-        <p><span class="fr-inline">Toute annulation à moins de 24h entraîne des frais de 50$. Tout rendez-vous manqué sans préavis est facturé au même tarif.</span><span class="en-inline">Any cancellation with less than 24h notice incurs a $50 fee. Missed appointments without notice are billed the same rate.</span></p>
+      <div class="policy-card">
+        <div class="policy-icon">📋</div>
+        <div class="policy-title">Reçus pour assurances</div>
+        <div class="policy-desc">Reçu officiel émis après chaque consultation. Plusieurs régimes privés couvrent les soins IPS.</div>
       </div>
-      <div class="policy-item">
-        <h4><span class="fr-inline">Reçus pour assurances</span><span class="en-inline">Insurance receipts</span></h4>
-        <p><span class="fr-inline">Un reçu officiel est émis après chaque consultation. Plusieurs régimes couvrent les soins IPS.</span><span class="en-inline">An official receipt is issued after each consultation. Many plans cover NP care.</span></p>
+      <div class="policy-card">
+        <div class="policy-icon">🗓️</div>
+        <div class="policy-title">Annulations</div>
+        <div class="policy-desc">Toute annulation à moins de 24h entraîne des frais de 50 $. Rendez-vous manqué sans préavis facturé au même tarif.</div>
       </div>
-      <div class="policy-item">
-        <h4><span class="fr-inline">Remboursements</span><span class="en-inline">Refunds</span></h4>
-        <p><span class="fr-inline">Aucun remboursement pour des services rendus. Contactez-nous à <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>.</span><span class="en-inline">No refunds for services rendered. Contact us at <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>.</span></p>
+      <div class="policy-card">
+        <div class="policy-icon">↩️</div>
+        <div class="policy-title">Remboursements</div>
+        <div class="policy-desc">Aucun remboursement pour des services rendus. Contactez-nous à <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>.</div>
       </div>
-      <div class="policy-item">
-        <h4><span class="fr-inline">Conduite professionnelle</span><span class="en-inline">Professional conduct</span></h4>
-        <p><span class="fr-inline">Tout comportement irrespectueux peut entraîner l'annulation des rendez-vous futurs.</span><span class="en-inline">Any disrespectful behaviour may result in cancellation of future appointments.</span></p>
+      <div class="policy-card">
+        <div class="policy-icon">🤝</div>
+        <div class="policy-title">Conduite professionnelle</div>
+        <div class="policy-desc">Tout comportement irrespectueux envers notre équipe peut entraîner l'annulation des rendez-vous futurs.</div>
       </div>
-      <div class="policy-item">
-        <h4><span class="fr-inline">Fin de suivi</span><span class="en-inline">End of care</span></h4>
-        <p><span class="fr-inline">En cas de fin de suivi, la décision est notifiée par écrit avec ressources de référence.</span><span class="en-inline">If care is terminated, the decision is communicated in writing with referral resources.</span></p>
+      <div class="policy-card">
+        <div class="policy-icon">📝</div>
+        <div class="policy-title">Fin de suivi</div>
+        <div class="policy-desc">En cas de fin de suivi, la décision est notifiée par écrit avec des ressources de référence appropriées.</div>
       </div>
     </div>
   </div>
 
-  <div class="cta-strip">
-    <p><span class="fr-inline">Prêt à prendre soin<br><em>de votre santé mentale?</em></span><span class="en-inline">Ready to take care of<br><em>your mental health?</em></span></p>
-    <a href="rdv.html?utm_source=tarifs&utm_medium=cta_bas&utm_campaign=prise_rdv" class="btn-coral">
-      <span class="fr-inline">Prendre rendez-vous</span><span class="en-inline">Book appointment</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+  <!-- CTA FINALE -->
+  <div class="cta-block">
+    <h2>Prêt à prendre soin<br><em>de votre santé mentale ?</em></h2>
+    <p>Accès rapide à une IPS spécialisée. Aucun déplacement, partout au Québec.</p>
+    <div class="cta-btns">
+      <a class="btn-white" href="rdv.html?utm_source=tarifs&utm_medium=cta_bas&utm_campaign=prise_rdv">Prendre rendez-vous →</a>
+      <a class="btn-tel" href="tel:4382550470">📞 (438) 255-0470</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <div class="footer-brand">Clinique Santé <span>IPS</span></div>
+    <p class="footer-desc">Clinique médicale virtuelle privée d'infirmières praticiennes spécialisées en santé mentale. Partout au Québec.</p>
+    <p class="footer-legal">Membres de l'OIIQ · Conformité Loi 25</p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigation</div>
+    <div class="footer-links">
+      <a href="index.html#services">Nos services</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="equipe.html">Équipe</a>
+      <a href="contact.html">Contact</a>
+      <a href="confidentialite.html">Confidentialité</a>
+    </div>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact</div>
+    <div class="footer-links">
+      <a href="tel:4382550470">(438) 255-0470</a>
+      <span style="color:var(--gray-text);">Fax : (438) 469-8183</span>
+      <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>
+      <a href="rdv.html?utm_source=tarifs&utm_medium=footer&utm_campaign=prise_rdv" style="color:var(--mint);font-weight:600;">Prendre rendez-vous →</a>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>©2025 Clinique Santé IPS · CORPS · MENTAL · SANTÉ</span>
+  <a href="confidentialite.html">Politique de confidentialité</a>
+</div>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookie-banner">
+  <p>Nous utilisons des témoins (cookies) pour analyser notre trafic et améliorer votre expérience. Conformément à la <strong>Loi 25</strong>, votre consentement est requis. <a href="confidentialite.html">Politique de confidentialité →</a></p>
+  <div class="cookie-btns">
+    <button class="btn-accept" onclick="acceptCookies()">Accepter</button>
+    <button class="btn-decline" onclick="declineCookies()">Refuser</button>
   </div>
 </div>
 
-<footer>
-  <p>©2025 Clinique Santé IPS · <a href="clinique-sante-ips.html">A
 <script>
-function setLang(lang){
-  document.body.className=lang;
-  document.documentElement.lang=lang;
-  document.getElementById('btn-fr').classList.toggle('active',lang==='fr');
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
-  localStorage.setItem('ips-lang',lang);
-}
-const saved=localStorage.getItem('ips-lang');
-if(saved==='en')setLang('en');
+  function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
+  function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
+  if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
 </script>
 
-<!-- ═══ CONSENT BANNER LOI 25 ═══ -->
-<div id="consent-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A2744;border-top:3px solid #3DBFA0;padding:1.25rem 5%;font-family:'Plus Jakarta Sans',sans-serif;">
-  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
-    <div style="flex:1;min-width:260px;">
-      <p style="font-size:0.82rem;color:rgba(255,255,255,0.85);line-height:1.65;margin:0;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2" style="vertical-align:middle;margin-right:6px;flex-shrink:0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span class="fr-inline">Nous utilisons des témoins (cookies) pour analyser notre trafic et améliorer votre expérience. Conformément à la <strong style="color:#3DBFA0;">Loi 25</strong>, votre consentement est requis.</span>
-        <span class="en-inline">We use cookies to analyze traffic and improve your experience. In accordance with <strong style="color:#3DBFA0;">Quebec Law 25</strong>, your consent is required.</span>
-        <a href="confidentialite.html" style="color:#9ADDD0;font-size:0.78rem;margin-left:6px;">
-          <span class="fr-inline">Politique de confidentialité →</span>
-          <span class="en-inline">Privacy policy →</span>
-        </a>
-      </p>
-    </div>
-    <div style="display:flex;gap:0.75rem;align-items:center;flex-shrink:0;flex-wrap:wrap;">
-      <button onclick="refuserCookies()" style="background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.6);padding:8px 18px;border-radius:2px;font-size:0.78rem;font-weight:500;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'">
-        <span class="fr-inline">Refuser</span>
-        <span class="en-inline">Decline</span>
-      </button>
-      <button onclick="accepterCookies()" style="background:#3DBFA0;border:none;color:#fff;padding:8px 22px;border-radius:2px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s;" onmouseover="this.style.background='#2da88b'" onmouseout="this.style.background='#3DBFA0'">
-        <span class="fr-inline">Accepter</span>
-        <span class="en-inline">Accept</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-// Consent banner — Loi 25 / GDPR
-(function() {
-  var consent = localStorage.getItem('ips-consent');
-  if (!consent) {
-    // Show banner after short delay
-    setTimeout(function() {
-      var banner = document.getElementById('consent-banner');
-      if (banner) banner.style.display = 'block';
-    }, 800);
-  } else if (consent === 'accepted') {
-    enableGTM();
-  }
-})();
-
-function accepterCookies() {
-  localStorage.setItem('ips-consent', 'accepted');
-  document.getElementById('consent-banner').style.display = 'none';
-  enableGTM();
-  // Fire GTM consent event
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'consent_accepted' });
-}
-
-function refuserCookies() {
-  localStorage.setItem('ips-consent', 'refused');
-  document.getElementById('consent-banner').style.display = 'none';
-  // GTM restera inactif
-}
-
-function enableGTM() {
-  // Signal GTM que le consentement est donné
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    'consent': 'update',
-    'analytics_storage': 'granted',
-    'ad_storage': 'granted'
-  });
-}
-</script>
-<!-- ═══ FIN CONSENT BANNER ═══ -->
-
-</body></html>
+</body>
+</html>
