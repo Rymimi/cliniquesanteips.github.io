@@ -390,7 +390,7 @@
     <div class="footer-col-title">Contact</div>
     <div class="footer-links">
       <a href="tel:4382550470">Téléphone : (438) 255-0470</a>
-      <span style="color:var(--gray-text);">Fax : (438) 469-8183</span>
+      <span style="color:var(--gray-text);font-size:13px;">Fax : (438) 469-8183</span>
       <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>
       <a href="rdv.html?utm_source=site_web&utm_medium=footer&utm_campaign=prise_rdv" style="color:var(--mint);font-weight:600;">Prendre rendez-vous →</a>
     </div>
@@ -447,6 +447,21 @@
   function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
   function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
   if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
+</script>
+<script>
+  function setLang(lang) {
+    localStorage.setItem('ips-lang', lang);
+    document.querySelectorAll('.nav-lang button').forEach(function(b){
+      b.classList.toggle('active', b.id === 'lang-' + lang);
+    });
+    if (lang === 'en') window.location.href = 'index-en.html';
+  }
+  var savedLang = localStorage.getItem('ips-lang');
+  if (savedLang) {
+    document.querySelectorAll('.nav-lang button').forEach(function(b){
+      b.classList.toggle('active', b.id === 'lang-' + savedLang);
+    });
+  }
 </script>
 </body>
 </html>
