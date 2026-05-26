@@ -9,13 +9,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-NZWV7332');</script>
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMUEyNzQ0Ii8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMyLDMyKSI+CjxwYXRoIGQ9Ik0wIDAgQzAtMTQtMTQtMjAtMjEtMTUgQy0yOC0xMC0yOCAwLTIxIDUgQy0xNCAxMCAwIDQgMC04IiBzdHJva2U9IiMzREJGQTAiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0wLTggQzAtMjIgMTQtMjggMjEtMjMgQzI4LTE4IDI4LTggMjEtMyBDMTQgMiAwLTQgMC0xNCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjAiIGN5PSItNCIgcj0iNyIgZmlsbD0iI0ZGNkI2QiIvPgo8L2c+Cjwvc3ZnPg==">
-<link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE0IiBmaWxsPSIjMUEyNzQ0Ii8+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMyLDMyKSI+CjxwYXRoIGQ9Ik0wIDAgQzAtMTQtMTQtMjAtMjEtMTUgQy0yOC0xMC0yOCAwLTIxIDUgQy0xNCAxMCAwIDQgMC04IiBzdHJva2U9IiMzREJGQTAiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0wLTggQzAtMjIgMTQtMjggMjEtMjMgQzI4LTE4IDI4LTggMjEtMyBDMTQgMiAwLTQgMC0xNCIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNSkiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CjxjaXJjbGUgY3g9IjAiIGN5PSItNCIgcj0iNyIgZmlsbD0iI0ZGNkI2QiIvPgo8L2c+Cjwvc3ZnPg==">
+<link rel="icon" type="image/png" href="favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prise de rendez-vous | Clinique Santé IPS</title>
 <meta name="robots" content="index, follow">
 <script>
-// Accès direct sans UTM (Google, URL tapée) → contact immédiatement
 (function() {
   var params = new URLSearchParams(window.location.search);
   if (!params.toString()) {
@@ -57,8 +55,15 @@ body {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 3rem;
+}
+.logo img {
+  height: 38px;
+  width: 38px;
+  max-height: 38px;
+  max-width: 38px;
+  object-fit: contain;
 }
 .logo span { color: var(--mint); font-style: italic; }
 
@@ -130,10 +135,7 @@ h1 em { font-style: italic; color: var(--mint); }
   color: var(--navy);
   margin: 0.5rem 0 1.5rem;
 }
-.countdown span {
-  color: var(--coral);
-  font-weight: 400;
-}
+.countdown span { color: var(--coral); font-weight: 400; }
 
 /* SOURCE BADGE */
 .source-badge {
@@ -152,20 +154,14 @@ h1 em { font-style: italic; color: var(--mint); }
   margin-bottom: 1.5rem;
 }
 
-/* MANUAL LINK */
 .manual-link {
   font-size: 0.82rem;
   color: var(--muted);
   font-weight: 300;
   margin-top: 1.5rem;
 }
-.manual-link a {
-  color: var(--mint);
-  text-decoration: underline;
-  cursor: pointer;
-}
+.manual-link a { color: var(--mint); text-decoration: underline; cursor: pointer; }
 
-/* SECURITY NOTE */
 .security {
   display: flex;
   align-items: center;
@@ -212,7 +208,6 @@ body.fr .fr-inline { display: inline; }
 body.en .en-inline { display: inline; }
 </style>
 
-<!-- Google Analytics 4 — remplace G-XXXXXXXXXX par ton vrai ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -222,10 +217,8 @@ body.en .en-inline { display: inline; }
 </script>
 </head>
 <body class="fr">
-<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- Lang toggle -->
 <div class="lang-toggle">
@@ -233,14 +226,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
 </div>
 
-<!-- Logo -->
-<a href="index.html" class="logo"><svg width="32" height="20" viewBox="0 0 72 44" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36 22 C36 10 24 3 15 9 C6 15 6 28 15 34 C24 40 36 33 36 20" stroke="#3DBFA0" stroke-width="4.5" stroke-linecap="round"/><path d="M36 20 C36 8 48 1 57 7 C66 13 66 26 57 32 C48 38 36 31 36 18" stroke="#1A2744" stroke-width="4.5" stroke-linecap="round"/><circle cx="36" cy="21" r="6" fill="#FF6B6B"/></svg> 
-  <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-    <circle cx="16" cy="16" r="14" fill="#E8F7F4" stroke="#3DBFA0" stroke-width="1"/>
-    <path d="M16 7 C11 7 7 11 7 16 C7 21 11 25 16 25" stroke="#3DBFA0" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-    <path d="M16 7 C21 7 25 11 25 16 C25 21 21 25 16 25" stroke="#1A2744" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-    <circle cx="16" cy="16" r="2.5" fill="#3DBFA0"/>
-  </svg>
+<!-- Logo — nouveau logo PNG -->
+<a href="index.html" class="logo">
+  <img src="logo.png" alt="Clinique Santé IPS" />
   Clinique Santé <span>IPS</span>
 </a>
 
@@ -293,82 +281,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <script>
-// ─── CONFIGURATION ───────────────────────────────────────────────
 const CLICSANTE_URL = 'https://clients3.clicsante.ca/65142/take-appt';
-const REDIRECT_DELAY = 3; // secondes
-// ─────────────────────────────────────────────────────────────────
+const REDIRECT_DELAY = 3;
 
-// Read UTM params from current URL
 function getParam(key) {
   return new URLSearchParams(window.location.search).get(key) || '';
 }
 
-// Map UTM source to human-readable label
 function getSourceLabel(source) {
   const labels = {
-    'google': 'Google',
-    'facebook': 'Facebook',
-    'instagram': 'Instagram',
-    'linkedin': 'LinkedIn',
-    'email': 'Infolettre',
-    'direct': 'Accès direct',
+    'google': 'Google', 'facebook': 'Facebook', 'instagram': 'Instagram',
+    'linkedin': 'LinkedIn', 'email': 'Infolettre', 'direct': 'Accès direct',
   };
   return labels[source?.toLowerCase()] || source || null;
 }
 
-// Build destination URL with UTM params passed through
-function buildDestURL() {
-  const params = new URLSearchParams(window.location.search);
-  // Add default source if none provided
-  if (!params.get('utm_source')) params.set('utm_source', 'site_web');
-  if (!params.get('utm_medium')) params.set('utm_medium', 'bouton_rdv');
-  if (!params.get('utm_campaign')) params.set('utm_campaign', 'prise_rdv');
+function doRedirect() { window.location.href = CLICSANTE_URL; }
 
-  // For Clic Santé, we can't append params to their URL
-  // but we track the event on our side before redirecting
-  return CLICSANTE_URL;
-}
-
-// Track conversion event in GA4
 function trackConversion() {
   const source = getParam('utm_source') || 'direct';
   const medium = getParam('utm_medium') || 'none';
   const campaign = getParam('utm_campaign') || 'none';
   const content = getParam('utm_content') || 'none';
-
   if (typeof gtag !== 'undefined') {
-    gtag('event', 'rdv_redirect', {
-      event_category: 'conversion',
-      event_label: 'contact_redirect',
-      utm_source: source,
-      utm_medium: medium,
-      utm_campaign: campaign,
-      utm_content: content,
-      value: 1
-    });
-    // Also fire as a GA4 conversion
-    gtag('event', 'generate_lead', {
-      currency: 'CAD',
-      utm_source: source,
-      utm_medium: medium,
-    });
+    gtag('event', 'rdv_redirect', { event_category: 'conversion', utm_source: source, utm_medium: medium, utm_campaign: campaign });
+    gtag('event', 'generate_lead', { currency: 'CAD', utm_source: source, utm_medium: medium });
   }
-
-  // Also store in localStorage for simple internal tracking
   const log = JSON.parse(localStorage.getItem('rdv_log') || '[]');
-  log.push({
-    ts: new Date().toISOString(),
-    source, medium, campaign, content,
-    page: document.referrer || 'direct'
-  });
-  localStorage.setItem('rdv_log', JSON.stringify(log.slice(-100))); // keep last 100
+  log.push({ ts: new Date().toISOString(), source, medium, campaign, content });
+  localStorage.setItem('rdv_log', JSON.stringify(log.slice(-100)));
 }
 
-function doRedirect() {
-  window.location.href = CLICSANTE_URL;
-}
-
-// Show source badge if UTM source present
 const utmSource = getParam('utm_source');
 const sourceLabel = getSourceLabel(utmSource);
 if (sourceLabel) {
@@ -377,10 +320,8 @@ if (sourceLabel) {
   badge.style.display = 'inline-flex';
 }
 
-// Track on page load
 trackConversion();
 
-// Countdown + progress bar
 let remaining = REDIRECT_DELAY;
 const countFr = document.getElementById('count-fr');
 const countEn = document.getElementById('count-en');
@@ -392,18 +333,12 @@ const timer = setInterval(() => {
   const elapsed = Date.now() - start;
   const pct = Math.min((elapsed / total) * 100, 100);
   progress.style.width = pct + '%';
-
   remaining = Math.max(0, Math.ceil((total - elapsed) / 1000));
   if (countFr) countFr.textContent = remaining;
   if (countEn) countEn.textContent = remaining;
-
-  if (elapsed >= total) {
-    clearInterval(timer);
-    doRedirect();
-  }
+  if (elapsed >= total) { clearInterval(timer); doRedirect(); }
 }, 50);
 
-// Lang toggle
 function setLang(lang) {
   document.body.className = lang;
   document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
@@ -414,12 +349,11 @@ const saved = localStorage.getItem('ips-lang');
 if (saved === 'en') setLang('en');
 </script>
 
-<!-- ═══ CONSENT BANNER LOI 25 ═══ -->
+<!-- CONSENT BANNER LOI 25 -->
 <div id="consent-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A2744;border-top:3px solid #3DBFA0;padding:1.25rem 5%;font-family:'Plus Jakarta Sans',sans-serif;">
   <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
     <div style="flex:1;min-width:260px;">
       <p style="font-size:0.82rem;color:rgba(255,255,255,0.85);line-height:1.65;margin:0;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3DBFA0" stroke-width="2" style="vertical-align:middle;margin-right:6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span class="fr-inline">Nous utilisons des témoins (cookies) pour analyser notre trafic. Conformément à la <strong style="color:#3DBFA0;">Loi 25</strong>, votre consentement est requis.</span>
         <span class="en-inline">We use cookies to analyze traffic. In accordance with <strong style="color:#3DBFA0;">Quebec Law 25</strong>, your consent is required.</span>
         <a href="confidentialite.html" style="color:#9ADDD0;font-size:0.78rem;margin-left:6px;"><span class="fr-inline">Politique de confidentialité →</span><span class="en-inline">Privacy policy →</span></a>
@@ -445,7 +379,6 @@ function accepterCookies(){localStorage.setItem('ips-consent','accepted');docume
 function refuserCookies(){localStorage.setItem('ips-consent','refused');document.getElementById('consent-banner').style.display='none';}
 function enableGTM(){window.dataLayer=window.dataLayer||[];window.dataLayer.push({'consent':'update','analytics_storage':'granted','ad_storage':'granted'});}
 </script>
-<!-- ═══ FIN CONSENT BANNER ═══ -->
 
 </body>
 </html>
