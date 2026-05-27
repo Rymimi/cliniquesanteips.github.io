@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="Notre équipe d'infirmières praticiennes spécialisées en santé mentale. Zahia Djedri, Simon Larivière, Lydia Laoudi — Clinique Santé IPS, Québec." />
   <title>Équipe | Clinique Santé IPS</title>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
@@ -231,14 +231,14 @@
       <span class="nav-lang-sep">|</span>
       <button id="lang-en" onclick="setLang('en')">EN</button>
     </div>
-    <a class="btn-nav" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
+    <a class="btn-nav" style="touch-action:manipulation;" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
   </div>
   <div class="nav-mobile-lang-bar">
-    <button class="active" id="lang-fr-top" onclick="setLang('fr')">FR</button>
+    <button class="active" id="lang-fr-top" onclick="setLang('fr')" style="touch-action:manipulation;">FR</button>
     <span style="color:var(--gray-border);margin:0 2px;">|</span>
-    <button id="lang-en-top" onclick="setLang('en')">EN</button>
+    <button id="lang-en-top" onclick="setLang('en')" style="touch-action:manipulation;">EN</button>
   </div>
-  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -423,6 +423,18 @@
   </div>
 </div>
 <script>
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    if (m) m.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+  }
+  function closeMenu() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    if (m) m.classList.remove('open');
+    if (h) h.classList.remove('open');
+  }
   function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
   function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
   if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');

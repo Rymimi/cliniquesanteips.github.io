@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="Clinique privée virtuelle en santé mentale. IPS spécialisées partout au Québec. TDAH, TSA, anxiété, dépression — sans liste d'attente." />
   <title>Clinique Santé IPS | Santé mentale virtuelle – Québec</title>
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
@@ -228,7 +228,7 @@
     .footer-bottom { padding: 20px 48px; border-top: 1px solid var(--gray-border); display: flex; justify-content: space-between; font-size: 12.5px; color: var(--gray-text); flex-wrap: wrap; gap: 8px; }
 
     /* ── COOKIE ── */
-    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--navy); color: white; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--navy); color: white; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
     .cookie-banner p { max-width: 700px; line-height: 1.5; color: rgba(255,255,255,0.85); }
     .cookie-banner a { color: var(--mint); text-decoration: underline; }
     .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
@@ -291,14 +291,14 @@
       <span class="nav-lang-sep">|</span>
       <button id="lang-en" onclick="setLang('en')">EN</button>
     </div>
-    <a class="btn-nav" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
+    <a class="btn-nav" style="touch-action:manipulation;" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
   </div>
   <div class="nav-mobile-lang-bar">
-    <button class="active" id="lang-fr-top" onclick="setLang('fr')">FR</button>
+    <button class="active" id="lang-fr-top" onclick="setLang('fr')" style="touch-action:manipulation;">FR</button>
     <span style="color:var(--gray-border);margin:0 2px;">|</span>
-    <button id="lang-en-top" onclick="setLang('en')">EN</button>
+    <button id="lang-en-top" onclick="setLang('en')" style="touch-action:manipulation;">EN</button>
   </div>
-  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -323,7 +323,7 @@
     <div class="hero-slide" style="background-image:url('images/hero-2-teleconsultation.jpg')"></div>
     <div class="hero-slide" style="background-image:url('images/hero-3-etudiante.jpg')"></div>
   </div>
-  <div class="hero-overlay"></div>
+  <div class="hero-overlay" style="pointer-events:none;"></div>
   <div class="hero-content">
     <div class="hero-badge">Clinique virtuelle spécialisée en santé mentale · Québec</div>
     <h1>Votre santé mentale, <em>prise en charge</em> par des experts</h1>
