@@ -22,19 +22,48 @@
       --serif: 'Fraunces', Georgia, serif;
     }
 
-    /* NAV */
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-border); display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; }
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 48px;
+    }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .logo-mark { position: relative; width: 30px; height: 30px; }
-    .logo-mark .c1 { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--mint); top: 0; left: 0; }
-    .logo-mark .c2 { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); bottom: 0; right: 0; opacity: 0.85; }
-    .logo-text { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .nav-logo img { height: 36px; width: 36px; object-fit: contain; flex-shrink: 0; }
+    .logo-text { font-size: 15px; font-weight: 700; color: var(--navy); white-space: nowrap; }
     .logo-text span { color: var(--mint); }
-    .nav-links { display: flex; align-items: center; gap: 24px; }
-    .nav-links a { font-size: 13.5px; color: var(--gray-text); font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--mint); }
-    .btn-nav { background: var(--navy); color: white !important; padding: 9px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
-    .btn-nav:hover { background: var(--mint) !important; }
+    .nav-links { display: flex; flex-direction: row; align-items: center; gap: 28px; flex-wrap: nowrap; }
+    .nav-links a { font-size: 14px; color: var(--gray-text); font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-lang { display: flex; gap: 2px; align-items: center; }
+    .nav-lang-sep { color: var(--gray-border); font-size: 18px; margin: 0 4px; }
+    .nav-lang button { background: none; border: none; font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--sans); color: var(--gray-text); padding: 2px 6px; transition: color 0.2s; }
+    .nav-lang button.active { color: var(--navy); }
+    .nav-lang button:hover { color: var(--navy); }
+    .btn-nav { background: var(--mint); color: white !important; padding: 10px 20px; border-radius: 8px; font-size: 13.5px; font-weight: 600; transition: background 0.2s; white-space: nowrap; }
+    .btn-nav:hover { background: var(--mint-dark) !important; }
+
+    /* HAMBURGER */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-mobile-lang-bar { display: none; align-items: center; gap: 2px; }
+    .nav-mobile-lang-bar button { background: none; border: none; font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--sans); color: var(--gray-text); padding: 2px 6px; }
+    .nav-mobile-lang-bar button.active { color: var(--navy); }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu { display: none; position: fixed; top: 65px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--gray-border); padding: 20px 24px 28px; flex-direction: column; z-index: 99; box-shadow: 0 8px 24px rgba(26,39,68,0.12); }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a { font-size: 17px; font-weight: 500; color: var(--navy); padding: 14px 0; border-bottom: 1px solid var(--gray-border); display: block; }
+    .nav-mobile-menu a:last-of-type { border-bottom: none; }
+    .nav-mobile-lang { display: flex; gap: 8px; margin-top: 16px; }
+    .nav-mobile-lang button { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--gray-border); background: transparent; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--sans); color: var(--gray-text); }
+    .nav-mobile-lang button.active { background: var(--mint); color: white; border-color: var(--mint); }
+    .nav-mobile-cta { display: block; margin-top: 16px; background: var(--mint); color: white !important; padding: 14px; border-radius: 8px; text-align: center; font-size: 15px; font-weight: 600; }
+
+
 
     /* PAGE HEADER */
     .page-header { background: var(--navy); padding: 64px 40px 56px; text-align: center; }
@@ -193,6 +222,24 @@
       .footer { grid-template-columns: 1fr; gap: 20px; padding: 28px 20px; }
       .footer-bottom { padding: 14px 20px; }
     }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .nav-mobile-lang-bar { display: flex !important; }
+    }
+
+    .nav-mobile-menu { display: none; position: fixed; top: 65px; left: 0; right: 0; background: white; border-bottom: 1px solid rgba(26,39,68,0.12); padding: 20px 24px 28px; flex-direction: column; z-index: 99; box-shadow: 0 8px 24px rgba(26,39,68,0.12); }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a { font-size: 17px; font-weight: 500; color: #1A2744; padding: 14px 0; border-bottom: 1px solid rgba(26,39,68,0.12); display: block; text-decoration: none; }
+    .nav-mobile-menu a:hover { color: #3DBFA0; }
+    .nav-mobile-lang { display: flex; gap: 8px; margin-top: 16px; }
+    .nav-mobile-lang button { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid rgba(26,39,68,0.12); background: transparent; font-size: 14px; font-weight: 600; cursor: pointer; color: #6b7280; }
+    .nav-mobile-lang button.active { background: #3DBFA0; color: white; border-color: #3DBFA0; }
+    .nav-mobile-cta { display: block; margin-top: 16px; background: #3DBFA0; color: white !important; padding: 14px; border-radius: 8px; text-align: center; font-size: 15px; font-weight: 600; text-decoration: none; }
+    .nav-mobile-lang-bar { display: none; align-items: center; gap: 2px; }
+    .nav-mobile-lang-bar button { background: none; border: none; font-size: 13px; font-weight: 700; cursor: pointer; color: #6b7280; padding: 2px 6px; }
+    .nav-mobile-lang-bar button.active { color: #1A2744; }
   </style>
 </head>
 <body>
@@ -200,19 +247,24 @@
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="Clinique Santé IPS" class="nav-logo-img" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
+    <img src="logo.png" alt="Clinique Santé IPS" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
     <div class="logo-text">Clinique Santé <span>IPS</span></div>
   </a>
   <div class="nav-links">
-    <a href="index.html#services">Services</a>
+    <a href="#services">Services</a>
     <a href="tarifs.html">Tarifs</a>
     <a href="equipe.html">Équipe</a>
-    <a href="contact.html" class="active">Contact</a>
+    <a href="contact.html">Contact</a>
+    <div class="nav-lang">
+      <button class="active" id="lang-fr" onclick="setLang('fr')">FR</button>
+      <span class="nav-lang-sep">|</span>
+      <button id="lang-en" onclick="setLang('en')">EN</button>
+    </div>
     <a class="btn-nav" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
   </div>
   <div class="nav-mobile-lang-bar">
     <button class="active" id="lang-fr-top" onclick="setLang('fr')">FR</button>
-    <span style="color:#ccc;margin:0 2px;">|</span>
+    <span style="color:var(--gray-border);margin:0 2px;">|</span>
     <button id="lang-en-top" onclick="setLang('en')">EN</button>
   </div>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -222,7 +274,7 @@
 
 <!-- Mobile menu -->
 <div class="nav-mobile-menu" id="mobile-menu">
-  <a href="index.html#services" onclick="closeMenu()">Services</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
   <a href="tarifs.html" onclick="closeMenu()">Tarifs</a>
   <a href="equipe.html" onclick="closeMenu()">Équipe</a>
   <a href="contact.html" onclick="closeMenu()">Contact</a>
@@ -470,11 +522,17 @@
   if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
 </script>
 <script>
-  function setLang(lang) {
+      function setLang(lang) {
     localStorage.setItem('ips-lang', lang);
-    document.querySelectorAll('.nav-lang button').forEach(function(b){
-      b.classList.toggle('active', b.id === 'lang-' + lang);
-    });
+    if (lang === 'en') {
+      window.location.href = 'contact-en.html';
+    } else {
+      window.location.href = 'contact.html';
+    }
+  } else {
+      window.location.href = 'contact.html';
+    }
+  });
     if (lang === 'en') window.location.href = 'index-en.html';
   }
   var savedLang = localStorage.getItem('ips-lang');

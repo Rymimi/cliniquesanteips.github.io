@@ -32,7 +32,7 @@
     .logo-text span { color: var(--mint); }
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a { font-size: 13.5px; color: var(--gray-text); font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--mint); }
+    .nav-links a:hover { color: var(--mint); }
     .btn-nav { background: var(--navy); color: white !important; padding: 9px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
     .btn-nav:hover { background: var(--mint) !important; }
 
@@ -170,6 +170,18 @@
       .footer { grid-template-columns: 1fr; gap: 20px; padding: 28px 20px; }
       .footer-bottom { padding: 14px 20px; }
     }
+
+    .nav-mobile-menu { display: none; position: fixed; top: 65px; left: 0; right: 0; background: white; border-bottom: 1px solid rgba(26,39,68,0.12); padding: 20px 24px 28px; flex-direction: column; z-index: 99; box-shadow: 0 8px 24px rgba(26,39,68,0.12); }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a { font-size: 17px; font-weight: 500; color: #1A2744; padding: 14px 0; border-bottom: 1px solid rgba(26,39,68,0.12); display: block; text-decoration: none; }
+    .nav-mobile-menu a:hover { color: #3DBFA0; }
+    .nav-mobile-lang { display: flex; gap: 8px; margin-top: 16px; }
+    .nav-mobile-lang button { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid rgba(26,39,68,0.12); background: transparent; font-size: 14px; font-weight: 600; cursor: pointer; color: #6b7280; }
+    .nav-mobile-lang button.active { background: #3DBFA0; color: white; border-color: #3DBFA0; }
+    .nav-mobile-cta { display: block; margin-top: 16px; background: #3DBFA0; color: white !important; padding: 14px; border-radius: 8px; text-align: center; font-size: 15px; font-weight: 600; text-decoration: none; }
+    .nav-mobile-lang-bar { display: none; align-items: center; gap: 2px; }
+    .nav-mobile-lang-bar button { background: none; border: none; font-size: 13px; font-weight: 700; cursor: pointer; color: #6b7280; padding: 2px 6px; }
+    .nav-mobile-lang-bar button.active { color: #1A2744; }
   </style>
 </head>
 <body>
@@ -177,19 +189,24 @@
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="Clinique Santé IPS" class="nav-logo-img" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
+    <img src="logo.png" alt="Clinique Santé IPS" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
     <div class="logo-text">Clinique Santé <span>IPS</span></div>
   </a>
   <div class="nav-links">
-    <a href="index-en.html#services">Services</a>
+    <a href="#services">Services</a>
     <a href="tarifs-en.html">Pricing</a>
-    <a href="equipe-en.html" class="active">Team</a>
+    <a href="equipe-en.html">Team</a>
     <a href="contact-en.html">Contact</a>
+    <div class="nav-lang">
+      <button id="lang-fr" onclick="setLang('fr')">FR</button>
+      <span class="nav-lang-sep">|</span>
+      <button class="active" id="lang-en" onclick="setLang('en')">EN</button>
+    </div>
     <a class="btn-nav" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Book an appointment</a>
   </div>
   <div class="nav-mobile-lang-bar">
     <button id="lang-fr-top" onclick="setLang('fr')">FR</button>
-    <span style="color:#ccc;margin:0 2px;">|</span>
+    <span style="color:var(--gray-border);margin:0 2px;">|</span>
     <button class="active" id="lang-en-top" onclick="setLang('en')">EN</button>
   </div>
   <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -199,7 +216,7 @@
 
 <!-- Mobile menu -->
 <div class="nav-mobile-menu" id="mobile-menu">
-  <a href="index-en.html#services" onclick="closeMenu()">Services</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
   <a href="tarifs-en.html" onclick="closeMenu()">Pricing</a>
   <a href="equipe-en.html" onclick="closeMenu()">Team</a>
   <a href="contact-en.html" onclick="closeMenu()">Contact</a>
@@ -382,11 +399,17 @@
   if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
 </script>
 <script>
-  function setLang(lang) {
+      function setLang(lang) {
     localStorage.setItem('ips-lang', lang);
-    document.querySelectorAll('.nav-lang button').forEach(function(b){
-      b.classList.toggle('active', b.id === 'lang-' + lang);
-    });
+    if (lang === 'en') {
+      window.location.href = 'equipe-en.html';
+    } else {
+      window.location.href = 'equipe.html';
+    }
+  } else {
+      window.location.href = 'equipe.html';
+    }
+  });
     if (lang === 'en') window.location.href = 'index-en.html';
   }
   var savedLang = localStorage.getItem('ips-lang');

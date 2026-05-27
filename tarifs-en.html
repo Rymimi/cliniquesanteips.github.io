@@ -48,7 +48,7 @@
     .logo-text span { color: var(--mint); }
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a { font-size: 13.5px; color: var(--gray-text); font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--mint); }
+    .nav-links a:hover { color: var(--mint); }
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -634,11 +634,17 @@
 <script>
   function toggleMenu() { var m=document.getElementById('mobile-menu'), h=document.getElementById('hamburger'); m.classList.toggle('open'); h.classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
-  function setLang(lang) {
+      function setLang(lang) {
     localStorage.setItem('ips-lang', lang);
-    ['lang-fr','lang-en','lang-fr-top','lang-en-top','mobile-lang-fr','mobile-lang-en'].forEach(function(id){
-      var el=document.getElementById(id); if(el) el.classList.toggle('active', id.includes(lang==='fr'?'fr':'en'));
-    });
+    if (lang === 'en') {
+      window.location.href = 'tarifs-en.html';
+    } else {
+      window.location.href = 'tarifs.html';
+    }
+  } else {
+      window.location.href = 'tarifs.html';
+    }
+  });
   }
   function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
   function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
@@ -646,11 +652,17 @@
 </script>
 
 <script>
-  function setLang(lang) {
+      function setLang(lang) {
     localStorage.setItem('ips-lang', lang);
-    document.querySelectorAll('.nav-lang button').forEach(function(b){
-      b.classList.toggle('active', b.id === 'lang-' + lang);
-    });
+    if (lang === 'en') {
+      window.location.href = 'tarifs-en.html';
+    } else {
+      window.location.href = 'tarifs.html';
+    }
+  } else {
+      window.location.href = 'tarifs.html';
+    }
+  });
     if (lang === 'en') window.location.href = 'index-en.html';
   }
   var savedLang = localStorage.getItem('ips-lang');

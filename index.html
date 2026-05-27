@@ -790,19 +790,16 @@
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
 
   /* Lang */
-  function setLang(lang) {
+    function setLang(lang) {
     localStorage.setItem('ips-lang', lang);
-    // Desktop lang buttons
-    document.querySelectorAll('.nav-lang button').forEach(function(b){ b.classList.toggle('active', b.id==='lang-'+lang); });
-    // Mobile menu lang buttons
-    var mfr=document.getElementById('mobile-lang-fr'), men=document.getElementById('mobile-lang-en');
-    if(mfr) mfr.classList.toggle('active', lang==='fr');
-    if(men) men.classList.toggle('active', lang==='en');
-    // Mobile top bar lang buttons
-    var tfr=document.getElementById('lang-fr-top'), ten=document.getElementById('lang-en-top');
-    if(tfr) tfr.classList.toggle('active', lang==='fr');
-    if(ten) ten.classList.toggle('active', lang==='en');
-    // English version coming soon
+    if (lang === 'en') {
+      window.location.href = 'index-en.html';
+    } else {
+      window.location.href = 'index.html';
+    }
+  } else {
+      window.location.href = 'index.html';
+    }
   }
   var sl=localStorage.getItem('ips-lang');
   if(sl) document.querySelectorAll('.nav-lang button').forEach(function(b){ b.classList.toggle('active', b.id==='lang-'+sl); });

@@ -790,10 +790,14 @@
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
 
   /* Lang */
-  function setLang(lang) {
+    function setLang(lang) {
     localStorage.setItem('ips-lang', lang);
-    // Desktop lang buttons
-    document.querySelectorAll('.nav-lang button').forEach(function(b){ b.classList.toggle('active', b.id==='lang-'+lang); });
+    if (lang === 'en') {
+      window.location.href = 'index-en.html';
+    } else {
+      window.location.href = 'index.html';
+    }
+  });
     // Mobile menu lang buttons
     var mfr=document.getElementById('mobile-lang-fr'), men=document.getElementById('mobile-lang-en');
     if(mfr) mfr.classList.toggle('active', lang==='fr');
