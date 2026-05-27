@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Our team d'infirmières praticiennes spécialisées en santé mentale. Zahia Djedri, Simon Larivière, Lydia Laoudi — Clinique Santé IPS, Québec." />
+  <title>Team | Clinique Santé IPS</title>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1A2744; background: #fff; font-size: 15px; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    :root {
+      --mint: #3DBFA0; --mint-dark: #2da88a; --navy: #1A2744;
+      --cream: #F8F5F0; --gray-light: #f4f4f2;
+      --gray-border: rgba(26,39,68,0.12); --gray-text: #6b7280;
+      --serif: 'Fraunces', Georgia, serif;
+    }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-border); display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .logo-mark { position: relative; width: 30px; height: 30px; }
+    .logo-mark .c1 { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--mint); top: 0; left: 0; }
+    .logo-mark .c2 { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); bottom: 0; right: 0; opacity: 0.85; }
+    .logo-text { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .logo-text span { color: var(--mint); }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-links a { font-size: 13.5px; color: var(--gray-text); font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--mint); }
+    .btn-nav { background: var(--navy); color: white !important; padding: 9px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .btn-nav:hover { background: var(--mint) !important; }
+
+    /* PAGE HEADER */
+    .page-header { background: var(--navy); padding: 64px 40px 56px; text-align: center; }
+    .page-header .label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mint); margin-bottom: 14px; }
+    .page-header h1 { font-family: var(--serif); font-size: 40px; font-weight: 300; color: white; line-height: 1.2; margin-bottom: 14px; }
+    .page-header h1 em { font-style: italic; color: var(--mint); }
+    .page-header p { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 540px; margin: 0 auto; line-height: 1.65; }
+
+    /* MAIN */
+    .main { max-width: 900px; margin: 0 auto; padding: 64px 40px 80px; }
+
+    /* TEAM CARDS */
+    .team-list { display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px; }
+
+    .team-card {
+      border: 1px solid var(--gray-border); border-radius: 16px;
+      overflow: hidden; display: grid;
+      grid-template-columns: 220px 1fr;
+      transition: box-shadow 0.2s;
+    }
+    .team-card:hover { box-shadow: 0 4px 24px rgba(26,39,68,0.08); }
+
+    .team-card-left {
+      background: var(--navy);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-start;
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .team-avatar-wrap { margin-bottom: 16px; }
+    .team-avatar-img {
+      width: 96px; height: 96px; border-radius: 50%;
+      object-fit: cover; border: 3px solid var(--mint);
+    }
+    .team-avatar-initials {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: rgba(61,191,160,0.15); border: 3px solid var(--mint);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; font-weight: 600; color: var(--mint);
+      font-family: var(--serif);
+    }
+    .team-role-badge {
+      display: inline-block; background: var(--mint); color: white;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .team-name-left { font-family: var(--serif); font-size: 17px; font-weight: 400; color: white; line-height: 1.2; }
+
+    .team-card-right { padding: 28px 32px; display: flex; flex-direction: column; }
+    .team-card-title { font-size: 12px; font-weight: 600; color: var(--mint); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+    .team-card-bio { font-size: 14px; color: var(--gray-text); line-height: 1.7; margin-bottom: 20px; flex: 1; }
+
+    .team-credentials { display: flex; flex-direction: column; gap: 7px; }
+    .credential {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13px; color: var(--navy);
+    }
+    .credential::before { content: "✓"; color: var(--mint); font-weight: 700; font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+
+    .team-langs {
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--gray-border);
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: var(--gray-text);
+    }
+    .lang-label { font-weight: 600; color: var(--navy); }
+
+    /* VALEURS */
+    .values-section { margin-bottom: 56px; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mint); margin-bottom: 10px; }
+    .section-title { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+    .section-title em { font-style: italic; color: var(--mint); }
+    .section-sub { font-size: 14.5px; color: var(--gray-text); margin-bottom: 28px; line-height: 1.65; }
+
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .value-card { border: 1px solid var(--gray-border); border-radius: 12px; padding: 22px 20px; }
+    .value-icon { font-size: 22px; margin-bottom: 10px; }
+    .value-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .value-desc { font-size: 13px; color: var(--gray-text); line-height: 1.6; }
+
+    /* RECRUTEMENT */
+    .recrutement {
+      background: var(--cream); border: 1px solid var(--gray-border);
+      border-radius: 16px; padding: 40px;
+      display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+      margin-bottom: 0;
+    }
+    .recrutement h3 { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+    .recrutement h3 em { font-style: italic; color: var(--mint); }
+    .recrutement p { font-size: 14px; color: var(--gray-text); line-height: 1.65; margin-bottom: 16px; }
+    .recrutement-perks { display: flex; flex-direction: column; gap: 6px; }
+    .recrutement-perk { font-size: 13px; color: var(--navy); display: flex; align-items: flex-start; gap: 8px; }
+    .recrutement-perk::before { content: "✓"; color: var(--mint); font-weight: 700; flex-shrink: 0; }
+    .btn-recrutement { display: inline-block; background: var(--navy); color: white; padding: 13px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; white-space: nowrap; transition: background 0.2s; }
+    .btn-recrutement:hover { background: var(--mint); }
+
+    /* FOOTER */
+    .footer { padding: 40px 40px 24px; border-top: 1px solid var(--gray-border); display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+    .footer-brand { font-family: var(--serif); font-size: 16px; color: var(--navy); margin-bottom: 8px; }
+    .footer-brand span { color: var(--mint); }
+    .footer-desc { font-size: 12.5px; color: var(--gray-text); line-height: 1.6; margin-bottom: 10px; }
+    .footer-legal { font-size: 11px; color: var(--gray-text); }
+    .footer-col-title { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); margin-bottom: 12px; }
+    .footer-links { display: flex; flex-direction: column; gap: 7px; }
+    .footer-links a { font-size: 13px; color: var(--gray-text); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--mint); }
+    .footer-bottom { padding: 16px 40px; border-top: 1px solid var(--gray-border); display: flex; justify-content: space-between; font-size: 11.5px; color: var(--gray-text); flex-wrap: wrap; gap: 8px; }
+
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--navy); color: white; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 13px; }
+    .cookie-banner p { color: rgba(255,255,255,0.82); max-width: 680px; line-height: 1.5; }
+    .cookie-banner a { color: var(--mint); text-decoration: underline; }
+    .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
+    .btn-accept { background: var(--mint); color: white; border: none; padding: 8px 16px; border-radius: 6px; font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .btn-decline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.3); padding: 8px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hidden { display: none !important; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .nav-mobile-lang-bar { display: flex !important; }
+    }
+    @media (max-width: 760px) {
+      .nav { padding: 14px 20px; }
+      .page-header { padding: 44px 20px 40px; }
+      .page-header h1 { font-size: 28px; }
+      .main { padding: 40px 20px 60px; }
+      .team-card { grid-template-columns: 1fr; }
+      .team-card-left { flex-direction: row; gap: 16px; padding: 20px; text-align: left; justify-content: flex-start; }
+      .team-avatar-wrap { margin-bottom: 0; flex-shrink: 0; }
+      .values-grid { grid-template-columns: 1fr; }
+      .recrutement { grid-template-columns: 1fr; }
+      .footer { grid-template-columns: 1fr; gap: 20px; padding: 28px 20px; }
+      .footer-bottom { padding: 14px 20px; }
+    }
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Clinique Santé IPS" class="nav-logo-img" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
+    <div class="logo-text">Clinique Santé <span>IPS</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="index-en.html#services">Services</a>
+    <a href="tarifs-en.html">Pricing</a>
+    <a href="equipe-en.html" class="active">Team</a>
+    <a href="contact-en.html">Contact</a>
+    <a class="btn-nav" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Book an appointment</a>
+  </div>
+  <div class="nav-mobile-lang-bar">
+    <button id="lang-fr-top" onclick="setLang('fr')">FR</button>
+    <span style="color:#ccc;margin:0 2px;">|</span>
+    <button class="active" id="lang-en-top" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="index-en.html#services" onclick="closeMenu()">Services</a>
+  <a href="tarifs-en.html" onclick="closeMenu()">Pricing</a>
+  <a href="equipe-en.html" onclick="closeMenu()">Team</a>
+  <a href="contact-en.html" onclick="closeMenu()">Contact</a>
+  <div class="nav-mobile-lang">
+    <button id="mobile-lang-fr" onclick="setLang('fr')">FR</button>
+    <button class="active" id="mobile-lang-en" onclick="setLang('en')">EN</button>
+  </div>
+  <a class="nav-mobile-cta" href="rdv.html?utm_source=site_web&utm_medium=nav_mobile&utm_campaign=prise_rdv">Book an appointment →</a>
+</div>
+
+<div class="page-header">
+  <div class="label">Our team</div>
+  <h1>Experts <em>at your service</em></h1>
+  <p>Our team multidisciplinaire allie expertise clinique avancée et approche humaine pour vous offrir des soins de santé mentale complets et accessibles, partout au Québec.</p>
+</div>
+
+<main class="main">
+
+  <!-- ÉQUIPE -->
+  <div class="team-list">
+
+    <!-- Zahia Djedri -->
+    <div class="team-card">
+      <div class="team-card-left">
+        <div class="team-avatar-wrap">
+          <img class="team-avatar-img"
+            src="https://static.wixstatic.com/media/111a41_a80b72aca3c84cc9a62b1afc6f0d3184~mv2.png/v1/crop/x_0,y_36,w_293,h_312/fill/w_200,h_200,al_c,lg_1,q_85,enc_avif,quality_auto/Sans%20titre.png"
+            alt="Zahia Djedri" />
+        </div>
+        <div class="team-role-badge">Fondatrice · IPSSM</div>
+        <div class="team-name-left">Zahia Djedri</div>
+      </div>
+      <div class="team-card-right">
+        <div class="team-card-title">Nurse practitioner specialized in mental health</div>
+        <p class="team-card-bio">Founder of Clinique Santé IPS, Zahia combines a master's degree in nursing with a clear vision: making psychiatric care accessible to all Quebecers. Her human and inclusive approach places each patient at the heart of her practice — without judgment, without endless waitlists.</p>
+        <div class="team-credentials">
+          <div class="credential">Master's degree in nursing — mental health</div>
+          <div class="credential">Diagnostic and prescription authority (OIIQ)</div>
+          <div class="credential">Specialization: ADHD, anxiety disorders, depression</div>
+        </div>
+        <div class="team-langs">
+          <span class="lang-label">Langues :</span>
+          <span>Français · Anglais · Arabe</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simon Larivière -->
+    <div class="team-card">
+      <div class="team-card-left">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar-initials">SL</div>
+        </div>
+        <div class="team-role-badge">IPSSM</div>
+        <div class="team-name-left">Simon Larivière</div>
+      </div>
+      <div class="team-card-right">
+        <div class="team-card-title">Nurse practitioner specialized in mental health</div>
+        <p class="team-card-bio">Simon combines rigorous clinical expertise with a recovery-centered approach. His background within the McGill University network gives him solid experience in assessing and following complex mental health disorders, with a constant commitment to patient dignity and autonomy.</p>
+        <div class="team-credentials">
+          <div class="credential">Master's degree in nursing — mental health</div>
+          <div class="credential">Réseau Université McGill</div>
+          <div class="credential">Diagnostic and prescription authority (OIIQ)</div>
+          <div class="credential">Specialization: complex assessment, recovery</div>
+        </div>
+        <div class="team-langs">
+          <span class="lang-label">Langues :</span>
+          <span>Français · Anglais</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lydia Laoudi -->
+    <div class="team-card">
+      <div class="team-card-left">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar-initials">LL</div>
+        </div>
+        <div class="team-role-badge">Infirmière adjointe</div>
+        <div class="team-name-left">Lydia Laoudi</div>
+      </div>
+      <div class="team-card-right">
+        <div class="team-card-title">Medical assistant nurse</div>
+        <p class="team-card-bio">Lydia has solid expertise in primary care and significant experience within the health network (CIUSSS). Recognized for her human and rigorous approach, she is the first point of contact for our patients — ensuring attentive follow-up and seamless care coordination.</p>
+        <div class="team-credentials">
+          <div class="credential">College diploma in nursing</div>
+          <div class="credential">CIUSSS experience — primary care</div>
+          <div class="credential">Patient follow-up and care coordination</div>
+        </div>
+        <div class="team-langs">
+          <span class="lang-label">Langues :</span>
+          <span>Français · Anglais · Arabe</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- VALEURS -->
+  <div class="values-section">
+    <div class="section-label">What guides us</div>
+    <h2 class="section-title">Our <em>commitment</em> to you</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🔒</div>
+        <div class="value-title">Absolute confidentiality</div>
+        <div class="value-desc">Professional secrecy, secure files, Law 25 compliance. Your information never leaves the clinic without your consent.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌎</div>
+        <div class="value-title">Inclusive care</div>
+        <div class="value-desc">Respect for values, beliefs and cultures. No discrimination. Every patient is welcomed as they are.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⚡</div>
+        <div class="value-title">Accessibility</div>
+        <div class="value-desc">Virtual across Quebec, reduced wait times, no medical referral required. Because access to care should not depend on your postal code.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECRUTEMENT -->
+  <div class="recrutement">
+    <div>
+      <h3>Are you a <em>mental health NP?</em></h3>
+      <p>Clinique Santé IPS is growing. We are looking for nurse practitioners who share our vision of accessible and human mental health care.</p>
+      <div class="recrutement-perks">
+        <div class="recrutement-perk">100% virtual practice — work from anywhere in Quebec</div>
+        <div class="recrutement-perk">Clinical infrastructure in place (Medesync, Square, Teams)</div>
+        <div class="recrutement-perk">Existing and growing patient base</div>
+        <div class="recrutement-perk">Clinical autonomy, collaborative support</div>
+      </div>
+    </div>
+    <a class="btn-recrutement" href="mailto:info@cliniquesanteips.com?subject=Candidature IPS">Contact us →</a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div>
+    <div class="footer-brand">Clinique Santé <span>IPS</span></div>
+    <p class="footer-desc">Virtual private medical clinic of nurse practitioners specialized in mental health. Across Quebec.</p>
+    <p class="footer-legal">OIIQ Members · Law 25 Compliant</p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigation</div>
+    <div class="footer-links">
+      <a href="index-en.html#services">Our services</a>
+      <a href="tarifs-en.html">Pricing</a>
+      <a href="equipe-en.html">Team</a>
+      <a href="contact-en.html">Contact</a>
+      <a href="confidentialite.html">Privacy</a>
+    </div>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact</div>
+    <div class="footer-links">
+      <a href="tel:4382550470" style="font-size:13px;">Phone: (438) 255-0470</a>
+      <span style="color:var(--gray-text);font-size:13px;">Fax: (438) 469-8183</span>
+      <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>
+      <a href="rdv.html?utm_source=site_web&utm_medium=footer&utm_campaign=prise_rdv" style="color:var(--mint);font-weight:600;">Book an appointment →</a>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>©2025 Clinique Santé IPS · BODY · MIND · HEALTH</span>
+  <a href="confidentialite.html">Privacy Policy</a>
+</div>
+
+<div class="cookie-banner" id="cookie-banner">
+  <p>We use cookies to analyze our traffic. In accordance with <strong>Law 25</strong>, your consent is required. <a href="confidentialite.html">Privacy Policy →</a></p>
+  <div class="cookie-btns">
+    <button class="btn-accept" onclick="acceptCookies()">Accept</button>
+    <button class="btn-decline" onclick="declineCookies()">Decline</button>
+  </div>
+</div>
+<script>
+  function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
+  function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
+  if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
+</script>
+<script>
+  function setLang(lang) {
+    localStorage.setItem('ips-lang', lang);
+    document.querySelectorAll('.nav-lang button').forEach(function(b){
+      b.classList.toggle('active', b.id === 'lang-' + lang);
+    });
+    if (lang === 'en') window.location.href = 'index-en.html';
+  }
+  var savedLang = localStorage.getItem('ips-lang');
+  if (savedLang) {
+    document.querySelectorAll('.nav-lang button').forEach(function(b){
+      b.classList.toggle('active', b.id === 'lang-' + savedLang);
+    });
+  }
+</script>
+</body>
+</html>
