@@ -283,17 +283,41 @@
 <!-- NAV -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="Clinique Santé IPS" class="nav-logo-img" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
+    <img src="logo.png" alt="Clinique Santé IPS" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
     <div class="logo-text">Clinique Santé <span>IPS</span></div>
   </a>
   <div class="nav-links">
-    <a href="index-en.html#services">Services</a>
-    <a href="tarifs-en.html" class="active">Pricing</a>
+    <a href="#services">Services</a>
+    <a href="tarifs-en.html">Pricing</a>
     <a href="equipe-en.html">Team</a>
     <a href="contact-en.html">Contact</a>
-    <a class="btn-nav" style="touch-action:manipulation;" href="rdv.html?utm_source=tarifs&utm_medium=nav&utm_campaign=prise_rdv">Book an appointment</a>
+    <div class="nav-lang">
+      <button id="lang-fr" onclick="setLang('fr')">FR</button>
+      <span class="nav-lang-sep">|</span>
+      <button class="active" id="lang-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a class="btn-nav" style="touch-action:manipulation;" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Book an appointment</a>
   </div>
+  <div class="nav-mobile-lang-bar">
+    <button id="lang-fr-top" onclick="setLang('fr')">FR</button>
+    <span style="color:var(--gray-border);margin:0 2px;">|</span>
+    <button class="active" id="lang-en-top" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="tarifs-en.html" onclick="closeMenu()">Pricing</a>
+  <a href="equipe-en.html" onclick="closeMenu()">Team</a>
+  <a href="contact-en.html" onclick="closeMenu()">Contact</a>
+  <div class="nav-mobile-lang">
+    <button id="mobile-lang-fr" onclick="setLang('fr')">FR</button>
+    <button class="active" id="mobile-lang-en" onclick="setLang('en')">EN</button>
+  </div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
@@ -324,15 +348,15 @@
       <div class="forfait-card featured">
         <div class="forfait-featured-label">⭐ Spécialité principale</div>
         <div class="forfait-top">
-          <div class="forfait-category cat-mint">TDAH · Enfant & Adolescent</div>
-          <div class="forfait-name">Évaluation TDAH<br>Enfant & Ado (6–17 ans)</div>
-          <div class="forfait-desc">Évaluation diagnostique complète avec approche pédiatrique. Confirmation du diagnostic et prescription si indiquée.</div>
+          <div class="forfait-category cat-mint">ADHD · Child & Teen</div>
+          <div class="forfait-name">ADHD Assessment<br>Child & Teen (6–17 years)</div>
+          <div class="forfait-desc">Complete diagnostic assessment with pediatric approach. Diagnosis confirmation and prescription if indicated.</div>
           <ul class="forfait-includes">
-            <li>1 séance d'évaluation (60 min)</li>
+            <li>1 assessment session (60 min)</li>
             <li>1 séance de suivi (30 min)</li>
-            <li>Tests associés</li>
-            <li>Confirmation du diagnostic</li>
-            <li>Prescription si indiquée</li>
+            <li>Associated tests</li>
+            <li>Diagnosis confirmation</li>
+            <li>Prescription if indicated</li>
           </ul>
         </div>
         <div class="forfait-footer">
@@ -344,19 +368,19 @@
         </div>
       </div>
 
-      <!-- TDAH Adulte -->
+      <!-- TDAH Adult -->
       <div class="forfait-card featured">
         <div class="forfait-featured-label">⭐ Spécialité principale</div>
         <div class="forfait-top">
           <div class="forfait-category cat-mint">ADHD · Adult</div>
-          <div class="forfait-name">Évaluation TDAH<br>Adulte (18 ans +)</div>
+          <div class="forfait-name">ADHD Assessment<br>Adult (18+ years)</div>
           <div class="forfait-desc">Évaluation diagnostique complète du trouble déficitaire de l'attention avec ou sans hyperactivité.</div>
           <ul class="forfait-includes">
-            <li>1 séance d'évaluation (60 min)</li>
+            <li>1 assessment session (60 min)</li>
             <li>1 séance de suivi (30 min)</li>
-            <li>Tests associés</li>
-            <li>Confirmation du diagnostic</li>
-            <li>Prescription si indiquée</li>
+            <li>Associated tests</li>
+            <li>Diagnosis confirmation</li>
+            <li>Prescription if indicated</li>
           </ul>
         </div>
         <div class="forfait-footer">
@@ -372,16 +396,16 @@
       <div class="forfait-card">
         <div class="forfait-top">
           <div class="forfait-category cat-coral">ASD · Teen (14–17 years)</div>
-          <div class="forfait-name">Évaluation TSA<br>Adolescent</div>
+          <div class="forfait-name">ASD Assessment<br>Teen</div>
           <div class="forfait-desc">Évaluation diagnostique du trouble du spectre de l'autisme pour adolescents avec approche adaptée.</div>
           <ul class="forfait-includes">
-            <li>1 séance d'évaluation (60 min)</li>
-            <li>2 séances de suivi (30 min chacune)</li>
-            <li>Tests associés</li>
-            <li>Confirmation du diagnostic</li>
-            <li>Prescription si indiquée</li>
+            <li>1 assessment session (60 min)</li>
+            <li>2 follow-up sessions (30 min each)</li>
+            <li>Associated tests</li>
+            <li>Diagnosis confirmation</li>
+            <li>Prescription if indicated</li>
           </ul>
-          <div class="forfait-note">* Séances supplémentaires possibles selon le besoin clinique.</div>
+          <div class="forfait-note">* Additional sessions possible based on clinical need.</div>
         </div>
         <div class="forfait-footer">
           <div>
@@ -392,20 +416,20 @@
         </div>
       </div>
 
-      <!-- TSA Adulte -->
+      <!-- TSA Adult -->
       <div class="forfait-card">
         <div class="forfait-top">
           <div class="forfait-category cat-coral">ASD · Adult (18+ years)</div>
-          <div class="forfait-name">Évaluation TSA<br>Adulte</div>
+          <div class="forfait-name">ASD Assessment<br>Adult</div>
           <div class="forfait-desc">Évaluation diagnostique du trouble du spectre de l'autisme chez l'adulte. Accompagnement personnalisé.</div>
           <ul class="forfait-includes">
-            <li>1 séance d'évaluation (60 min)</li>
-            <li>2 séances de suivi (30 min chacune)</li>
-            <li>Tests associés</li>
-            <li>Confirmation du diagnostic</li>
-            <li>Prescription si indiquée</li>
+            <li>1 assessment session (60 min)</li>
+            <li>2 follow-up sessions (30 min each)</li>
+            <li>Associated tests</li>
+            <li>Diagnosis confirmation</li>
+            <li>Prescription if indicated</li>
           </ul>
-          <div class="forfait-note">* Séances supplémentaires possibles selon le besoin clinique.</div>
+          <div class="forfait-note">* Additional sessions possible based on clinical need.</div>
         </div>
         <div class="forfait-footer">
           <div>
@@ -429,16 +453,16 @@
     <!-- 2 forfait cards -->
     <div class="forfaits" style="margin-bottom:24px;">
       <div class="forfait-card featured">
-        <div class="forfait-featured-label" style="background:#1A2744;">Adulte · 18 ans +</div>
+        <div class="forfait-featured-label" style="background:#1A2744;">Adult · 18 ans +</div>
         <div class="forfait-top">
-          <div class="forfait-category" style="color:#1A2744;">SANTÉ MENTALE · Adulte</div>
-          <div class="forfait-name">Évaluation psychiatrique<br>Adulte</div>
-          <div class="forfait-desc">Évaluation complète, diagnostic et prescription si indiquée. Troubles de l'humeur, anxiété, psychose, PTSD, addiction, insomnie.</div>
+          <div class="forfait-category" style="color:#1A2744;">MENTAL HEALTH · Adult</div>
+          <div class="forfait-name">Psychiatric assessment<br>Adult</div>
+          <div class="forfait-desc">Complete assessment, diagnosis and prescription if indicated. Mood disorders, anxiety, psychosis, PTSD, addiction, insomnia.</div>
           <ul class="forfait-includes">
-            <li>1 séance d'évaluation (60 min)</li>
-            <li>Diagnostic clinique complet</li>
-            <li>Prescription si indiquée</li>
-            <li>Reçu pour assurances</li>
+            <li>1 assessment session (60 min)</li>
+            <li>Complete clinical diagnosis</li>
+            <li>Prescription if indicated</li>
+            <li>Insurance receipt</li>
           </ul>
         </div>
         <div class="forfait-footer">
@@ -451,16 +475,16 @@
       </div>
 
       <div class="forfait-card featured">
-        <div class="forfait-featured-label" style="background:#3DBFA0;">Enfant & Adolescent</div>
+        <div class="forfait-featured-label" style="background:#3DBFA0;">Enfant & Teen</div>
         <div class="forfait-top">
-          <div class="forfait-category cat-mint">PÉDOPSYCHIATRIE · Enfant & Ado</div>
-          <div class="forfait-name">Évaluation pédopsychiatrique<br>Enfant & Adolescent</div>
+          <div class="forfait-category cat-mint">PEDOPSYCHIATRY · Child & Teen</div>
+          <div class="forfait-name">Pedopsychiatric assessment<br>Enfant & Teen</div>
           <div class="forfait-desc">Évaluation spécialisée avec approche pédiatrique adaptée à l'âge et au développement. Diagnostic et prescription si indiquée.</div>
           <ul class="forfait-includes">
-            <li>1 séance d'évaluation (60 min)</li>
-            <li>Approche pédiatrique spécialisée</li>
-            <li>Diagnostic clinique complet</li>
-            <li>Prescription si indiquée</li>
+            <li>1 assessment session (60 min)</li>
+            <li>Specialized pediatric approach</li>
+            <li>Complete clinical diagnosis</li>
+            <li>Prescription if indicated</li>
           </ul>
         </div>
         <div class="forfait-footer">
@@ -486,32 +510,32 @@
         <tr>
           <td>
             <div class="pt-badge" style="background:#f4f4f2;color:#6b7280;">Suivi</div>
-            <div class="pt-name">Suivi avec IPS</div>
-            <div class="pt-desc">Suivi clinique, ajustement de médication, renouvellement d'ordonnance, bilan de santé mentale.</div>
+            <div class="pt-name">Follow-up with NP</div>
+            <div class="pt-desc">Clinical follow-up, medication adjustment, prescription renewal, mental health assessment.</div>
           </td>
-          <td class="pt-duration">30 min<br>Virtuel</td>
+          <td class="pt-duration">30 min<br>Virtual</td>
           <td class="pt-price">150 $</td>
-          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_ips&utm_campaign=prise_rdv">Réserver →</a></td>
+          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_ips&utm_campaign=prise_rdv">Book →</a></td>
         </tr>
         <tr>
           <td>
             <div class="pt-badge" style="background:#f4f4f2;color:#6b7280;">Suivi court</div>
-            <div class="pt-name">Suivi avec IPS (court)</div>
-            <div class="pt-desc">Suivi rapide, questions ponctuelles, ajustements mineurs de traitement.</div>
+            <div class="pt-name">Follow-up with NP (court)</div>
+            <div class="pt-desc">Quick follow-up, specific questions, minor treatment adjustments.</div>
           </td>
-          <td class="pt-duration">15 min<br>Virtuel / tél.</td>
+          <td class="pt-duration">15 min<br>Virtual / tél.</td>
           <td class="pt-price">100 $</td>
-          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_court&utm_campaign=prise_rdv">Réserver →</a></td>
+          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_court&utm_campaign=prise_rdv">Book →</a></td>
         </tr>
         <tr>
           <td>
             <div class="pt-badge" style="background:#f4f4f2;color:#6b7280;">Infirmière</div>
-            <div class="pt-name">Suivi avec infirmière</div>
-            <div class="pt-desc">Suivi infirmier téléphonique pour questions de médication, effets secondaires ou orientation.</div>
+            <div class="pt-name">Follow-up with nurse</div>
+            <div class="pt-desc">Phone nursing follow-up for medication questions, side effects or guidance.</div>
           </td>
-          <td class="pt-duration">15 min<br>Téléphone</td>
+          <td class="pt-duration">15 min<br>Phone</td>
           <td class="pt-price">40 $</td>
-          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_inf&utm_campaign=prise_rdv">Réserver →</a></td>
+          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=suivi_inf&utm_campaign=prise_rdv">Book →</a></td>
         </tr>
       </tbody>
     </table>
@@ -526,8 +550,8 @@
     <table class="admin-table">
       <tr>
         <td>
-          Formulaires d'assurance
-          <p>Remplissage de formulaires d'assurance invalidité, SAAQ, CNESST ou autres.</p>
+          Insurance forms
+          <p>Completing disability insurance, SAAQ, CNESST or other forms.</p>
         </td>
         <td>
           <div class="admin-price">80 $+</div>
@@ -537,12 +561,12 @@
       </tr>
       <tr>
         <td>
-          Renouvellement de médication
-          <p>Tout renouvellement nécessite une rencontre de suivi de 15 min avec l'IPS.</p>
+          Medication renewal
+          <p>All renewals require a 15-min follow-up with the NP.</p>
         </td>
         <td>
           <div class="admin-price">100 $+</div>
-          <div class="admin-note">Suivi 15 min requis</div>
+          <div class="admin-note">15 min follow-up required</div>
         </td>
       </tr>
     </table>
@@ -563,27 +587,27 @@
       <div class="policy-card">
         <div class="policy-icon">📋</div>
         <div class="policy-title">Insurance receipts</div>
-        <div class="policy-desc">Reçu officiel émis après chaque consultation. Plusieurs régimes privés couvrent les soins IPS.</div>
+        <div class="policy-desc">Official receipt issued after each consultation. Several private plans cover NP care.</div>
       </div>
       <div class="policy-card">
         <div class="policy-icon">🗓️</div>
         <div class="policy-title">Cancellations</div>
-        <div class="policy-desc">Toute annulation à moins de 24h entraîne des frais de 50 $. Rendez-vous manqué sans préavis facturé au même tarif.</div>
+        <div class="policy-desc">Any cancellation within 24h incurs a $50 fee. Missed appointments without notice billed at the same rate.</div>
       </div>
       <div class="policy-card">
         <div class="policy-icon">↩️</div>
         <div class="policy-title">Refunds</div>
-        <div class="policy-desc">Aucun remboursement pour des services rendus. Contactez-nous à <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>.</div>
+        <div class="policy-desc">No refunds for services rendered. Contactez-nous à <a href="mailto:info@cliniquesanteips.com">info@cliniquesanteips.com</a>.</div>
       </div>
       <div class="policy-card">
         <div class="policy-icon">🤝</div>
         <div class="policy-title">Professional conduct</div>
-        <div class="policy-desc">Tout comportement irrespectueux envers notre équipe peut entraîner l'annulation des rendez-vous futurs.</div>
+        <div class="policy-desc">Any disrespectful behavior toward our team may result in cancellation of future appointments.</div>
       </div>
       <div class="policy-card">
         <div class="policy-icon">📝</div>
         <div class="policy-title">End of follow-up</div>
-        <div class="policy-desc">En cas de fin de suivi, la décision est notifiée par écrit avec des ressources de référence appropriées.</div>
+        <div class="policy-desc">In case of end of follow-up, the decision is notified in writing with appropriate referral resources.</div>
       </div>
     </div>
   </div>

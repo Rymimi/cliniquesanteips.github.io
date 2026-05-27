@@ -292,17 +292,41 @@
 <!-- NAV -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">
-    <img src="logo.png" alt="Clinique Santé IPS" class="nav-logo-img" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
+    <img src="logo.png" alt="Clinique Santé IPS" style="height:38px;width:38px;max-height:38px;max-width:38px;object-fit:contain;" />
     <div class="logo-text">Clinique Santé <span>IPS</span></div>
   </a>
   <div class="nav-links">
-    <a href="index.html#services">Services</a>
-    <a href="tarifs.html" class="active">Tarifs</a>
+    <a href="#services">Services</a>
+    <a href="tarifs.html">Tarifs</a>
     <a href="equipe.html">Équipe</a>
     <a href="contact.html">Contact</a>
-    <a class="btn-nav" style="touch-action:manipulation;" href="rdv.html?utm_source=tarifs&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
+    <div class="nav-lang">
+      <button class="active" id="lang-fr" onclick="setLang('fr')">FR</button>
+      <span class="nav-lang-sep">|</span>
+      <button id="lang-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a class="btn-nav" style="touch-action:manipulation;" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
   </div>
+  <div class="nav-mobile-lang-bar">
+    <button class="active" id="lang-fr-top" onclick="setLang('fr')" style="touch-action:manipulation;">FR</button>
+    <span style="color:var(--gray-border);margin:0 2px;">|</span>
+    <button id="lang-en-top" onclick="setLang('en')" style="touch-action:manipulation;">EN</button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu" style="touch-action:manipulation;-webkit-tap-highlight-color:transparent;">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="tarifs.html" onclick="closeMenu()">Tarifs</a>
+  <a href="equipe.html" onclick="closeMenu()">Équipe</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <div class="nav-mobile-lang">
+    <button class="active" id="mobile-lang-fr" onclick="setLang('fr')">FR</button>
+    <button id="mobile-lang-en" onclick="setLang('en')">EN</button>
+  </div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
