@@ -7,12 +7,7 @@
   <title>Tarifs | Clinique Santé IPS</title>
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');function setLang(lang) {
-    localStorage.setItem('ips-lang', lang);
-    if (lang === 'en') { window.location.href = 'tarifs-en.html'; }
-    else { window.location.href = 'tarifs.html'; }
-  }
-</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,7 +37,7 @@
     /* ── NAV ── */
     .nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+      background: rgba(255,255,255,1);
       border-bottom: 1px solid var(--gray-border);
       display: flex; align-items: center; justify-content: space-between;
       padding: 14px 48px;
@@ -254,7 +249,7 @@
     .footer-bottom { padding: 16px 40px; border-top: 1px solid var(--gray-border); display: flex; justify-content: space-between; font-size: 11.5px; color: var(--gray-text); flex-wrap: wrap; gap: 8px; }
 
     /* COOKIE */
-    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--navy); color: white; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 13px; }
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: var(--navy); color: white; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 13px; }
     .cookie-banner p { color: rgba(255,255,255,0.82); max-width: 680px; line-height: 1.5; }
     .cookie-banner a { color: var(--mint); text-decoration: underline; }
     .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
@@ -278,9 +273,19 @@
       .footer-bottom { padding: 14px 20px; }
       .price-table { font-size: 13px; }
     }
-  </style>
+  
+    /* Mobile touch fix */
+    * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+    button, a, [onclick] { 
+      cursor: pointer; 
+      touch-action: manipulation;
+    }
+    .hero-overlay { pointer-events: none !important; }
+    .hero-slides { pointer-events: none !important; }
+    .hero-slide { pointer-events: none !important; }
+</style>
 </head>
-<body>
+<body style="touch-action:pan-y;">
 
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
@@ -645,36 +650,42 @@
   </div>
 </div>
 
+</body>
+</html>
 <script>
-
-   else {
-      window.location.href = 'tarifs.html';
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    if (m) m.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+  }
+  function closeMenu() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    if (m) m.classList.remove('open');
+    if (h) h.classList.remove('open');
+  }
+  function setLang(lang) {
+    try { localStorage.setItem('ips-lang', lang); } catch(e) {}
+    if (lang === 'en') { window.location.href = 'tarifs-en.html'; }
+    else { window.location.href = 'tarifs.html'; }
+  }
+  function acceptCookies() {
+    try { localStorage.setItem('ips-cookies', 'accepted'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  function declineCookies() {
+    try { localStorage.setItem('ips-cookies', 'declined'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  try {
+    if (localStorage.getItem('ips-cookies')) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'none';
     }
-  }
-  function toggleMenu() { var m=document.getElementById('mobile-menu'), h=document.getElementById('hamburger'); m.classList.toggle('open'); h.classList.toggle('open'); }
-  function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
-      
-  }
-  });
-  
-  }
-  function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
-  function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
-  if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
-</script>
-
-<script>
-      
-  }
-  });
-    if (lang === 'en') window.location.href = 'index-en.html';
-  }
-  var savedLang = localStorage.getItem('ips-lang');
-  if (savedLang) {
-    document.querySelectorAll('.nav-lang button').forEach(function(b){
-      b.classList.toggle('active', b.id === 'lang-' + savedLang);
-    });
-  }
+  } catch(e) {}
 </script>
 </body>
 </html>

@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="Virtual private mental health clinic. Specialized nurse practitioners across Quebec. ADHD, ASD, anxiety, depression — no waitlist." />
   <title>Clinique Santé IPS | Virtual Mental Health Care – Quebec</title>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');function setLang(lang) {
-    localStorage.setItem('ips-lang', lang);
-    if (lang === 'en') { window.location.href = 'index-en.html'; }
-    else { window.location.href = 'index.html'; }
-  }
-</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +31,7 @@
     /* ── NAV ── */
     .nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,0.97); backdrop-filter: blur(10px);
+      background: rgba(255,255,255,1);
       border-bottom: 1px solid var(--gray-border);
       display: flex; align-items: center; justify-content: space-between;
       padding: 14px 48px;
@@ -79,7 +74,7 @@
     .hero-slides { position: absolute; inset: 0; }
     .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.4s ease; }
     .hero-slide.active { opacity: 1; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(115deg, rgba(26,39,68,0.88) 0%, rgba(26,39,68,0.5) 55%, rgba(26,39,68,0.1) 100%); }
+    .hero-overlay { pointer-events: none; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(26,39,68,0.88) 0%, rgba(26,39,68,0.5) 55%, rgba(26,39,68,0.1) 100%); }
     .hero-content { position: relative; z-index: 2; padding: 60px 48px 64px; max-width: 600px; }
     .hero-badge { display: inline-block; background: var(--mint); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 22px; }
     .hero h1 { font-family: var(--serif); font-size: 48px; font-weight: 300; line-height: 1.12; color: white; margin-bottom: 18px; }
@@ -233,12 +228,12 @@
     .footer-bottom { padding: 20px 48px; border-top: 1px solid var(--gray-border); display: flex; justify-content: space-between; font-size: 12.5px; color: var(--gray-text); flex-wrap: wrap; gap: 8px; }
 
     /* ── COOKIE ── */
-    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--navy); color: white; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: var(--navy); color: white; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
     .cookie-banner p { max-width: 700px; line-height: 1.5; color: rgba(255,255,255,0.85); }
     .cookie-banner a { color: var(--mint); text-decoration: underline; }
     .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
-    .btn-cookie-accept { background: var(--mint); color: white; border: none; padding: 9px 20px; border-radius: 6px; font-size: 13.5px; font-weight: 600; cursor: pointer; font-family: var(--sans); }
-    .btn-cookie-decline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.3); padding: 9px 16px; border-radius: 6px; font-size: 13.5px; cursor: pointer; font-family: var(--sans); }
+    .btn-cookie-accept { background: var(--mint); color: white; border: none; padding: 9px 20px; border-radius: 6px; font-size: 13.5px; font-weight: 600; cursor: pointer; font-family: var(--sans); position: relative; z-index: 201; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    .btn-cookie-decline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.3); padding: 9px 16px; border-radius: 6px; font-size: 13.5px; cursor: pointer; font-family: var(--sans); position: relative; z-index: 201; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
     .hidden { display: none !important; }
 
     /* ── RESPONSIVE ── */
@@ -275,9 +270,19 @@
       .cta-finale h2 { font-size: 32px; }
       .cookie-banner { padding: 14px 20px; }
     }
-  </style>
+  
+    /* Mobile touch fix */
+    * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+    button, a, [onclick] { 
+      cursor: pointer; 
+      touch-action: manipulation;
+    }
+    .hero-overlay { pointer-events: none !important; }
+    .hero-slides { pointer-events: none !important; }
+    .hero-slide { pointer-events: none !important; }
+</style>
 </head>
-<body>
+<body style="touch-action:pan-y;">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
@@ -769,61 +774,73 @@
   </div>
 </div>
 
+</body>
+</html>
 <script>
-  /* Hero slideshow */
-  var slideIdx = 0, slides = document.querySelectorAll('.hero-slide'), dots = document.querySelectorAll('.hero-dot');
-  function goSlide(n) { slides[slideIdx].classList.remove('active'); dots[slideIdx].classList.remove('active'); slideIdx=n; slides[slideIdx].classList.add('active'); dots[slideIdx].classList.add('active'); }
-  setInterval(function(){ goSlide((slideIdx+1)%slides.length); }, 4800);
-
-  /* Service dropdowns */
-  function updateSrv(id) { var sel=document.getElementById('sel-'+id), opt=sel.options[sel.selectedIndex]; document.getElementById('price-'+id).textContent=opt.dataset.price; document.getElementById('sub-'+id).textContent=opt.dataset.sub; document.getElementById('btn-'+id).href=opt.dataset.url; }
-
-  /* FAQ */
-  function toggleFaq(btn) { var item=btn.parentElement, icon=btn.querySelector('.faq-icon'); item.classList.toggle('open'); icon.textContent=item.classList.contains('open')?'×':'+'; }
-  document.querySelectorAll('.faq-item.open .faq-icon').forEach(function(i){i.textContent='×';});
-
-  /* Testimonial slider */
+  
+  var slideIdx2 = 0;
+  var slides2 = document.querySelectorAll('.hero-slide');
+  var dots2 = document.querySelectorAll('.hero-dot');
+  function goSlide(n) {
+    slides2[slideIdx2].classList.remove('active'); dots2[slideIdx2].classList.remove('active');
+    slideIdx2 = n;
+    slides2[slideIdx2].classList.add('active'); dots2[slideIdx2].classList.add('active');
+  }
+  setInterval(function(){ goSlide((slideIdx2+1) % slides2.length); }, 4800);
+  function updateSrv(id) {
+    var sel = document.getElementById('sel-' + id), opt = sel.options[sel.selectedIndex];
+    document.getElementById('price-' + id).textContent = opt.dataset.price;
+    document.getElementById('sub-' + id).textContent = opt.dataset.sub;
+    document.getElementById('btn-' + id).href = opt.dataset.url;
+  }
+  function toggleFaq(btn) {
+    var item = btn.parentElement, icon = btn.querySelector('.faq-icon');
+    item.classList.toggle('open');
+    icon.textContent = item.classList.contains('open') ? '×' : '+';
+  }
+  document.querySelectorAll('.faq-item.open .faq-icon').forEach(function(i){ i.textContent = '×'; });
   var tSlide=0, tTotal=5;
-  function updateSlider() { document.getElementById('slider-track').style.transform='translateX(-'+tSlide*100+'%)'; document.querySelectorAll('.slider-dot').forEach(function(d,i){d.classList.toggle('active',i===tSlide);}); }
+  function updateSlider() {
+    document.getElementById('slider-track').style.transform = 'translateX(-'+tSlide*100+'%)';
+    document.querySelectorAll('.slider-dot').forEach(function(d,i){ d.classList.toggle('active',i===tSlide); });
+  }
   function slideNext() { tSlide=(tSlide+1)%tTotal; updateSlider(); }
   function slidePrev() { tSlide=(tSlide-1+tTotal)%tTotal; updateSlider(); }
   function goToSlide(n) { tSlide=n; updateSlider(); }
   setInterval(slideNext, 6000);
-
-  /* Hamburger */
-
-   else {
-      window.location.href = 'index.html';
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    if (m) m.classList.toggle('open');
+    if (h) h.classList.toggle('open');
+  }
+  function closeMenu() {
+    var m = document.getElementById('mobile-menu');
+    var h = document.getElementById('hamburger');
+    if (m) m.classList.remove('open');
+    if (h) h.classList.remove('open');
+  }
+  function setLang(lang) {
+    try { localStorage.setItem('ips-lang', lang); } catch(e) {}
+    if (lang === 'fr') { window.location.href = 'index.html'; }
+    else { window.location.href = 'index-en.html'; }
+  }
+  function acceptCookies() {
+    try { localStorage.setItem('ips-cookies', 'accepted'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  function declineCookies() {
+    try { localStorage.setItem('ips-cookies', 'declined'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
+  }
+  try {
+    if (localStorage.getItem('ips-cookies')) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'none';
     }
-  }
-  function toggleMenu() { var m=document.getElementById('mobile-menu'), h=document.getElementById('hamburger'); m.classList.toggle('open'); h.classList.toggle('open'); }
-  function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
-
-  /* Lang */
-    
-  });
-    // Mobile menu lang buttons
-    var mfr=document.getElementById('mobile-lang-fr'), men=document.getElementById('mobile-lang-en');
-    if(mfr) mfr.classList.toggle('active', lang==='fr');
-    if(men) men.classList.toggle('active', lang==='en');
-    // Mobile top bar lang buttons
-    var tfr=document.getElementById('lang-fr-top'), ten=document.getElementById('lang-en-top');
-    if(tfr) tfr.classList.toggle('active', lang==='fr');
-    if(ten) ten.classList.toggle('active', lang==='en');
-    // English version coming soon
-  }
-  var sl=localStorage.getItem('ips-lang');
-  if(sl) document.querySelectorAll('.nav-lang button').forEach(function(b){ b.classList.toggle('active', b.id==='lang-'+sl); });
-
-  /* Cookie */
-
-   else {
-      window.location.href = 'index.html';
-    }
-  }
-  function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
-  function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
-  if(localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
+  } catch(e) {}
 </script>
 </body>
 </html>

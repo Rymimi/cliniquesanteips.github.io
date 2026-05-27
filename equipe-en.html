@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="Our team d'infirmières praticiennes spécialisées en santé mentale. Zahia Djedri, Simon Larivière, Lydia Laoudi — Clinique Santé IPS, Québec." />
   <title>Team | Clinique Santé IPS</title>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');function setLang(lang) {
-    localStorage.setItem('ips-lang', lang);
-    if (lang === 'en') { window.location.href = 'equipe-en.html'; }
-    else { window.location.href = 'equipe.html'; }
-  }
-</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +23,7 @@
     }
 
     /* NAV */
-    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--gray-border); display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,1); border-bottom: 1px solid var(--gray-border); display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
     .logo-mark { position: relative; width: 30px; height: 30px; }
     .logo-mark .c1 { position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--mint); top: 0; left: 0; }
@@ -149,7 +144,7 @@
     .footer-links a:hover { color: var(--mint); }
     .footer-bottom { padding: 16px 40px; border-top: 1px solid var(--gray-border); display: flex; justify-content: space-between; font-size: 11.5px; color: var(--gray-text); flex-wrap: wrap; gap: 8px; }
 
-    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; background: var(--navy); color: white; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 13px; }
+    .cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: var(--navy); color: white; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 13px; }
     .cookie-banner p { color: rgba(255,255,255,0.82); max-width: 680px; line-height: 1.5; }
     .cookie-banner a { color: var(--mint); text-decoration: underline; }
     .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
@@ -187,9 +182,19 @@
     .nav-mobile-lang-bar { display: none; align-items: center; gap: 2px; }
     .nav-mobile-lang-bar button { background: none; border: none; font-size: 13px; font-weight: 700; cursor: pointer; color: #6b7280; padding: 2px 6px; }
     .nav-mobile-lang-bar button.active { color: #1A2744; }
-  </style>
+  
+    /* Mobile touch fix */
+    * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+    button, a, [onclick] { 
+      cursor: pointer; 
+      touch-action: manipulation;
+    }
+    .hero-overlay { pointer-events: none !important; }
+    .hero-slides { pointer-events: none !important; }
+    .hero-slide { pointer-events: none !important; }
+</style>
 </head>
-<body>
+<body style="touch-action:pan-y;">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav class="nav">
@@ -398,12 +403,10 @@
     <button class="btn-decline" onclick="declineCookies()">Decline</button>
   </div>
 </div>
+</body>
+</html>
 <script>
-
-   else {
-      window.location.href = 'equipe.html';
-    }
-  }
+  
   function toggleMenu() {
     var m = document.getElementById('mobile-menu');
     var h = document.getElementById('hamburger');
@@ -415,24 +418,28 @@
     var h = document.getElementById('hamburger');
     if (m) m.classList.remove('open');
     if (h) h.classList.remove('open');
-  
   }
-  function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
-  function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
-  if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
-</script>
-<script>
-      
+  function setLang(lang) {
+    try { localStorage.setItem('ips-lang', lang); } catch(e) {}
+    if (lang === 'fr') { window.location.href = 'equipe.html'; }
+    else { window.location.href = 'equipe-en.html'; }
   }
-  });
-    if (lang === 'en') window.location.href = 'index-en.html';
+  function acceptCookies() {
+    try { localStorage.setItem('ips-cookies', 'accepted'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
   }
-  var savedLang = localStorage.getItem('ips-lang');
-  if (savedLang) {
-    document.querySelectorAll('.nav-lang button').forEach(function(b){
-      b.classList.toggle('active', b.id === 'lang-' + savedLang);
-    });
+  function declineCookies() {
+    try { localStorage.setItem('ips-cookies', 'declined'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.style.display = 'none';
   }
+  try {
+    if (localStorage.getItem('ips-cookies')) {
+      var b = document.getElementById('cookie-banner');
+      if (b) b.style.display = 'none';
+    }
+  } catch(e) {}
 </script>
 </body>
 </html>
