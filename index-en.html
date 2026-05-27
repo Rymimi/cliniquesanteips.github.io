@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="Virtual private mental health clinic. Specialized nurse practitioners across Quebec. ADHD, ASD, anxiety, depression — no waitlist." />
   <title>Clinique Santé IPS | Virtual Mental Health Care – Quebec</title>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');function setLang(lang) {
+    localStorage.setItem('ips-lang', lang);
+    if (lang === 'en') { window.location.href = 'index-en.html'; }
+    else { window.location.href = 'index.html'; }
+  }
+</script>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -786,17 +791,16 @@
   setInterval(slideNext, 6000);
 
   /* Hamburger */
+
+   else {
+      window.location.href = 'index.html';
+    }
+  }
   function toggleMenu() { var m=document.getElementById('mobile-menu'), h=document.getElementById('hamburger'); m.classList.toggle('open'); h.classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
 
   /* Lang */
-    function setLang(lang) {
-    localStorage.setItem('ips-lang', lang);
-    if (lang === 'en') {
-      window.location.href = 'index-en.html';
-    } else {
-      window.location.href = 'index.html';
-    }
+    
   });
     // Mobile menu lang buttons
     var mfr=document.getElementById('mobile-lang-fr'), men=document.getElementById('mobile-lang-en');
@@ -812,6 +816,11 @@
   if(sl) document.querySelectorAll('.nav-lang button').forEach(function(b){ b.classList.toggle('active', b.id==='lang-'+sl); });
 
   /* Cookie */
+
+   else {
+      window.location.href = 'index.html';
+    }
+  }
   function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
   function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
   if(localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');

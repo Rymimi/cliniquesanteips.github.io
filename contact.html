@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="description" content="Contactez la Clinique Santé IPS. Prenez rendez-vous en ligne, appelez-nous ou envoyez-nous un message. Clinique virtuelle de santé mentale, Québec." />
   <title>Contact | Clinique Santé IPS</title>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');function setLang(lang) {
+    localStorage.setItem('ips-lang', lang);
+    if (lang === 'en') { window.location.href = 'contact-en.html'; }
+    else { window.location.href = 'contact.html'; }
+  }
+</script>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -517,6 +522,11 @@
   });
 
   /* Cookie */
+
+   else {
+      window.location.href = 'contact.html';
+    }
+  }
   function toggleMenu() {
     var m = document.getElementById('mobile-menu');
     var h = document.getElementById('hamburger');
@@ -528,22 +538,15 @@
     var h = document.getElementById('hamburger');
     if (m) m.classList.remove('open');
     if (h) h.classList.remove('open');
+  
   }
   function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
   function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
   if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
 </script>
 <script>
-      function setLang(lang) {
-    localStorage.setItem('ips-lang', lang);
-    if (lang === 'en') {
-      window.location.href = 'contact-en.html';
-    } else {
-      window.location.href = 'contact.html';
-    }
-  } else {
-      window.location.href = 'contact.html';
-    }
+      
+  }
   });
     if (lang === 'en') window.location.href = 'index-en.html';
   }

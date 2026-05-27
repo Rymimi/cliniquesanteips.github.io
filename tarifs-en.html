@@ -7,7 +7,12 @@
   <title>Pricing | Clinique Santé IPS</title>
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NZWV7332');function setLang(lang) {
+    localStorage.setItem('ips-lang', lang);
+    if (lang === 'en') { window.location.href = 'tarifs-en.html'; }
+    else { window.location.href = 'tarifs.html'; }
+  }
+</script>
 
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -632,19 +637,17 @@
 </div>
 
 <script>
+
+   else {
+      window.location.href = 'tarifs.html';
+    }
+  }
   function toggleMenu() { var m=document.getElementById('mobile-menu'), h=document.getElementById('hamburger'); m.classList.toggle('open'); h.classList.toggle('open'); }
   function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
-      function setLang(lang) {
-    localStorage.setItem('ips-lang', lang);
-    if (lang === 'en') {
-      window.location.href = 'tarifs-en.html';
-    } else {
-      window.location.href = 'tarifs.html';
-    }
-  } else {
-      window.location.href = 'tarifs.html';
-    }
+      
+  }
   });
+  
   }
   function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
   function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
@@ -652,16 +655,8 @@
 </script>
 
 <script>
-      function setLang(lang) {
-    localStorage.setItem('ips-lang', lang);
-    if (lang === 'en') {
-      window.location.href = 'tarifs-en.html';
-    } else {
-      window.location.href = 'tarifs.html';
-    }
-  } else {
-      window.location.href = 'tarifs.html';
-    }
+      
+  }
   });
     if (lang === 'en') window.location.href = 'index-en.html';
   }
