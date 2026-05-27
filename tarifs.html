@@ -49,6 +49,22 @@
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-links a { font-size: 13.5px; color: var(--gray-text); font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--mint); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-menu { display: none; position: fixed; top: 65px; left: 0; right: 0; background: white; border-bottom: 1px solid var(--gray-border); padding: 20px 24px 28px; flex-direction: column; z-index: 99; box-shadow: 0 8px 24px rgba(26,39,68,0.12); }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a { font-size: 17px; font-weight: 500; color: var(--navy); padding: 14px 0; border-bottom: 1px solid var(--gray-border); display: block; text-decoration: none; }
+    .nav-mobile-menu a:hover { color: var(--mint); }
+    .nav-mobile-lang { display: flex; gap: 8px; margin-top: 16px; }
+    .nav-mobile-lang button { flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--gray-border); background: transparent; font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--font-sans); color: var(--gray-text); }
+    .nav-mobile-lang button.active { background: var(--mint); color: white; border-color: var(--mint); }
+    .nav-mobile-cta { display: block; margin-top: 16px; background: var(--mint); color: white !important; padding: 14px; border-radius: 8px; text-align: center; font-size: 15px; font-weight: 600; text-decoration: none; }
+    .nav-mobile-lang-bar { display: none; align-items: center; gap: 2px; }
+    .nav-mobile-lang-bar button { background: none; border: none; font-size: 13px; font-weight: 700; cursor: pointer; font-family: var(--font-sans); color: var(--gray-text); padding: 2px 6px; }
+    .nav-mobile-lang-bar button.active { color: var(--navy); }
     .btn-nav { background: var(--navy); color: white !important; padding: 9px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; transition: background 0.2s; }
     .btn-nav:hover { background: var(--mint) !important; }
 
@@ -232,6 +248,11 @@
     .btn-decline { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.3); padding: 8px 12px; border-radius: 6px; font-size: 12.5px; cursor: pointer; font-family: var(--sans); }
     .hidden { display: none !important; }
 
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .nav-mobile-lang-bar { display: flex !important; }
+    }
     @media (max-width: 760px) {
       .nav { padding: 14px 20px; }
       .page-header { padding: 44px 20px 40px; }
@@ -388,11 +409,58 @@
     </div>
   </div>
 
-  <!-- ② CONSULTATIONS & SUIVIS -->
+  <!-- ② CONSULTATIONS SANTÉ MENTALE FORFAITS -->
   <div class="block">
     <div class="block-title">
       <div class="block-title-num">2</div>
-      Consultations & suivis
+      Consultations en santé mentale
+    </div>
+
+    <!-- 2 forfait cards -->
+    <div class="forfaits" style="margin-bottom:24px;">
+      <div class="forfait-card featured">
+        <div class="forfait-featured-label" style="background:#1A2744;">Adulte · 18 ans +</div>
+        <div class="forfait-top">
+          <div class="forfait-category" style="color:#1A2744;">SANTÉ MENTALE · Adulte</div>
+          <div class="forfait-name">Évaluation psychiatrique<br>Adulte</div>
+          <div class="forfait-desc">Évaluation complète, diagnostic et prescription si indiquée. Troubles de l'humeur, anxiété, psychose, PTSD, addiction, insomnie.</div>
+          <ul class="forfait-includes">
+            <li>1 séance d'évaluation (60 min)</li>
+            <li>Diagnostic clinique complet</li>
+            <li>Prescription si indiquée</li>
+            <li>Reçu pour assurances</li>
+          </ul>
+        </div>
+        <div class="forfait-footer">
+          <div>
+            <div class="forfait-price-label">Consultation</div>
+            <div class="forfait-price">400 $</div>
+          </div>
+          <a class="btn-rdv" href="rdv.html?utm_source=tarifs&utm_medium=eval_sm&utm_campaign=prise_rdv">Prendre mon 1er rendez-vous →</a>
+        </div>
+      </div>
+
+      <div class="forfait-card featured">
+        <div class="forfait-featured-label" style="background:#3DBFA0;">Enfant & Adolescent</div>
+        <div class="forfait-top">
+          <div class="forfait-category cat-mint">PÉDOPSYCHIATRIE · Enfant & Ado</div>
+          <div class="forfait-name">Évaluation pédopsychiatrique<br>Enfant & Adolescent</div>
+          <div class="forfait-desc">Évaluation spécialisée avec approche pédiatrique adaptée à l'âge et au développement. Diagnostic et prescription si indiquée.</div>
+          <ul class="forfait-includes">
+            <li>1 séance d'évaluation (60 min)</li>
+            <li>Approche pédiatrique spécialisée</li>
+            <li>Diagnostic clinique complet</li>
+            <li>Prescription si indiquée</li>
+          </ul>
+        </div>
+        <div class="forfait-footer">
+          <div>
+            <div class="forfait-price-label">Consultation</div>
+            <div class="forfait-price">500 $</div>
+          </div>
+          <a class="btn-rdv" href="rdv.html?utm_source=tarifs&utm_medium=eval_pedo&utm_campaign=prise_rdv">Prendre mon 1er rendez-vous →</a>
+        </div>
+      </div>
     </div>
 
     <table class="price-table">
@@ -405,26 +473,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <div class="pt-badge" style="background:#e8ebf2;color:#1A2744;">Adulte</div>
-            <div class="pt-name">Évaluation en santé mentale</div>
-            <div class="pt-desc">Évaluation psychiatrique complète. Troubles de l'humeur, anxiété, psychose, PTSD, addiction.</div>
-          </td>
-          <td class="pt-duration">60 min<br>Virtuel</td>
-          <td class="pt-price">400 $</td>
-          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=eval_sm&utm_campaign=prise_rdv">Réserver →</a></td>
-        </tr>
-        <tr>
-          <td>
-            <div class="pt-badge" style="background:#e0f7f1;color:#085041;">Enfant & Ado</div>
-            <div class="pt-name">Évaluation pédopsychiatrique</div>
-            <div class="pt-desc">Évaluation spécialisée pour enfants et adolescents. Approche adaptée à l'âge et au développement.</div>
-          </td>
-          <td class="pt-duration">60 min<br>Virtuel</td>
-          <td class="pt-price">500 $</td>
-          <td class="pt-link"><a class="pt-btn" href="rdv.html?utm_source=tarifs&utm_medium=eval_pedo&utm_campaign=prise_rdv">Réserver →</a></td>
-        </tr>
         <tr>
           <td>
             <div class="pt-badge" style="background:#f4f4f2;color:#6b7280;">Suivi</div>
@@ -584,6 +632,14 @@
 </div>
 
 <script>
+  function toggleMenu() { var m=document.getElementById('mobile-menu'), h=document.getElementById('hamburger'); m.classList.toggle('open'); h.classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('hamburger').classList.remove('open'); }
+  function setLang(lang) {
+    localStorage.setItem('ips-lang', lang);
+    ['lang-fr','lang-en','lang-fr-top','lang-en-top','mobile-lang-fr','mobile-lang-en'].forEach(function(id){
+      var el=document.getElementById(id); if(el) el.classList.toggle('active', id.includes(lang==='fr'?'fr':'en'));
+    });
+  }
   function acceptCookies() { localStorage.setItem('ips-cookies','accepted'); document.getElementById('cookie-banner').classList.add('hidden'); }
   function declineCookies() { localStorage.setItem('ips-cookies','declined'); document.getElementById('cookie-banner').classList.add('hidden'); }
   if (localStorage.getItem('ips-cookies')) document.getElementById('cookie-banner').classList.add('hidden');
