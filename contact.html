@@ -210,7 +210,28 @@
     <a href="contact.html" class="active">Contact</a>
     <a class="btn-nav" href="rdv.html?utm_source=site_web&utm_medium=nav&utm_campaign=prise_rdv">Prendre rendez-vous</a>
   </div>
+  <div class="nav-mobile-lang-bar">
+    <button class="active" id="lang-fr-top" onclick="setLang('fr')">FR</button>
+    <span style="color:#ccc;margin:0 2px;">|</span>
+    <button id="lang-en-top" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile-menu" id="mobile-menu">
+  <a href="index.html#services" onclick="closeMenu()">Services</a>
+  <a href="tarifs.html" onclick="closeMenu()">Tarifs</a>
+  <a href="equipe.html" onclick="closeMenu()">Équipe</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <div class="nav-mobile-lang">
+    <button class="active" id="mobile-lang-fr" onclick="setLang('fr')">FR</button>
+    <button id="mobile-lang-en" onclick="setLang('en')">EN</button>
+  </div>
+  <a class="nav-mobile-cta" href="rdv.html?utm_source=site_web&utm_medium=nav_mobile&utm_campaign=prise_rdv">Prendre rendez-vous →</a>
+</div>
 
 <div class="page-header">
   <div class="label">Coordonnées</div>
