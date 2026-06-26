@@ -283,6 +283,21 @@
 </style>
 </head>
 <body style="touch-action:pan-y;">
+<div class="holiday-overlay" id="holiday-overlay">
+  <div class="holiday-modal">
+    <div class="holiday-modal-top">
+      <button class="holiday-modal-close" onclick="closeHolidayModal()" aria-label="Fermer">×</button>
+      <div class="holiday-modal-flag">🇨🇦</div>
+      <h3>Fermeture pour la <em>fête du Canada</em></h3>
+    </div>
+    <div class="holiday-modal-body">
+      <p>Nous sommes fermés du mercredi 1er juillet au samedi 4 juillet inclusivement. Notre équipe sera de retour le lundi 6 juillet 2026. Pour toute urgence, veuillez consulter les ressources d'urgence appropriées.</p>
+      <button class="holiday-modal-btn" onclick="closeHolidayModal()">J'ai compris</button>
+    </div>
+  </div>
+</div>
+
+
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
@@ -820,6 +835,22 @@
   setInterval(slideNext, 6000);
 
   /* Hamburger */
+
+
+  function closeHolidayModal() {
+    try { localStorage.setItem('holiday-modal-closed', 'true'); } catch(e) {}
+    var o = document.getElementById('holiday-overlay');
+    if (o) o.classList.remove('show');
+  }
+  try {
+    if (!localStorage.getItem('holiday-modal-closed')) {
+      setTimeout(function() {
+        var o = document.getElementById('holiday-overlay');
+        if (o) o.classList.add('show');
+      }, 600);
+    }
+  } catch(e) {}
+
   function toggleMenu() {
     var m = document.getElementById('mobile-menu');
     var h = document.getElementById('hamburger');

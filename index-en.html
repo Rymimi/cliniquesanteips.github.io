@@ -283,6 +283,21 @@
 </style>
 </head>
 <body style="touch-action:pan-y;">
+<div class="holiday-overlay" id="holiday-overlay">
+  <div class="holiday-modal">
+    <div class="holiday-modal-top">
+      <button class="holiday-modal-close" onclick="closeHolidayModal()" aria-label="Close">×</button>
+      <div class="holiday-modal-flag">🇨🇦</div>
+      <h3>Closed for <em>Canada Day</em></h3>
+    </div>
+    <div class="holiday-modal-body">
+      <p>We are closed from Wednesday, July 1st through Saturday, July 4th inclusively. Our team will be back on Monday, July 6, 2026. For any emergency, please consult appropriate emergency resources.</p>
+      <button class="holiday-modal-btn" onclick="closeHolidayModal()">Got it</button>
+    </div>
+  </div>
+</div>
+
+
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZWV7332" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
@@ -808,6 +823,22 @@
   function slidePrev() { tSlide=(tSlide-1+tTotal)%tTotal; updateSlider(); }
   function goToSlide(n) { tSlide=n; updateSlider(); }
   setInterval(slideNext, 6000);
+
+
+  function closeHolidayModal() {
+    try { localStorage.setItem('holiday-modal-closed', 'true'); } catch(e) {}
+    var o = document.getElementById('holiday-overlay');
+    if (o) o.classList.remove('show');
+  }
+  try {
+    if (!localStorage.getItem('holiday-modal-closed')) {
+      setTimeout(function() {
+        var o = document.getElementById('holiday-overlay');
+        if (o) o.classList.add('show');
+      }, 600);
+    }
+  } catch(e) {}
+
   function toggleMenu() {
     var m = document.getElementById('mobile-menu');
     var h = document.getElementById('hamburger');
